@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2971893}
   m_Layer: 5
-  m_Name: GameOver
+  m_Name: GameOverPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -480,7 +480,7 @@ GameObject:
   m_Component:
   - component: {fileID: 95108639}
   m_Layer: 5
-  m_Name: LeftRight
+  m_Name: LaneButtons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -586,7 +586,7 @@ GameObject:
   m_Component:
   - component: {fileID: 225538528}
   m_Layer: 5
-  m_Name: StopGo
+  m_Name: GasButtons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1263,12 +1263,12 @@ GameObject:
   - component: {fileID: 473786790}
   - component: {fileID: 473786789}
   m_Layer: 5
-  m_Name: StopButton
+  m_Name: Stop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &473786788
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1803,7 +1803,7 @@ GameObject:
   - component: {fileID: 770560624}
   - component: {fileID: 770560623}
   m_Layer: 5
-  m_Name: GoButton
+  m_Name: Go
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2000,12 +2000,12 @@ GameObject:
   - component: {fileID: 823255919}
   - component: {fileID: 823255918}
   m_Layer: 5
-  m_Name: RightButton
+  m_Name: Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &823255917
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2278,7 +2278,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1038532985}
   m_Layer: 5
-  m_Name: Timer
+  m_Name: TimerDisplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2477,7 +2477,7 @@ GameObject:
   - component: {fileID: 1165741882}
   - component: {fileID: 1165741881}
   m_Layer: 5
-  m_Name: TimerDisplay
+  m_Name: Time
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2719,6 +2719,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cdca4ebd95c3d14c8eb1b5bf5a3a5c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LifeDisplay: {fileID: 1625593372}
 --- !u!1 &1625593372
 GameObject:
   m_ObjectHideFlags: 0
@@ -2729,7 +2730,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1625593373}
   m_Layer: 5
-  m_Name: Life
+  m_Name: LifeDisplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3137,7 +3138,7 @@ GameObject:
   - component: {fileID: 1923883420}
   - component: {fileID: 1923883419}
   m_Layer: 5
-  m_Name: LeftButton
+  m_Name: Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3255,7 +3256,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2001345788}
   m_Layer: 5
-  m_Name: Question
+  m_Name: QuestionPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

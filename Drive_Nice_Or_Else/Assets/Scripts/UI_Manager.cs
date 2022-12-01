@@ -7,7 +7,9 @@ using UnityEngine;
 
 public class UI_Manager : MonoBehaviour
 {
-    // Declare variables
+    // Declare variables/objects
+    [SerializeField]
+    private GameObject LifeDisplay;
 
 
     // Start is called before the first frame update
@@ -32,22 +34,22 @@ public class UI_Manager : MonoBehaviour
 
     }
 
-    public void UpdateLife()
+    public void UpdateLifeDisplay(int currentLife)
     {
 
     }
 
-    public void UpdateTimer()
+    public void UpdateTimerDisplay()
     {
 
     }
 
-    public void ShowGameOver()
+    public void ShowGameOverPanel()
     {
 
     }
 
-    public void ShowQuestion()
+    public void ShowQuestionPanel()
     {
 
     }
