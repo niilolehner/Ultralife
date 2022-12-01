@@ -9,7 +9,7 @@ using UnityEngine;
 public class Game_Manager : MonoBehaviour
 {
     // Declare variables/objects
-    UI_Manager ui_manager;
+    UI_Manager ui_Manager;
 
     private int life = 3; // DUMMY life variable, ___REMOVE___ as soon there is the real deal from Life Manager
 
@@ -21,7 +21,7 @@ public class Game_Manager : MonoBehaviour
     void Start()
     {
         // initialize variables/objects
-        ui_manager = FindObjectOfType<UI_Manager>();
+        ui_Manager = FindObjectOfType<UI_Manager>();
 
         isGameOver = false;
     }
@@ -30,7 +30,7 @@ public class Game_Manager : MonoBehaviour
     void Update()
     {
         // check if life is at zero or below, if so, sets game over state
-        if(life <= 0) // function call to Life Manager (get life)
+        if(life <= 0) // ADD FUNCTION CALL to Life Manager (get life)
         {
             SetGameOver();
         }
@@ -48,7 +48,7 @@ public class Game_Manager : MonoBehaviour
         isGameOver = true;
 
         // show the gameOverPanel
-        ui_manager.ShowGameOverPanel("DUMMY BestScore"); // function call to Score Manager (load BestScore)
+        ui_Manager.ShowGameOverPanel("DUMMY BestScore"); // ADD FUNCTION CALL to Score Manager (load BestScore)
     }
 
     // quit the game, depending if in editor or live app, change method
@@ -62,34 +62,35 @@ public class Game_Manager : MonoBehaviour
 
     public void SetQuestionPhase()
     {
-        // function call to Question Manager (get random question and if answer is correct or wrong)
+        // ADD FUNCTION CALL to Question Manager (get a random question)
+        // Question Manager also needs to set isQuestionCorrect in Game_Manager to true or false
 
-        ui_manager.ShowQuestionPanel("Is this a DUMMY question text?");
+        ui_Manager.ShowQuestionPanel("Is this a DUMMY question text?");
     }
 
     // the answer given was yes
     public void YesAnswer()
     {
-        if (isQuestionCorrect == true) // player has answered correctly
+        if (isQuestionCorrect == true) // correct answer was yes, player has answered correctly
         {
-            // add function call to Life Manager (add life)
+            // ADD FUNCTION CALL call to Life Manager (add life)
         }
         else // player has answered incorrectly
         {
-            // add function call to Life Manager (minus life)
+            // ADD FUNCTION CALL to Life Manager (minus life)
         }
     }
 
     // the answer given was no
     public void NoAnswer()
     {
-        if (isQuestionCorrect == false) // player has answered correctly
+        if (isQuestionCorrect == false) // correct answer was no, player has answered correctly
         {
-            // add function call to Life Manager (add life)
+            // ADD FUNCTION CALL to Life Manager (add life)
         }
         else // player has answered incorrectly
         {
-            // add function call to Life Manager (minus life)
+            // ADD FUNCTION CALL to Life Manager (minus life)
         }
     }
 }

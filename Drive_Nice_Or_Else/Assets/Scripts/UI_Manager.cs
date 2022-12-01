@@ -46,7 +46,7 @@ public class UI_Manager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI highscore;
 
-   Game_Manager game_Manager;
+    Game_Manager game_Manager;
 
     private bool isStopped; // is car stopped?
     private bool isRight; // is car on right lane?
@@ -78,7 +78,7 @@ public class UI_Manager : MonoBehaviour
                 stopButton.gameObject.SetActive(true);
                 isStopped = false;
 
-                // add function call to Background Scroller (make car go)
+                // ADD FUNCTION CALL to Background Scroller (make car go)
             }
             else
             {
@@ -86,7 +86,7 @@ public class UI_Manager : MonoBehaviour
                 stopButton.gameObject.SetActive(false);
                 isStopped = true;
 
-                // add function call to Background Scroller (make car stop)
+                // ADD FUNCTION CALL to Background Scroller (make car stop)
             }
         }
     }
@@ -102,7 +102,7 @@ public class UI_Manager : MonoBehaviour
                 rightButton.gameObject.SetActive(true);
                 isRight = false;
 
-                // add function call to Car Script (make car switch to left lane)
+                // ADD FUNCTION CALL to Car Script (make car switch to left lane)
             }
             else
             {
@@ -110,7 +110,7 @@ public class UI_Manager : MonoBehaviour
                 rightButton.gameObject.SetActive(false);
                 isRight = true;
 
-                // add function call to Background Scroller (make car switch to right lane)
+                // ADD FUNCTION CALL to Background Scroller (make car switch to right lane)
             }
         }
     }
@@ -146,12 +146,12 @@ public class UI_Manager : MonoBehaviour
     }
 
     // update the TimerDisplay
-    public void UpdateTimerDisplay(string currentTime)
+    public void UpdateTimerDisplay(string currentTime) // ADD FUNCTION CALL to a Timer
     {
         time.text = ($"{currentTime}");
     }
 
-    // show the gameOverPanel, show the highscore
+    // show the gameOverPanel, show the highscore (currentBestScore)
     public void ShowGameOverPanel(string currentBestScore)
     {
         questionPanel.gameObject.SetActive(false);
@@ -173,7 +173,7 @@ public class UI_Manager : MonoBehaviour
         game_Manager.QuitGame();
     }
 
-    // show the questionPanel with currentQuestion, also sets a bool to know if answer is correct or wrong
+    // show the questionPanel with currentQuestion
     public void ShowQuestionPanel(string currentQuestion)
     {
         question.text = ($"{currentQuestion}");
@@ -181,7 +181,7 @@ public class UI_Manager : MonoBehaviour
         questionPanel.gameObject.SetActive(true);
     }
 
-    // close the questionPanel, add life if answer was correct, minus life if answer was wrong
+    // close the questionPanel, set no as an answer
     public void YesAnswer_OnClick()
     {
         questionPanel.gameObject.SetActive(false);
@@ -189,7 +189,7 @@ public class UI_Manager : MonoBehaviour
         game_Manager.YesAnswer();
     }
 
-    // close the questionPanel, add life if answer was correct, minus life if answer was wrong
+    // close the questionPanel, set no as an answer
     public void NoAnswer_OnClick()
     {
         questionPanel.gameObject.SetActive(false);
