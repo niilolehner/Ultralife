@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Ismo_workspace.unity
+    guid: a98c4374418ea334dbbae51f1aa3eec1
   m_configObjects: {}

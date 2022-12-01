@@ -1,3 +1,6 @@
+
+// Ismo uses this script in Scene Ismo_workspace
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -30,5 +33,15 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void GoAndStop()
+    {
+        BackgroundScroller.instance.RoadScrollingMotion();
+    }
+
+    public void Switch()
+    {
+        PlayerController.instance.SwitchCarPosition();
     }
 }

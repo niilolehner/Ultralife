@@ -1,3 +1,6 @@
+
+// Ismo uses this script in Scene Ismo_workspace
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,6 +16,7 @@ public class PlayerController : MonoBehaviour
 
     // Takes class and make it public.
     public static PlayerController instance;
+
 
     // This function is called when the script instance is being loaded.
     void Awake()
@@ -30,5 +34,19 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
     }
+
+    public void SwitchCarPosition()
+    {
+        if (transform.position.x == 2.2f) 
+        {
+            transform.position = new Vector3(-2.2f, -3f, -0.1f);
+        }
+        else
+        {
+            transform.position = new Vector3(2.2f, -3f, -0.1f);
+        }
+    }
+
 }
