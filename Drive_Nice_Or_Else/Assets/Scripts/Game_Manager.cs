@@ -60,10 +60,11 @@ public class Game_Manager : MonoBehaviour
         Application.Quit();
     }
 
+    // prepare question and set if answer is yes or no
     public void SetQuestionPhase()
     {
         // ADD FUNCTION CALL to Question Manager (get a random question)
-        // Question Manager also needs to set isQuestionCorrect in Game_Manager to true or false
+        // Question Manager also needs to set isQuestionCorrect in Game_Manager to true (yes) or false (no)
 
         ui_Manager.ShowQuestionPanel("Is this a DUMMY question text?");
     }

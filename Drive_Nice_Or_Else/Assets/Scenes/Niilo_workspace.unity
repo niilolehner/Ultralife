@@ -2385,7 +2385,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -5, y: 0}
-  m_SizeDelta: {x: 120, y: 50}
+  m_SizeDelta: {x: 150, y: 50}
   m_Pivot: {x: 1, y: 1}
 --- !u!1 &1126052477
 GameObject:
@@ -2595,7 +2595,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -0.000030517578}
-  m_SizeDelta: {x: 120, y: 50}
+  m_SizeDelta: {x: 150, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1165741881
 MonoBehaviour:
@@ -2820,7 +2820,7 @@ MonoBehaviour:
   heart1: {fileID: 536126868}
   heart2: {fileID: 415197441}
   heart3: {fileID: 2070733890}
-  time: {fileID: 1165741881}
+  score: {fileID: 0}
   questionPanel: {fileID: 2001345787}
   question: {fileID: 329464492}
   gameOverPanel: {fileID: 2971892}
