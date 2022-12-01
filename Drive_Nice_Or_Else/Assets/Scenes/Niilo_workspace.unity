@@ -461,6 +461,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67a5b78056e734c4fbd8f30ea47d6fed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isQuestionCorrect: 0
   isGameOver: 0
 --- !u!4 &32239719
 Transform:
@@ -2359,7 +2360,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1038532985}
   m_Layer: 5
-  m_Name: TimerDisplay
+  m_Name: ScoreDisplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2570,7 +2571,7 @@ GameObject:
   - component: {fileID: 1165741882}
   - component: {fileID: 1165741881}
   m_Layer: 5
-  m_Name: Time
+  m_Name: Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2616,7 +2617,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 00.00
+  m_text: 1000
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

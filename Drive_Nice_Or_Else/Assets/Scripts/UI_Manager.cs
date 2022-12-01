@@ -30,9 +30,9 @@ public class UI_Manager : MonoBehaviour
     [SerializeField]
     private GameObject heart3;
 
-    [Header("TimerDisplay")]
+    [Header("ScoreDisplay")]
     [SerializeField]
-    private TextMeshProUGUI time;
+    private TextMeshProUGUI score;
 
     [Header("QuestionPanel")]
     [SerializeField]
@@ -146,9 +146,9 @@ public class UI_Manager : MonoBehaviour
     }
 
     // update the TimerDisplay
-    public void UpdateTimerDisplay(string currentTime) // ADD FUNCTION CALL to a Timer
+    public void UpdateScoreDisplay(string currentScore) // ADD FUNCTION CALL to a Score Script (get score)
     {
-        time.text = ($"{currentTime}");
+        score.text = ($"{currentScore}");
     }
 
     // show the gameOverPanel, show the highscore (currentBestScore)

@@ -73,11 +73,11 @@ public class Game_Manager : MonoBehaviour
     {
         if (isQuestionCorrect == true) // correct answer was yes, player has answered correctly
         {
-            // ADD FUNCTION CALL call to Life Manager (add life)
+            // ADD FUNCTION CALL call to Score Manager (add score)
         }
         else // player has answered incorrectly
         {
-            // ADD FUNCTION CALL to Life Manager (minus life)
+            // ADD FUNCTION CALL to Score Manager (minus score)
         }
     }
 
@@ -86,11 +86,11 @@ public class Game_Manager : MonoBehaviour
     {
         if (isQuestionCorrect == false) // correct answer was no, player has answered correctly
         {
-            // ADD FUNCTION CALL to Life Manager (add life)
+            // ADD FUNCTION CALL to Score Manager (add score)
         }
         else // player has answered incorrectly
         {
-            // ADD FUNCTION CALL to Life Manager (minus life)
+            // ADD FUNCTION CALL to Score Manager (minus score)
         }
     }
 }
