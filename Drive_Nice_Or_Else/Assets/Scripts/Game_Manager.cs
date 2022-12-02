@@ -74,7 +74,11 @@ public class Game_Manager : MonoBehaviour
         }
     }
 
-    // the answer given was yes
+
+    //TO REFACTOR
+    //public void userAsnwer(bool userAnswer);
+
+    // TO REMOVE
     public void YesAnswer()
     {
         if (QuestionManager.Instance.IsPlayerAnswerCorrect(true)) // correct answer was yes, player has answered correctly
@@ -88,7 +92,7 @@ public class Game_Manager : MonoBehaviour
         }
     }
 
-    // the answer given was no
+    // TO REMOVE
     public void NoAnswer()
     {
         if (QuestionManager.Instance.IsPlayerAnswerCorrect(false)) // correct answer was no, player has answered correctly
@@ -100,5 +104,5 @@ public class Game_Manager : MonoBehaviour
             ui_Manager.UpdateScoreDisplay(ScoreManager.Instance.MinusScore());
             ui_Manager.UpdateLifeDisplay(LifeManager.Instance.MinusLife());
         }
-    }
+    } 
 }
