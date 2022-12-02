@@ -4,12 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    /// <summary>
-    // You can reference/pick up variables and objects of this class by typing: ClassName.instance.TypeHereWhatYouWantToGet
-    // for example, BackgroundScroller.instance.StopBackgroundMoving();
-    /// </summary>
-    
-    // Takes class and make it public.
+    // Takes the class and make it public.
     public static PlayerController instance;
     public GameObject player;
     UI_Manager ui_Manager;
@@ -17,7 +12,6 @@ public class PlayerController : MonoBehaviour
     private Vector2 playerDirectionY;
     private Vector2 playerDirectionX;
     public float playerSpeed;
-
 
     // This function is called when the script instance is being loaded.
     void Awake()
@@ -52,7 +46,6 @@ public class PlayerController : MonoBehaviour
         float positionY = isRightDirection ? 2.35f : -2.5f;
         player.transform.Translate(new Vector3(0, positionY, 0));
     }
-
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

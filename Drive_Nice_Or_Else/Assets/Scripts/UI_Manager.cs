@@ -6,16 +6,10 @@ using System;
 using System.Linq;
 
 // WORK IN PROGRESS BY NIILO
-// WORK IN PROGRESS BY ISMO
 
 public class UI_Manager : MonoBehaviour
 {
     // Declare variables/objects
-
-    [Header("SpawnObjects")]
-    [SerializeField]
-    private GameObject spawnObjects;
-
     [Header("GasButtons")]
     [SerializeField]
     private GameObject stopButton;
@@ -87,20 +81,18 @@ public class UI_Manager : MonoBehaviour
                 goButton.gameObject.SetActive(false);
                 stopButton.gameObject.SetActive(true);
                 isStopped = false;
-                BackgroundScroller.instance.backgroundSpeed = 0f;
-                // PlayerController.instance.playerSpeed = 0;
-                game_Manager.cameraSpeed = 0f;
-                spawnObjects.SetActive(false);
+                BackgroundScroller.instance.SetBackgroundScrollingOff();
+                game_Manager.SetCameraSpeedOff();
+                game_Manager.SetSpawningDeactive();
             }
             else
             {
                 goButton.gameObject.SetActive(true);
                 stopButton.gameObject.SetActive(false);
                 isStopped = true;
-                BackgroundScroller.instance.backgroundSpeed = 0.3f;
-                // PlayerController.instance.playerSpeed = 5;
-                game_Manager.cameraSpeed = 3f;
-                spawnObjects.SetActive(true);
+                BackgroundScroller.instance.SetBackgroundScrollingOn();
+                game_Manager.SetCameraSpeedOn();
+                game_Manager.SetSpawningActive();
             }
         }
     }

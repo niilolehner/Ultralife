@@ -4,11 +4,6 @@ using UnityEngine;
 
 public class BackgroundScroller : MonoBehaviour
 {
-    /// <summary>
-    // You can reference/pick up variables and objects of this class by typing: ClassName.instance.TypeHereWhatYouWantToGet
-    // for example, PlayerController.instance.GetHealth();
-    /// </summary>
-
     // Takes the class and make it public.
     public static BackgroundScroller instance;
     public float backgroundSpeed;
@@ -34,4 +29,12 @@ public class BackgroundScroller : MonoBehaviour
         backgroundRenderer.material.mainTextureOffset += new Vector2(0f, -backgroundSpeed * Time.deltaTime);
     }
 
+    public void SetBackgroundScrollingOff()
+    {
+        backgroundSpeed = 0f;
+    }
+    public void SetBackgroundScrollingOn()
+    {
+        backgroundSpeed = 0.3f;
+    }
 }

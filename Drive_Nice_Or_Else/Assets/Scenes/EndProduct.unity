@@ -845,6 +845,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67a5b78056e734c4fbd8f30ea47d6fed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnObjects: {fileID: 1188246493}
   cameraSpeed: 3
   isQuestionCorrect: 0
   isGameOver: 0
@@ -3730,7 +3731,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cdca4ebd95c3d14c8eb1b5bf5a3a5c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnObjects: {fileID: 1188246493}
   stopButton: {fileID: 71609670}
   goButton: {fileID: 1899420794}
   leftButton: {fileID: 1716509856}

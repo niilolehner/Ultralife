@@ -5,17 +5,15 @@ using UnityEngine.SceneManagement;
 using UnityEngine;
 
 // WORK IN PROGRESS BY NIILO
-// WORK IN PROGRESS BY ISMO
 
 public class Game_Manager : MonoBehaviour
 {
     // Declare variables/objects
     UI_Manager ui_Manager;
-
-    public float cameraSpeed; // Camera speed.
+    public GameObject spawnObjects; // create items in the scene.
+    public float cameraSpeed; // change game place position in the scene.
     public bool isQuestionCorrect; // is the question correct?
     public bool isGameOver; // is the game over?
-
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +29,7 @@ public class Game_Manager : MonoBehaviour
         /* **** note bubu : I think its uncessary to check every frame if the game over , you can just check it when the life status change **** */
 
         // check if life is at zero or below, if so, sets game over state
-        if(ui_Manager.lifes <= 0) // ADD FUNCTION CALL to Life Manager (get life) -----> DONE (ISMO)!
+        if(ui_Manager.lifes <= 0) 
         {
             SetGameOver();
         }
@@ -39,6 +37,31 @@ public class Game_Manager : MonoBehaviour
         // Moves the camera view (GameManager).
         transform.position += new Vector3(0, cameraSpeed * Time.deltaTime, 0);
     }
+
+    // Set game place stopped.
+    public void SetCameraSpeedOff()
+    {
+        cameraSpeed = 0;
+    }
+
+    // Set game place moving.
+    public void SetCameraSpeedOn()
+    {
+        cameraSpeed = 3;
+    }
+
+    // Set Spawning deactive.
+    public void SetSpawningDeactive()
+    {
+        spawnObjects.SetActive(false);
+    }
+
+    // Set Spawning active.
+    public void SetSpawningActive()
+    {
+        spawnObjects.SetActive(true);
+    }
+
 
     // starts a new game from scratch (reload the scene)
     public void StartNewGame()

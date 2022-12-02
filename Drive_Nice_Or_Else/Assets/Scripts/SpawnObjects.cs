@@ -4,6 +4,16 @@ using UnityEngine;
 
 public class SpawnObjects : MonoBehaviour
 {
+    // Takes the class and make it public.
+    public static SpawnObjects instance;
+
+    // This function is called when the script instance is being loaded.
+    void Awake()
+    {
+        if (instance == null)
+            instance = this;
+    }
+
     public GameObject[] items;
     public float maxX;
     public float minX;

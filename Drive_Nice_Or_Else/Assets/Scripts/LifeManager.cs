@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LifeManager : MonoBehaviour
 {
+    // Takes the class and make it public.
     public static LifeManager Instance;
     public int MaxLife = 3; 
     int Life;
