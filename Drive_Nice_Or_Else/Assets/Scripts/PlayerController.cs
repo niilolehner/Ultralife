@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {   // Get input and set force to make car moving.
         float directionY = Input.GetAxisRaw("Vertical");
         float directionX = Input.GetAxisRaw("Horizontal");
         playerDirectionY = new Vector2(0, directionY).normalized;
@@ -47,7 +47,24 @@ public class PlayerController : MonoBehaviour
         rb.velocity = new Vector2(playerDirectionX.x * playerSpeed, playerDirectionY.y * playerSpeed);    
     }
 
-    
+
+
+    /*
+    public void SwitchCarPosition()
+    {
+        if (transform.position.x == -9.4f)
+        {
+            transform.position = new Vector3(9.4f, -4.7f, 0f);
+        }
+        else
+        {
+            transform.position = new Vector3(-9.4f, -4.7f, 0f);
+        }
+    }
+    */
+
+
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Bad")
@@ -58,7 +75,7 @@ public class PlayerController : MonoBehaviour
         {
             if (ui_Manager.lifes != 3)
             {
-                ui_Manager.lifes--;
+                ui_Manager.lifes++;
             }
         }
     }

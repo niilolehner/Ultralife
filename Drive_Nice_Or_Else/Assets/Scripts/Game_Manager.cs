@@ -55,7 +55,13 @@ public class Game_Manager : MonoBehaviour
         isGameOver = true;
 
         // show the gameOverPanel
-        ui_Manager.ShowGameOverPanel(ScoreManager.Instance.GameOverSetGetHightScore().ToString()) ; // ADD FUNCTION CALL to Score Manager (load BestScore)
+
+        //---------------- Li and Niilo. -----------------// 
+
+        ui_Manager.ShowGameOverPanel("(Delete this string)" /* ScoreManager.Instance.GameOverSetGetHightScore().ToString() */ ); // ADD FUNCTION CALL to Score Manager (load BestScore)
+
+        //----------------------------------------------------//
+
     }
 
     // quit the game, depending if in editor or live app, change method
@@ -72,6 +78,13 @@ public class Game_Manager : MonoBehaviour
     {
         // ADD FUNCTION CALL to Question Manager (get a random question)
         // Question Manager also needs to set isQuestionCorrect in Game_Manager to true (yes) or false (no)
+
+
+
+        //---------------- Li and Niilo. -----------------// 
+
+
+        /*
         Question question = QuestionManager.Instance.GetRandomQuestion();
         if (question != null)
         {
@@ -80,6 +93,11 @@ public class Game_Manager : MonoBehaviour
         else {
             SetGameOver();
         }
+        */
+
+
+        //----------------------------------------------------//
+
     }
 
     // the answer given was yes

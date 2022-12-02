@@ -86,8 +86,8 @@ public class UI_Manager : MonoBehaviour
                 isStopped = false;
                 BackgroundScroller.instance.backgroundSpeed = 0f;
                 PlayerController.instance.playerSpeed = 0;
+                game_Manager.cameraSpeed = 0f;
                 spawnObjects.SetActive(false);
-                game_Manager.cameraSpeed = 0f;  
             }
             else
             {
@@ -96,8 +96,8 @@ public class UI_Manager : MonoBehaviour
                 isStopped = true;
                 BackgroundScroller.instance.backgroundSpeed = 0.3f;
                 PlayerController.instance.playerSpeed = 5;
-                spawnObjects.SetActive(true);
                 game_Manager.cameraSpeed = 3f;
+                spawnObjects.SetActive(true);
             }
         }
     }
@@ -112,16 +112,14 @@ public class UI_Manager : MonoBehaviour
                 leftButton.gameObject.SetActive(false);
                 rightButton.gameObject.SetActive(true);
                 isRight = false;
-
-                // ADD FUNCTION CALL to Car Script (make car switch to left lane)
+                //  PlayerController.instance.SwitchCarPosition();
             }
             else
             {
                 leftButton.gameObject.SetActive(true);
                 rightButton.gameObject.SetActive(false);
                 isRight = true;
-
-                // ADD FUNCTION CALL to Background Scroller (make car switch to right lane)
+                //   PlayerController.instance.SwitchCarPosition();
             }
         }
     }
