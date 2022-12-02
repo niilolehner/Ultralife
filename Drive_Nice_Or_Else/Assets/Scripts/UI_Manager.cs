@@ -56,7 +56,15 @@ public class UI_Manager : MonoBehaviour
 
     private bool isStopped; // is car stopped?
     private bool isRight; // is car on right lane?
-    public int lifes; // Player lifes.
+    public int lifes; // player lifes
+
+
+    public static UI_Manager Instance;
+
+    private void Awake()
+    {
+        UI_Manager.Instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()

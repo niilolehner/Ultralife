@@ -10,18 +10,23 @@ using UnityEngine;
 public class Game_Manager : MonoBehaviour
 {
     // Declare variables/objects
-    UI_Manager ui_Manager;
 
-    public float cameraSpeed; // Camera speed.
+    public float cameraSpeed; // camera speed
     public bool isQuestionCorrect; // is the question correct?
     public bool isGameOver; // is the game over?
 
+
+    public static Game_Manager Instance;
+
+    private void Awake()
+    {
+        Game_Manager.Instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         // initialize variables/objects
-        ui_Manager = FindObjectOfType<UI_Manager>();
         isGameOver = false;
     }
 
@@ -31,7 +36,7 @@ public class Game_Manager : MonoBehaviour
         /* **** note bubu : I think its uncessary to check every frame if the game over , you can just check it when the life status change **** */
 
         // check if life is at zero or below, if so, sets game over state
-        if(ui_Manager.lifes <= 0) // ADD FUNCTION CALL to Life Manager (get life) -----> DONE (ISMO)!
+        if(UI_Manager.Instance.lifes <= 0) // ADD FUNCTION CALL to Life Manager (get life) -----> DONE (ISMO)!
         {
             SetGameOver();
         }
@@ -52,7 +57,7 @@ public class Game_Manager : MonoBehaviour
         isGameOver = true;
 
         // show the gameOverPanel
-        ui_Manager.ShowGameOverPanel(ScoreManager.Instance.GameOverSetGetHightScore().ToString());
+        UI_Manager.Instance.ShowGameOverPanel(ScoreManager.Instance.GameOverSetGetHightScore().ToString());
     }
 
     // quit the game, depending if in editor or live app, change method
@@ -70,7 +75,7 @@ public class Game_Manager : MonoBehaviour
         Question question = QuestionManager.Instance.GetRandomQuestion();
         if (question != null)
         {
-            ui_Manager.ShowQuestionPanel(QuestionManager.Instance.GetRandomQuestion().question);
+            UI_Manager.Instance.ShowQuestionPanel(QuestionManager.Instance.GetRandomQuestion().question);
         }
         else {
             SetGameOver();
@@ -86,12 +91,12 @@ public class Game_Manager : MonoBehaviour
     {
         if (QuestionManager.Instance.IsPlayerAnswerCorrect(true)) // correct answer was yes, player has answered correctly
         {
-            ui_Manager.UpdateScoreDisplay(ScoreManager.Instance.AddScore());
+            UI_Manager.Instance.UpdateScoreDisplay(ScoreManager.Instance.AddScore());
         }
         else 
         {
-            ui_Manager.UpdateScoreDisplay(ScoreManager.Instance.MinusScore());
-            ui_Manager.UpdateLifeDisplay(LifeManager.Instance.MinusLife());
+            UI_Manager.Instance.UpdateScoreDisplay(ScoreManager.Instance.MinusScore());
+            UI_Manager.Instance.UpdateLifeDisplay(LifeManager.Instance.MinusLife());
         }
     }
 
@@ -100,12 +105,12 @@ public class Game_Manager : MonoBehaviour
     {
         if (QuestionManager.Instance.IsPlayerAnswerCorrect(false)) // correct answer was no, player has answered correctly
         {
-            ui_Manager.UpdateScoreDisplay(ScoreManager.Instance.AddScore());
+            UI_Manager.Instance.UpdateScoreDisplay(ScoreManager.Instance.AddScore());
         }
         else
         {
-            ui_Manager.UpdateScoreDisplay(ScoreManager.Instance.MinusScore());
-            ui_Manager.UpdateLifeDisplay(LifeManager.Instance.MinusLife());
+            UI_Manager.Instance.UpdateScoreDisplay(ScoreManager.Instance.MinusScore());
+            UI_Manager.Instance.UpdateLifeDisplay(LifeManager.Instance.MinusLife());
         }
     } 
 }
