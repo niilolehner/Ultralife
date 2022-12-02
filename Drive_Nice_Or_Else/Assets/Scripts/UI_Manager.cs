@@ -60,6 +60,7 @@ public class UI_Manager : MonoBehaviour
         isStopped = true; // game starts with car stopped
         isRight = true; // game starts with car on the right lane
          
+        //testing branching
         //TODO Set a listener to yes button -> on click -> game manager userAsnwer(true);
         //TODO Set a listener to no button -> on click -> game manager userAsnwer(false);
     }
