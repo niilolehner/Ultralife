@@ -23,8 +23,6 @@ public class Game_Manager : MonoBehaviour
         // initialize variables/objects
         ui_Manager = FindObjectOfType<UI_Manager>();
         isGameOver = false;
-
-        SetQuestionPhase();
     }
 
     // Update is called once per frame
