@@ -55,7 +55,7 @@ public class UI_Manager : MonoBehaviour
 
     private void Awake()
     {
-        UI_Manager.Instance = this;
+        Instance = this;
     }
 
     // Start is called before the first frame update
@@ -151,7 +151,7 @@ public class UI_Manager : MonoBehaviour
     }
 
     // update the TimerDisplay
-    public void UpdateScoreDisplay(int currentScore) // ADD FUNCTION CALL to a Score Script (get score)
+    public void UpdateScoreDisplay(int currentScore)
     {
         score.text = ($"{currentScore}");
     }
@@ -186,7 +186,7 @@ public class UI_Manager : MonoBehaviour
         questionPanel.gameObject.SetActive(true);
     }
 
-    // close the questionPanel, set no as an answer
+    // close the questionPanel, set yes as an answer
     public void YesAnswer_OnClick()
     {
         questionPanel.gameObject.SetActive(false);

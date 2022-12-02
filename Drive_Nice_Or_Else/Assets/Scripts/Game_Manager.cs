@@ -11,7 +11,6 @@ public class Game_Manager : MonoBehaviour
     // Declare variables/objects
     public GameObject spawnObjects; // create items in the scene.
     public float cameraSpeed; // camera speed
-    public bool isQuestionCorrect; // is the question correct?
     public bool isGameOver; // is the game over?
 
 
@@ -19,7 +18,7 @@ public class Game_Manager : MonoBehaviour
 
     private void Awake()
     {
-        Game_Manager.Instance = this;
+        Instance = this;
     }
 
     // Start is called before the first frame update
@@ -34,9 +33,10 @@ public class Game_Manager : MonoBehaviour
     void Update()
     {
         /* **** note bubu : I think its uncessary to check every frame if the game over , you can just check it when the life status change **** */
+        /* **** note niilo : Yep, right now we have two separate ways to manage life, once we refactor that, we can remove the below ^_^ **** */
 
         // check if life is at zero or below, if so, sets game over state
-        if(UI_Manager.Instance.lifes <= 0)
+        if (UI_Manager.Instance.lifes <= 0)
         {
             SetGameOver();
         }
@@ -94,7 +94,7 @@ public class Game_Manager : MonoBehaviour
         Application.Quit();
     }
 
-    // prepare question and set if answer is yes or no
+    // proc a question
     public void SetQuestionPhase()
     {
         Question question = QuestionManager.Instance.GetRandomQuestion();
@@ -107,6 +107,7 @@ public class Game_Manager : MonoBehaviour
         }
     }
 
+    // verify the answer to the question
     public void UserAnswer(bool yesOrNo)
     {
         if (QuestionManager.Instance.IsPlayerAnswerCorrect(yesOrNo)) // player answered correctly
