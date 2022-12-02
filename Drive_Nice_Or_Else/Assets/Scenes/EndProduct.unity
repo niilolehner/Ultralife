@@ -719,7 +719,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1000
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2463,9 +2463,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1907746410}
+      - m_Target: {fileID: 1907746409}
         m_TargetAssemblyTypeName: UI_Manager, Assembly-CSharp
-        m_MethodName: NoAnswer_OnClick
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3528,9 +3528,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1907746410}
+      - m_Target: {fileID: 1907746409}
         m_TargetAssemblyTypeName: UI_Manager, Assembly-CSharp
-        m_MethodName: YesAnswer_OnClick
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3875,6 +3875,8 @@ MonoBehaviour:
   score: {fileID: 477551540}
   questionPanel: {fileID: 2067847799}
   question: {fileID: 1614371409}
+  yesButton: {fileID: 1861045050}
+  noButton: {fileID: 1503242110}
   gameOverPanel: {fileID: 2098988702}
   highscore: {fileID: 750873168}
   lifes: 3

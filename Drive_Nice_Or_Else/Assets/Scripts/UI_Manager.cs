@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using System;
 using System.Linq;
+using UnityEngine.UI;
 
 // WORK IN PROGRESS BY NIILO
 
@@ -40,6 +41,12 @@ public class UI_Manager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI question;
 
+    [Header("QuestionButtons")]
+    [SerializeField]
+    public Button yesButton;
+    [SerializeField]
+    public Button noButton;
+
     [Header("GameOverPanel")]
     [SerializeField]
     private GameObject gameOverPanel;
@@ -63,9 +70,9 @@ public class UI_Manager : MonoBehaviour
         // initialize variables
         isStopped = true; // game starts with car stopped
         isRight = true; // game starts with car on the right lane
-         
-        //TODO Set a listener to yes button -> on click -> game manager userAsnwer(true);
-        //TODO Set a listener to no button -> on click -> game manager userAsnwer(false);
+
+        yesButton.onClick.AddListener(YesAnswer_OnClick);
+        noButton.onClick.AddListener(NoAnswer_OnClick);
     }
 
     // Update is called once per frame
@@ -193,7 +200,7 @@ public class UI_Manager : MonoBehaviour
     {
         questionPanel.gameObject.SetActive(false);
 
-        Game_Manager.Instance.YesAnswer();
+        Game_Manager.Instance.UserAnswer(true);
     }
 
     // close the questionPanel, set no as an answer
@@ -201,6 +208,6 @@ public class UI_Manager : MonoBehaviour
     {
         questionPanel.gameObject.SetActive(false);
 
-        Game_Manager.Instance.NoAnswer();
+        Game_Manager.Instance.UserAnswer(false);
     }
 }
