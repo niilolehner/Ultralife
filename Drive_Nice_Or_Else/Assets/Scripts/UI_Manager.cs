@@ -157,7 +157,7 @@ public class UI_Manager : MonoBehaviour
     }
 
     // update the TimerDisplay
-    public void UpdateScoreDisplay(string currentScore) // ADD FUNCTION CALL to a Score Script (get score)
+    public void UpdateScoreDisplay(int currentScore) // ADD FUNCTION CALL to a Score Script (get score)
     {
         score.text = ($"{currentScore}");
     }

@@ -13,7 +13,6 @@ public class ScoreManager : MonoBehaviour
         ScoreManager.Instance = this;
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         Score = 0;
@@ -38,14 +37,12 @@ public class ScoreManager : MonoBehaviour
 
     public int AddScore()
     {
-        Score += 1;
-        return Score;
+        return Score += 1;    
     }
 
     public int MinusScore()
     {
-        Score -= 1;
-        return Score;
+        return Score -= 1;
     }
 
     public int GetScore() 
@@ -53,8 +50,7 @@ public class ScoreManager : MonoBehaviour
         return Score;
     }
 
-
-    public void GameOverSaveScore()
+    public int GameOverSetGetHightScore()
     {
         int score = PlayerPrefs.GetInt("Score");
         int HightScore = PlayerPrefs.GetInt("HightScore");
@@ -63,6 +59,7 @@ public class ScoreManager : MonoBehaviour
         {
             PlayerPrefs.SetInt("HightScore", score);
         }
+        return PlayerPrefs.GetInt("HightScore");
     }
 
     public void ResetBestScore()
