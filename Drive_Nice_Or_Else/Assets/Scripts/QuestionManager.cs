@@ -15,6 +15,7 @@ public class QuestionManager : MonoBehaviour
     {
         Instance = this;
         initializeQuestions();
+        //test
     }
 
     // Start is called before the first frame update
