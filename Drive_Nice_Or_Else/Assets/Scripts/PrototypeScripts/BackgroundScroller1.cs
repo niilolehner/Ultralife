@@ -5,7 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BackgroundScroller : MonoBehaviour
+public class BackgroundScroller1 : MonoBehaviour
 {
     /// <summary>
     // You can reference/pick up variables and objects of this class by typing: ClassName.instance.TypeHereWhatYouWantToGet
@@ -20,7 +20,7 @@ public class BackgroundScroller : MonoBehaviour
     
 
     // Takes class and make it public.
-    public static BackgroundScroller instance;
+    public static BackgroundScroller1 instance;
 
     // public components.
     public BoxCollider2D col;

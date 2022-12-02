@@ -5,7 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController1 : MonoBehaviour
 {
     /// <summary>
     // You can reference/pick up variables and objects of this class by typing: ClassName.instance.TypeHereWhatYouWantToGet
@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 5;
 
     // Takes class and make it public.
-    public static PlayerController instance;
+    public static PlayerController1 instance;
 
 
     // This function is called when the script instance is being loaded.
@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        print("Toimii Start!");
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -41,12 +42,24 @@ public class PlayerController : MonoBehaviour
     {
         if (transform.position.x == 2.2f) 
         {
-            transform.position = new Vector3(-2.2f, -3f, -0.1f);
+            transform.position = new Vector3(-2.2f, -3f, 0.9f);
         }
         else
         {
-            transform.position = new Vector3(2.2f, -3f, -0.1f);
+            transform.position = new Vector3(2.2f, -3f, 0.9f);
         }
     }
+
+    // Called when one item touches another item.
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        print("Osui pelaajaan!");
+
+        if (collision.gameObject.name == "Beer")
+        {
+            print("Osui pelaajaan!");
+        }
+    }
+
 
 }
