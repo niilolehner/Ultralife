@@ -9,17 +9,23 @@ using UnityEngine;
 public class Game_Manager : MonoBehaviour
 {
     // Declare variables/objects
-    UI_Manager ui_Manager;
     public GameObject spawnObjects; // create items in the scene.
-    public float cameraSpeed; // change game place position in the scene.
+    public float cameraSpeed; // camera speed
     public bool isQuestionCorrect; // is the question correct?
     public bool isGameOver; // is the game over?
+
+
+    public static Game_Manager Instance;
+
+    private void Awake()
+    {
+        Game_Manager.Instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         // initialize variables/objects
-        ui_Manager = FindObjectOfType<UI_Manager>();
         isGameOver = false;
     }
 
@@ -29,7 +35,7 @@ public class Game_Manager : MonoBehaviour
         /* **** note bubu : I think its uncessary to check every frame if the game over , you can just check it when the life status change **** */
 
         // check if life is at zero or below, if so, sets game over state
-        if(ui_Manager.lifes <= 0) 
+        if(UI_Manager.Instance.lifes <= 0)
         {
             SetGameOver();
         }
@@ -75,13 +81,7 @@ public class Game_Manager : MonoBehaviour
         isGameOver = true;
 
         // show the gameOverPanel
-
-        //---------------- Li and Niilo. -----------------// 
-
-        ui_Manager.ShowGameOverPanel("(Delete this string)" /* ScoreManager.Instance.GameOverSetGetHightScore().ToString() */ ); // ADD FUNCTION CALL to Score Manager (load BestScore)
-
-        //----------------------------------------------------//
-
+        UI_Manager.Instance.ShowGameOverPanel(ScoreManager.Instance.GameOverSetGetHightScore().ToString());
     }
 
     // quit the game, depending if in editor or live app, change method
@@ -96,32 +96,18 @@ public class Game_Manager : MonoBehaviour
     // prepare question and set if answer is yes or no
     public void SetQuestionPhase()
     {
-        // ADD FUNCTION CALL to Question Manager (get a random question)
-        // Question Manager also needs to set isQuestionCorrect in Game_Manager to true (yes) or false (no)
-
-
-
-        //---------------- Li and Niilo. -----------------// 
-
-
-        /*
         Question question = QuestionManager.Instance.GetRandomQuestion();
         if (question != null)
         {
-            ui_Manager.ShowQuestionPanel(QuestionManager.Instance.GetRandomQuestion().question);
+            UI_Manager.Instance.ShowQuestionPanel(QuestionManager.Instance.GetRandomQuestion().question);
         }
         else {
             SetGameOver();
         }
-        */
-
-
-        //----------------------------------------------------//
-
     }
 
 
-    //TO REFACTOR
+    //TO REFACTOR !!!! 
     //public void userAsnwer(bool userAnswer);
 
     // TO REMOVE
@@ -129,26 +115,26 @@ public class Game_Manager : MonoBehaviour
     {
         if (QuestionManager.Instance.IsPlayerAnswerCorrect(true)) // correct answer was yes, player has answered correctly
         {
-            ui_Manager.UpdateScoreDisplay(ScoreManager.Instance.AddScore());
+            UI_Manager.Instance.UpdateScoreDisplay(ScoreManager.Instance.AddScore());
         }
         else 
         {
-            ui_Manager.UpdateScoreDisplay(ScoreManager.Instance.MinusScore());
-            ui_Manager.UpdateLifeDisplay(LifeManager.Instance.MinusLife());
+            UI_Manager.Instance.UpdateScoreDisplay(ScoreManager.Instance.MinusScore());
+            UI_Manager.Instance.UpdateLifeDisplay(LifeManager.Instance.MinusLife());
         }
     }
 
-    // TO REMOVE
+    // TO REMOVE !!!!
     public void NoAnswer()
     {
         if (QuestionManager.Instance.IsPlayerAnswerCorrect(false)) // correct answer was no, player has answered correctly
         {
-            ui_Manager.UpdateScoreDisplay(ScoreManager.Instance.AddScore());
+            UI_Manager.Instance.UpdateScoreDisplay(ScoreManager.Instance.AddScore());
         }
         else
         {
-            ui_Manager.UpdateScoreDisplay(ScoreManager.Instance.MinusScore());
-            ui_Manager.UpdateLifeDisplay(LifeManager.Instance.MinusLife());
+            UI_Manager.Instance.UpdateScoreDisplay(ScoreManager.Instance.MinusScore());
+            UI_Manager.Instance.UpdateLifeDisplay(LifeManager.Instance.MinusLife());
         }
     } 
 }

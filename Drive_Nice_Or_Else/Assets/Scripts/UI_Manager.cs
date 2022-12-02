@@ -46,18 +46,21 @@ public class UI_Manager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI highscore;
 
-    Game_Manager game_Manager;
-
     private bool isStopped; // is car stopped?
     private bool isRight; // is car on right lane?
-    public int lifes; // Player lifes.
+    public int lifes; // player lifes
+
+    public static UI_Manager Instance;
+
+    private void Awake()
+    {
+        UI_Manager.Instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         // initialize variables
-        game_Manager = FindObjectOfType<Game_Manager>();
-
         isStopped = true; // game starts with car stopped
         isRight = true; // game starts with car on the right lane
          
@@ -74,7 +77,7 @@ public class UI_Manager : MonoBehaviour
     // tell car go and stop, update buttons contextually
     public void StopGo_OnClick()
     {
-        if(!game_Manager.isGameOver)
+        if(!Game_Manager.Instance.isGameOver)
         {
             if(isStopped)
             {
@@ -100,7 +103,7 @@ public class UI_Manager : MonoBehaviour
     // tell car switch to left and right lane, update buttons contextually
     public void ChangeLane_OnClick()
     {
-        if (!game_Manager.isGameOver)
+        if (!Game_Manager.Instance.isGameOver)
         {
             if (isRight)
             {
@@ -168,13 +171,13 @@ public class UI_Manager : MonoBehaviour
     // retry and start a new game
     public void Retry_OnClick()
     {
-        game_Manager.StartNewGame();
+        Game_Manager.Instance.StartNewGame();
     }
 
     // quit the game
     public void Quit_OnClick()
     {
-        game_Manager.QuitGame();
+        Game_Manager.Instance.QuitGame();
     }
 
     // show the questionPanel with currentQuestion
@@ -190,7 +193,7 @@ public class UI_Manager : MonoBehaviour
     {
         questionPanel.gameObject.SetActive(false);
 
-        game_Manager.YesAnswer();
+        Game_Manager.Instance.YesAnswer();
     }
 
     // close the questionPanel, set no as an answer
@@ -198,6 +201,6 @@ public class UI_Manager : MonoBehaviour
     {
         questionPanel.gameObject.SetActive(false);
 
-        game_Manager.NoAnswer();
+        Game_Manager.Instance.NoAnswer();
     }
 }
