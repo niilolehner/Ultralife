@@ -13,7 +13,6 @@ public class PlayerController : MonoBehaviour
     public static PlayerController instance;
     public GameObject player;
     UI_Manager ui_Manager;
-
     public Rigidbody2D rb;
     private Vector2 playerDirectionY;
     private Vector2 playerDirectionX;
