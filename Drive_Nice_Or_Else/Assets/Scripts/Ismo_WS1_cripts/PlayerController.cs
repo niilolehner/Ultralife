@@ -1,6 +1,3 @@
-
-// Ismo uses this script in Scene Ismo_workspace
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +11,7 @@ public class PlayerController : MonoBehaviour
     
     // Takes class and make it public.
     public static PlayerController instance;
+    UI_Manager ui_Manager;
 
     public Rigidbody2D rb;
     private Vector2 playerDirectionY;
@@ -32,6 +30,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        ui_Manager = FindObjectOfType<UI_Manager>();
     }
 
     // Update is called once per frame
@@ -53,13 +52,13 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.tag == "Bad")
         {
-            Health.instance.numOfHearts--;
+            ui_Manager.lifes--;
         }
         else if (collision.tag == "Good")
         {
-            if (Health.instance.numOfHearts != 5)
+            if (ui_Manager.lifes != 3)
             {
-                Health.instance.numOfHearts++;
+                ui_Manager.lifes--;
             }
         }
     }

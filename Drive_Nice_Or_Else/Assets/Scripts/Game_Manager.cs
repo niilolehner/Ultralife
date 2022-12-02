@@ -5,14 +5,16 @@ using UnityEngine.SceneManagement;
 using UnityEngine;
 
 // WORK IN PROGRESS BY NIILO
+// WORK IN PROGRESS BY ISMO
 
 public class Game_Manager : MonoBehaviour
 {
     // Declare variables/objects
     UI_Manager ui_Manager;
 
-    private int life = 3; // DUMMY life variable, ___REMOVE___ as soon there is the real deal from Life Manager
+    //private int life = 3; // DUMMY life variable, ___REMOVE___ as soon there is the real deal from Life Manager ---> TAKED OFF (ISMO).
 
+    public float cameraSpeed; // Camera speed.
     public bool isQuestionCorrect; // is the question correct?
     public bool isGameOver; // is the game over?
 
@@ -30,10 +32,13 @@ public class Game_Manager : MonoBehaviour
     void Update()
     {
         // check if life is at zero or below, if so, sets game over state
-        if(life <= 0) // ADD FUNCTION CALL to Life Manager (get life)
+        if(ui_Manager.lifes <= 0) // ADD FUNCTION CALL to Life Manager (get life) -----> DONE (ISMO)!
         {
             SetGameOver();
         }
+
+        // Moves the camera view (GameManager).
+        transform.position += new Vector3(0, cameraSpeed * Time.deltaTime, 0);
     }
 
     // starts a new game from scratch (reload the scene)

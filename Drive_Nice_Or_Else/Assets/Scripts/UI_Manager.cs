@@ -3,12 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System;
+using System.Linq;
 
 // WORK IN PROGRESS BY NIILO
+// WORK IN PROGRESS BY ISMO
 
 public class UI_Manager : MonoBehaviour
 {
     // Declare variables/objects
+
+    [Header("SpawnObjects")]
+    [SerializeField]
+    private GameObject spawnObjects;
 
     [Header("GasButtons")]
     [SerializeField]
@@ -50,6 +56,7 @@ public class UI_Manager : MonoBehaviour
 
     private bool isStopped; // is car stopped?
     private bool isRight; // is car on right lane?
+    public int lifes; // Player lifes.
 
     // Start is called before the first frame update
     void Start()
@@ -64,7 +71,7 @@ public class UI_Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        UpdateLifeDisplay(lifes); // Set players life to the screen.
     }
 
     // tell car go and stop, update buttons contextually
@@ -77,16 +84,20 @@ public class UI_Manager : MonoBehaviour
                 goButton.gameObject.SetActive(false);
                 stopButton.gameObject.SetActive(true);
                 isStopped = false;
-
-                // ADD FUNCTION CALL to Background Scroller (make car go)
+                BackgroundScroller.instance.backgroundSpeed = 0f;
+                PlayerController.instance.playerSpeed = 0;
+                spawnObjects.SetActive(false);
+                game_Manager.cameraSpeed = 0f;  
             }
             else
             {
                 goButton.gameObject.SetActive(true);
                 stopButton.gameObject.SetActive(false);
                 isStopped = true;
-
-                // ADD FUNCTION CALL to Background Scroller (make car stop)
+                BackgroundScroller.instance.backgroundSpeed = 0.3f;
+                PlayerController.instance.playerSpeed = 5;
+                spawnObjects.SetActive(true);
+                game_Manager.cameraSpeed = 3f;
             }
         }
     }
