@@ -26,6 +26,7 @@ public class Game_Manager : MonoBehaviour
     {
         // initialize variables/objects
         isGameOver = false;
+
         SetQuestionPhase();
     }
 

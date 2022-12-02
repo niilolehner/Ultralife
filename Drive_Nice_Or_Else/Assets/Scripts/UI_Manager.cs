@@ -161,7 +161,7 @@ public class UI_Manager : MonoBehaviour
     {
         questionPanel.gameObject.SetActive(false);
 
-        question.text = ($"{currentBestScore}");
+        highscore.text = ($"HIGHSCORE: {currentBestScore}"); // 
 
         gameOverPanel.gameObject.SetActive(true);
     }
