@@ -12,8 +12,6 @@ public class Game_Manager : MonoBehaviour
     // Declare variables/objects
     UI_Manager ui_Manager;
 
-    //private int life = 3; // DUMMY life variable, ___REMOVE___ as soon there is the real deal from Life Manager ---> TAKED OFF (ISMO).
-
     public float cameraSpeed; // Camera speed.
     public bool isQuestionCorrect; // is the question correct?
     public bool isGameOver; // is the game over?

@@ -88,7 +88,7 @@ public class UI_Manager : MonoBehaviour
                 stopButton.gameObject.SetActive(true);
                 isStopped = false;
                 BackgroundScroller.instance.backgroundSpeed = 0f;
-                PlayerController.instance.playerSpeed = 0;
+                // PlayerController.instance.playerSpeed = 0;
                 game_Manager.cameraSpeed = 0f;
                 spawnObjects.SetActive(false);
             }
@@ -98,7 +98,7 @@ public class UI_Manager : MonoBehaviour
                 stopButton.gameObject.SetActive(false);
                 isStopped = true;
                 BackgroundScroller.instance.backgroundSpeed = 0.3f;
-                PlayerController.instance.playerSpeed = 5;
+                // PlayerController.instance.playerSpeed = 5;
                 game_Manager.cameraSpeed = 3f;
                 spawnObjects.SetActive(true);
             }
@@ -115,14 +115,14 @@ public class UI_Manager : MonoBehaviour
                 leftButton.gameObject.SetActive(false);
                 rightButton.gameObject.SetActive(true);
                 isRight = false;
-                //  PlayerController.instance.SwitchCarPosition();
+                PlayerController.instance.SwitchCarPosition();
             }
             else
             {
                 leftButton.gameObject.SetActive(true);
                 rightButton.gameObject.SetActive(false);
                 isRight = true;
-                //   PlayerController.instance.SwitchCarPosition();
+                PlayerController.instance.SwitchCarPosition();
             }
         }
     }

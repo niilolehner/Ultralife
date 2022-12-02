@@ -12,7 +12,6 @@ public class PlayerController : MonoBehaviour
     // Takes class and make it public.
     public static PlayerController instance;
     UI_Manager ui_Manager;
-
     public Rigidbody2D rb;
     private Vector2 playerDirectionY;
     private Vector2 playerDirectionX;
@@ -49,9 +48,10 @@ public class PlayerController : MonoBehaviour
 
 
 
-    /*
+    
     public void SwitchCarPosition()
     {
+
         if (transform.position.x == -9.4f)
         {
             transform.position = new Vector3(9.4f, -4.7f, 0f);
@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector3(-9.4f, -4.7f, 0f);
         }
     }
-    */
+    
 
 
 
