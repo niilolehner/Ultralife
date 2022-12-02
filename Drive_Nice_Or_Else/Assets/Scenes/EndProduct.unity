@@ -2459,9 +2459,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1907746409}
+      - m_Target: {fileID: 1907746410}
         m_TargetAssemblyTypeName: UI_Manager, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: NoAnswer_OnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3524,9 +3524,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1907746409}
+      - m_Target: {fileID: 1907746410}
         m_TargetAssemblyTypeName: UI_Manager, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: YesAnswer_OnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3871,8 +3871,6 @@ MonoBehaviour:
   score: {fileID: 477551540}
   questionPanel: {fileID: 2067847799}
   question: {fileID: 1614371409}
-  yesButton: {fileID: 1861045050}
-  noButton: {fileID: 1503242110}
   gameOverPanel: {fileID: 2098988702}
   highscore: {fileID: 750873168}
   lifes: 3
