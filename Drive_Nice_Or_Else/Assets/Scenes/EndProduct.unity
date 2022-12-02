@@ -2093,7 +2093,7 @@ MonoBehaviour:
   - {fileID: 4344950271303525495, guid: 202591cc20d580347aca09674520ef24, type: 3}
   - {fileID: 8883138330320208550, guid: e8b2b9994d1ab354f9962f226eb31ab4, type: 3}
   - {fileID: 6159088865705740011, guid: 7313715f0c4386c4a91c91be83f7bdf4, type: 3}
-  timeBetweenSpawn: 0.5
+  timeBetweenSpawn: 1
 --- !u!4 &1188246495
 Transform:
   m_ObjectHideFlags: 0
