@@ -85,8 +85,8 @@ public class UI_Manager : MonoBehaviour
                 stopButton.gameObject.SetActive(true);
                 isStopped = false;
                 BackgroundScroller.instance.SetBackgroundScrollingOff();
-                game_Manager.SetCameraSpeedOff();
-                game_Manager.SetSpawningDeactive();
+                Game_Manager.Instance.SetCameraSpeedOff();
+                Game_Manager.Instance.SetSpawningDeactive();
             }
             else
             {
@@ -94,8 +94,8 @@ public class UI_Manager : MonoBehaviour
                 stopButton.gameObject.SetActive(false);
                 isStopped = true;
                 BackgroundScroller.instance.SetBackgroundScrollingOn();
-                game_Manager.SetCameraSpeedOn();
-                game_Manager.SetSpawningActive();
+                Game_Manager.Instance.SetCameraSpeedOn();
+                Game_Manager.Instance.SetSpawningActive();
             }
         }
     }
