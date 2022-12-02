@@ -27,6 +27,7 @@ public class Game_Manager : MonoBehaviour
     {
         // initialize variables/objects
         isGameOver = false;
+        SetQuestionPhase();
     }
 
     // Update is called once per frame
@@ -106,28 +107,9 @@ public class Game_Manager : MonoBehaviour
         }
     }
 
-
-    //TO REFACTOR !!!! 
-    //public void userAsnwer(bool userAnswer);
-
-    // TO REMOVE
-    public void YesAnswer()
+    public void UserAnswer(bool yesOrNo)
     {
-        if (QuestionManager.Instance.IsPlayerAnswerCorrect(true)) // correct answer was yes, player has answered correctly
-        {
-            UI_Manager.Instance.UpdateScoreDisplay(ScoreManager.Instance.AddScore());
-        }
-        else 
-        {
-            UI_Manager.Instance.UpdateScoreDisplay(ScoreManager.Instance.MinusScore());
-            UI_Manager.Instance.UpdateLifeDisplay(LifeManager.Instance.MinusLife());
-        }
-    }
-
-    // TO REMOVE !!!!
-    public void NoAnswer()
-    {
-        if (QuestionManager.Instance.IsPlayerAnswerCorrect(false)) // correct answer was no, player has answered correctly
+        if (QuestionManager.Instance.IsPlayerAnswerCorrect(yesOrNo)) // player answered correctly
         {
             UI_Manager.Instance.UpdateScoreDisplay(ScoreManager.Instance.AddScore());
         }
