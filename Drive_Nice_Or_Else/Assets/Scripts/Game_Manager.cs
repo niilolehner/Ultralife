@@ -12,8 +12,6 @@ public class Game_Manager : MonoBehaviour
     // Declare variables/objects
     UI_Manager ui_Manager;
 
-    //private int life = 3; // DUMMY life variable, ___REMOVE___ as soon there is the real deal from Life Manager ---> TAKED OFF (ISMO).
-
     public float cameraSpeed; // Camera speed.
     public bool isQuestionCorrect; // is the question correct?
     public bool isGameOver; // is the game over?
@@ -25,6 +23,8 @@ public class Game_Manager : MonoBehaviour
         // initialize variables/objects
         ui_Manager = FindObjectOfType<UI_Manager>();
         isGameOver = false;
+
+        SetQuestionPhase();
     }
 
     // Update is called once per frame
@@ -54,13 +54,7 @@ public class Game_Manager : MonoBehaviour
         isGameOver = true;
 
         // show the gameOverPanel
-
-        //---------------- Li and Niilo. -----------------// 
-
-        ui_Manager.ShowGameOverPanel("(Delete this string)" /* ScoreManager.Instance.GameOverSetGetHightScore().ToString() */ ); // ADD FUNCTION CALL to Score Manager (load BestScore)
-
-        //----------------------------------------------------//
-
+        ui_Manager.ShowGameOverPanel(ScoreManager.Instance.GameOverSetGetHightScore().ToString());
     }
 
     // quit the game, depending if in editor or live app, change method
@@ -75,15 +69,6 @@ public class Game_Manager : MonoBehaviour
     // prepare question and set if answer is yes or no
     public void SetQuestionPhase()
     {
-        // ADD FUNCTION CALL to Question Manager (get a random question)
-        // Question Manager also needs to set isQuestionCorrect in Game_Manager to true (yes) or false (no)
-
-
-
-        //---------------- Li and Niilo. -----------------// 
-
-
-        /*
         Question question = QuestionManager.Instance.GetRandomQuestion();
         if (question != null)
         {
@@ -92,15 +77,10 @@ public class Game_Manager : MonoBehaviour
         else {
             SetGameOver();
         }
-        */
-
-
-        //----------------------------------------------------//
-
     }
 
 
-    //TO REFACTOR
+    //TO REFACTOR !!!! 
     //public void userAsnwer(bool userAnswer);
 
     // TO REMOVE
@@ -117,7 +97,7 @@ public class Game_Manager : MonoBehaviour
         }
     }
 
-    // TO REMOVE
+    // TO REMOVE !!!!
     public void NoAnswer()
     {
         if (QuestionManager.Instance.IsPlayerAnswerCorrect(false)) // correct answer was no, player has answered correctly
