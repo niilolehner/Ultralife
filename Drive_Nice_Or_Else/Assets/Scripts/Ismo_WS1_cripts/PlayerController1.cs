@@ -14,6 +14,10 @@ public class PlayerController1 : MonoBehaviour
     public Rigidbody2D rb;
     public float moveSpeed = 5;
 
+
+    private Vector2 playerDirectionY;
+    private Vector2 playerDirectionX;
+
     // Takes class and make it public.
     public static PlayerController1 instance;
 
@@ -35,7 +39,11 @@ public class PlayerController1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        // Get input and set force to make car moving with keyboard.
+        //float directionY = Input.GetAxisRaw("Vertical");
+        //float directionX = Input.GetAxisRaw("Horizontal");
+        //playerDirectionY = new Vector2(0, directionY).normalized;
+        //playerDirectionX = new Vector2(directionX, 0).normalized;
     }
 
     public void SwitchCarPosition()

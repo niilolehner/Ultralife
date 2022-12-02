@@ -15,11 +15,8 @@ public class SpawnObjects : MonoBehaviour
     }
 
     public GameObject[] items;
-    public float maxX;
-    public float minX;
-    public float maxY;
-    public float minY;
     public float timeBetweenSpawn;
+    float floatRandomX;
     private float spawnTime;
 
     // Start is called before the first frame update
@@ -43,9 +40,19 @@ public class SpawnObjects : MonoBehaviour
     // Get object and creates it to random position on the road. 
     void Spawn(GameObject item)
     {
-        float randomX = Random.Range(minX, maxX);
-        float randomY = Random.Range(minY, maxY);
+        int randomX = Random.Range(0 , 2);
 
-        Instantiate(item, transform.position + new Vector3(randomX, randomY, 0), transform.rotation);
+        if (randomX == 0)
+        {
+            floatRandomX = 1.5f;
+        }
+        else
+        {
+            floatRandomX = -1.5f;
+        }
+
+        float randomY = Random.Range(-4.7f, 4.7f);
+
+        Instantiate(item, transform.position + new Vector3(floatRandomX, randomY, 0), transform.rotation);
     }
 }

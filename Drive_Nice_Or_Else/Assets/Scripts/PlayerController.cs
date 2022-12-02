@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     // Takes the class and make it public.
     public static PlayerController instance;
+
     public GameObject player;
     UI_Manager ui_Manager;
     public Rigidbody2D rb;
@@ -29,11 +30,8 @@ public class PlayerController : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {   // Get input and set force to make car moving.
-        float directionY = Input.GetAxisRaw("Vertical");
-        float directionX = Input.GetAxisRaw("Horizontal");
-        playerDirectionY = new Vector2(0, directionY).normalized;
-        playerDirectionX = new Vector2(directionX, 0).normalized;
+    {   
+
     }
 
     void FixedUpdate()
@@ -43,7 +41,7 @@ public class PlayerController : MonoBehaviour
 
     public void SwitchCarPosition(bool isRightDirection)
     {
-        float positionY = isRightDirection ? 2.35f : -2.5f;
+        float positionY = isRightDirection ? 2.5f : -2.5f;
         player.transform.Translate(new Vector3(0, positionY, 0));
     }
 
