@@ -46,8 +46,6 @@ public class QuestionManager : MonoBehaviour
         
     public Question GetRandomQuestion() 
     {
-        print(Questions.Count);
-
         if (Questions.Count > 0) {
             Question question = Questions.OrderBy(e => Random.value).First();
             Questions.Remove(question);
