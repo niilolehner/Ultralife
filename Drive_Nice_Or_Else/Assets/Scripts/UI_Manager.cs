@@ -115,14 +115,14 @@ public class UI_Manager : MonoBehaviour
                 leftButton.gameObject.SetActive(false);
                 rightButton.gameObject.SetActive(true);
                 isRight = false;
-                PlayerController.instance.SwitchCarPosition();
+                PlayerController.instance.SwitchCarPosition(true);
             }
             else
             {
                 leftButton.gameObject.SetActive(true);
                 rightButton.gameObject.SetActive(false);
                 isRight = true;
-                PlayerController.instance.SwitchCarPosition();
+                PlayerController.instance.SwitchCarPosition(false);
             }
         }
     }
