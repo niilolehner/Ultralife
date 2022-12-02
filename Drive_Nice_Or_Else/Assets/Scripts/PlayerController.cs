@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     
     // Takes class and make it public.
     public static PlayerController instance;
+    public GameObject player;
     UI_Manager ui_Manager;
 
     public Rigidbody2D rb;
@@ -47,22 +48,11 @@ public class PlayerController : MonoBehaviour
         rb.velocity = new Vector2(playerDirectionX.x * playerSpeed, playerDirectionY.y * playerSpeed);    
     }
 
-
-
-    /*
-    public void SwitchCarPosition()
+    public void SwitchCarPosition(bool isRightDirection)
     {
-        if (transform.position.x == -9.4f)
-        {
-            transform.position = new Vector3(9.4f, -4.7f, 0f);
-        }
-        else
-        {
-            transform.position = new Vector3(-9.4f, -4.7f, 0f);
-        }
+        float positionY = isRightDirection ? 2.35f : -2.5f;
+        player.transform.Translate(new Vector3(0, positionY, 0));
     }
-    */
-
 
 
     private void OnTriggerEnter2D(Collider2D collision)
