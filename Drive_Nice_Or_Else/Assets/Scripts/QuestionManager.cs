@@ -8,18 +8,18 @@ public class QuestionManager : MonoBehaviour
     public static QuestionManager Instance;
     List<Question> Questions = new List<Question>();
     List<Question> QuestionsAnswered = new List<Question>();
-    Question QuestioSelected;
+    Question QuestionSelected;
 
 
     private void Awake()
     {
         Instance = this;
+        initializeQuestions();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        initializeQuestions();
     }
 
     public void initializeQuestions()
@@ -29,7 +29,7 @@ public class QuestionManager : MonoBehaviour
         Questions.Add(new Question("At night you should : Leave a longer gap behind the vehicle in front.", true));
         Questions.Add(new Question("Bicycle riders:  Must obey the road rules.", true));
         Questions.Add(new Question("When driving near pedestrian crossings you should always Move into the left lane.", false));
-        Questions.Add(new Question(" if you are caught cheating on the knowledge test: You will not be allowed to take another test for 6 weeks", true));
+        Questions.Add(new Question("If you are caught cheating on the knowledge test: You will not be allowed to take another test for 6 weeks", true));
         Questions.Add(new Question("When driving near pedestrian crossings you should always Move into the left lane.", false));
         Questions.Add(new Question("When there are three lanes on a freeway: The right lane is reserved for overtaking.", true));
         Questions.Add(new Question("If you see a sign indicating road repairs are going on, you should: Slow down and watch for traffic controllers and instructions.", true));
@@ -46,17 +46,22 @@ public class QuestionManager : MonoBehaviour
         
     public Question GetRandomQuestion() 
     {
-        Question question = Questions.OrderBy(e => Random.value).First();
-        Questions.Remove(question);
-        QuestioSelected = question;
-        return QuestioSelected;
+        print(Questions.Count);
+
+        if (Questions.Count > 0) {
+            Question question = Questions.OrderBy(e => Random.value).First();
+            Questions.Remove(question);
+            QuestionSelected = question;
+            return QuestionSelected;
+        }
+        return null;
     }
 
     public bool IsPlayerAnswerCorrect(bool playerAnswer) 
     {
-        QuestioSelected.playerAnswer = playerAnswer;
-        QuestionsAnswered.Add(QuestioSelected);
-        return playerAnswer == QuestioSelected.answer;
+        QuestionSelected.playerAnswer = playerAnswer;
+        QuestionsAnswered.Add(QuestionSelected);
+        return playerAnswer == QuestionSelected.answer;
     }
 }
 

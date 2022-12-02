@@ -11,9 +11,7 @@ public class Game_Manager : MonoBehaviour
     // Declare variables/objects
     UI_Manager ui_Manager;
 
-    private int life = 3; // DUMMY life variable, ___REMOVE___ as soon there is the real deal from Life Manager
-
-    public bool isQuestionCorrect; // is the question correct?
+    private int life = 3; // DUMMY life variable, ___REMOVE___ as soon there is the real deal from Life Manage;
     public bool isGameOver; // is the game over?
 
 
@@ -22,15 +20,17 @@ public class Game_Manager : MonoBehaviour
     {
         // initialize variables/objects
         ui_Manager = FindObjectOfType<UI_Manager>();
-
         isGameOver = false;
+        SetQuestionPhase();
     }
 
     // Update is called once per frame
     void Update()
     {
+        /* **** note bubu : I think its uncessary to check every frame if the game over , you can just check it when the life status change **** */
+
         // check if life is at zero or below, if so, sets game over state
-        if(life <= 0) // ADD FUNCTION CALL to Life Manager (get life)
+        if (life <= 0) // ADD FUNCTION CALL to Life Manager (get life)
         {
             SetGameOver();
         }
@@ -48,7 +48,7 @@ public class Game_Manager : MonoBehaviour
         isGameOver = true;
 
         // show the gameOverPanel
-        ui_Manager.ShowGameOverPanel("DUMMY BestScore"); // ADD FUNCTION CALL to Score Manager (load BestScore)
+        ui_Manager.ShowGameOverPanel(ScoreManager.Instance.GameOverSetGetHightScore().ToString()) ; // ADD FUNCTION CALL to Score Manager (load BestScore)
     }
 
     // quit the game, depending if in editor or live app, change method
@@ -65,33 +65,41 @@ public class Game_Manager : MonoBehaviour
     {
         // ADD FUNCTION CALL to Question Manager (get a random question)
         // Question Manager also needs to set isQuestionCorrect in Game_Manager to true (yes) or false (no)
-
-        ui_Manager.ShowQuestionPanel("Is this a DUMMY question text?");
+        Question question = QuestionManager.Instance.GetRandomQuestion();
+        if (question != null)
+        {
+            ui_Manager.ShowQuestionPanel(QuestionManager.Instance.GetRandomQuestion().question);
+        }
+        else {
+            SetGameOver();
+        }
     }
 
     // the answer given was yes
     public void YesAnswer()
     {
-        if (isQuestionCorrect == true) // correct answer was yes, player has answered correctly
+        if (QuestionManager.Instance.IsPlayerAnswerCorrect(true)) // correct answer was yes, player has answered correctly
         {
-            // ADD FUNCTION CALL call to Score Manager (add score)
+            ui_Manager.UpdateScoreDisplay(ScoreManager.Instance.AddScore());
         }
-        else // player has answered incorrectly
+        else 
         {
-            // ADD FUNCTION CALL to Score Manager (minus score)
+            ui_Manager.UpdateScoreDisplay(ScoreManager.Instance.MinusScore());
+            ui_Manager.UpdateLifeDisplay(LifeManager.Instance.MinusLife());
         }
     }
 
     // the answer given was no
     public void NoAnswer()
     {
-        if (isQuestionCorrect == false) // correct answer was no, player has answered correctly
+        if (QuestionManager.Instance.IsPlayerAnswerCorrect(false)) // correct answer was no, player has answered correctly
         {
-            // ADD FUNCTION CALL to Score Manager (add score)
+            ui_Manager.UpdateScoreDisplay(ScoreManager.Instance.AddScore());
         }
-        else // player has answered incorrectly
+        else
         {
-            // ADD FUNCTION CALL to Score Manager (minus score)
+            ui_Manager.UpdateScoreDisplay(ScoreManager.Instance.MinusScore());
+            ui_Manager.UpdateLifeDisplay(LifeManager.Instance.MinusLife());
         }
     }
 }
