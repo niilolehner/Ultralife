@@ -22,7 +22,7 @@ public class SpawnObjects : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-            
+
     }
 
     // Update is called once per frame
@@ -40,15 +40,15 @@ public class SpawnObjects : MonoBehaviour
     // Get object and creates it to random position on the road. 
     void Spawn(GameObject item)
     {
-        int randomX = Random.Range(0 , 2);
+        int randomX = Random.Range(0, 2);
 
         if (randomX == 0)
         {
-            floatRandomX = 1.5f;
+            floatRandomX = 1.4f;
         }
         else
         {
-            floatRandomX = -1.5f;
+            floatRandomX = -1.0f;
         }
 
         float randomY = Random.Range(-4.7f, 4.7f);
