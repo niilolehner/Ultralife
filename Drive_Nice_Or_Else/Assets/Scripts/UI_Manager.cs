@@ -161,9 +161,7 @@ public class UI_Manager : MonoBehaviour
     public void ShowGameOverPanel(string currentBestScore)
     {
         questionPanel.gameObject.SetActive(false);
-
         highscore.text = ($"HIGHSCORE: {currentBestScore}");
-
         gameOverPanel.gameObject.SetActive(true);
     }
 
@@ -183,7 +181,6 @@ public class UI_Manager : MonoBehaviour
     public void ShowQuestionPanel(string currentQuestion)
     {
         question.text = ($"{currentQuestion}");
-
         questionPanel.gameObject.SetActive(true);
     }
 
@@ -191,7 +188,6 @@ public class UI_Manager : MonoBehaviour
     public void YesAnswer_OnClick()
     {
         questionPanel.gameObject.SetActive(false);
-
         Game_Manager.Instance.UserAnswer(true);
     }
 
@@ -199,7 +195,6 @@ public class UI_Manager : MonoBehaviour
     public void NoAnswer_OnClick()
     {
         questionPanel.gameObject.SetActive(false);
-
         Game_Manager.Instance.UserAnswer(false);
     }
 }

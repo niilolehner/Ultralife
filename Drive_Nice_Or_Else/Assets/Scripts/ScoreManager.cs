@@ -16,8 +16,6 @@ public class ScoreManager : MonoBehaviour
     void Start()
     {
         Score = 0;
-        PlayerPrefs.SetInt("Score", Score);
-
         if (PlayerPrefs.HasKey("HightScore"))
         {
             HightScore = PlayerPrefs.GetInt("HightScore");
@@ -31,7 +29,6 @@ public class ScoreManager : MonoBehaviour
     public void ResetScore()
     {
         Score = 0;
-        PlayerPrefs.SetInt("Score", Score);
     }
 
 
@@ -52,12 +49,11 @@ public class ScoreManager : MonoBehaviour
 
     public int GameOverSetGetHightScore()
     {
-        int score = PlayerPrefs.GetInt("Score");
         int HightScore = PlayerPrefs.GetInt("HightScore");
 
-        if (score > HightScore)
+        if (Score > HightScore)
         {
-            PlayerPrefs.SetInt("HightScore", score);
+            PlayerPrefs.SetInt("HightScore", Score);
         }
         return PlayerPrefs.GetInt("HightScore");
     }

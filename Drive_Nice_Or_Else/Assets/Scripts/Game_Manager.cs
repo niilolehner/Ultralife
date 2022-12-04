@@ -26,6 +26,7 @@ public class Game_Manager : MonoBehaviour
     {
         // initialize variables/objects
         isGameOver = false;
+        StartCoroutine(WaitQuestionPhase());
     }
 
     // Update is called once per frame
@@ -33,6 +34,13 @@ public class Game_Manager : MonoBehaviour
     {
         // Moves the camera view (GameManager).
         transform.position += new Vector3(0, cameraSpeed * Time.deltaTime, 0);
+    }
+
+    public IEnumerator WaitQuestionPhase()
+    {
+        print("start wait");
+        yield return new WaitForSecondsRealtime(Random.Range(5, 10));
+        SetQuestionPhase();
     }
 
     // Set game place stopped.
@@ -91,14 +99,12 @@ public class Game_Manager : MonoBehaviour
     // proc a question
     public void SetQuestionPhase()
     {
-        Question question = QuestionManager.Instance.GetRandomQuestion();
-        if (question != null)
-        {
-            UI_Manager.Instance.ShowQuestionPanel(QuestionManager.Instance.GetRandomQuestion().question);
-        }
-        else
-        {
-            SetGameOver();
+        if (!isGameOver) {
+            Question question = QuestionManager.Instance.GetRandomQuestion();
+            if (question != null)
+            {
+                UI_Manager.Instance.ShowQuestionPanel(question.question);
+            }
         }
     }
 
@@ -108,11 +114,18 @@ public class Game_Manager : MonoBehaviour
         if (QuestionManager.Instance.IsPlayerAnswerCorrect(yesOrNo)) // player answered correctly
         {
             UI_Manager.Instance.UpdateScoreDisplay(ScoreManager.Instance.AddScore());
+            if (QuestionManager.Instance.questionsListCount() == 0)
+            {
+                SetGameOver();
+            }
+            else {
+                StartCoroutine(WaitQuestionPhase());
+            }
         }
         else
         {
             UI_Manager.Instance.UpdateScoreDisplay(ScoreManager.Instance.MinusScore());
-            LifeManager.Instance.MinusLife();
+            LifeManager.Instance.MinusLife(true);
         }
     } 
 }

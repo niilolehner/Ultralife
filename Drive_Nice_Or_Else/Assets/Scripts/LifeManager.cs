@@ -34,12 +34,14 @@ public class LifeManager : MonoBehaviour
         UI_Manager.Instance.UpdateLifeDisplay(Life);
     }
 
-    public void CheckLife()
+    public bool IsStillHaveLife()
     {
         if (Life <= 0)
         {
             Game_Manager.Instance.SetGameOver();
+            return false;
         }
+        return true;
     }
 
     public void AddLife() 
@@ -50,14 +52,17 @@ public class LifeManager : MonoBehaviour
         UpdateLife();
     }
 
-    public void MinusLife()
+    public void MinusLife(bool IsQuestionAnswer = false)
     {
         if (Life > 0)
         {
             Life -= 1;
         }
         UpdateLife();
-        CheckLife();
+        if (IsStillHaveLife() && IsQuestionAnswer) 
+        {
+            StartCoroutine(Game_Manager.Instance.WaitQuestionPhase());
+        }
     }
 
 }
