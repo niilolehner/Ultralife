@@ -49,7 +49,6 @@ public class UI_Manager : MonoBehaviour
 
     private bool isStopped; // is car stopped?
     private bool isRight; // is car on right lane?
-    public int lifes; // player lifes
 
     public static UI_Manager Instance;
 
@@ -69,7 +68,7 @@ public class UI_Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        UpdateLifeDisplay(lifes); // Set players life to the screen.
+
     }
 
     // tell car go and stop, update buttons contextually

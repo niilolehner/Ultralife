@@ -29,21 +29,35 @@ public class LifeManager : MonoBehaviour
         return Life;
     }
 
-    public int AddLife() 
+    public void UpdateLife()
+    {
+        UI_Manager.Instance.UpdateLifeDisplay(Life);
+    }
+
+    public void CheckLife()
+    {
+        if (Life <= 0)
+        {
+            Game_Manager.Instance.SetGameOver();
+        }
+    }
+
+    public void AddLife() 
     {
         if (Life < MaxLife) {
             Life += 1;
-        } 
-        return Life;
+        }
+        UpdateLife();
     }
 
-    public int MinusLife()
+    public void MinusLife()
     {
         if (Life > 0)
         {
             Life -= 1;
         }
-        return Life;
+        UpdateLife();
+        CheckLife();
     }
 
 }

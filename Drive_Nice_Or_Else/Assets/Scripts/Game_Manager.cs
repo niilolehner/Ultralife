@@ -26,22 +26,11 @@ public class Game_Manager : MonoBehaviour
     {
         // initialize variables/objects
         isGameOver = false;
-
-        SetQuestionPhase();
     }
 
     // Update is called once per frame
     void Update()
     {
-        /* **** note bubu : I think its uncessary to check every frame if the game over , you can just check it when the life status change **** */
-        /* **** note niilo : Yep, right now we have two separate ways to manage life, once we refactor that, we can remove the below ^_^ **** */
-
-        // check if life is at zero or below, if so, sets game over state
-        if (UI_Manager.Instance.lifes <= 0)
-        {
-            SetGameOver();
-        }
-
         // Moves the camera view (GameManager).
         transform.position += new Vector3(0, cameraSpeed * Time.deltaTime, 0);
     }
@@ -122,7 +111,7 @@ public class Game_Manager : MonoBehaviour
         else
         {
             UI_Manager.Instance.UpdateScoreDisplay(ScoreManager.Instance.MinusScore());
-            UI_Manager.Instance.UpdateLifeDisplay(LifeManager.Instance.MinusLife());
+            LifeManager.Instance.MinusLife();
         }
     } 
 }

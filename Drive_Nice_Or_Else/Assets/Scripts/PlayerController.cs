@@ -49,13 +49,13 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.tag == "Bad")
         {
-            ui_Manager.lifes--;
+            LifeManager.Instance.MinusLife();
         }
         else if (collision.tag == "Good")
         {
-            if (ui_Manager.lifes != 3)
+            if (LifeManager.Instance.GetLife() != 3)
             {
-                ui_Manager.lifes++;
+                LifeManager.Instance.AddLife();
             }
         }
     }
