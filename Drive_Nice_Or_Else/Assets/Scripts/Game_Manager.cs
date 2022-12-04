@@ -13,7 +13,6 @@ public class Game_Manager : MonoBehaviour
     public float cameraSpeed; // camera speed
     public bool isGameOver; // is the game over?
 
-
     public static Game_Manager Instance;
 
     private void Awake()
@@ -113,7 +112,7 @@ public class Game_Manager : MonoBehaviour
         if (QuestionManager.Instance.IsPlayerAnswerCorrect(IsYesSelected))
         {
             UI_Manager.Instance.UpdateScoreDisplay(ScoreManager.Instance.AddScore());
-            UI_Manager.Instance.ShowFeedbackAnswer(true);
+            UI_Manager.Instance.ShowFeedback(true);
             if (QuestionManager.Instance.questionsListCount() == 0)
             {
                 SetGameOver();
@@ -126,7 +125,7 @@ public class Game_Manager : MonoBehaviour
         {
             UI_Manager.Instance.UpdateScoreDisplay(ScoreManager.Instance.MinusScore());
             LifeManager.Instance.MinusLife(true);
-            UI_Manager.Instance.ShowFeedbackAnswer(false);
+            UI_Manager.Instance.ShowFeedback(false);
         }
     } 
 }

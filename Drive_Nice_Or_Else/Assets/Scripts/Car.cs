@@ -48,13 +48,15 @@ public class Car : MonoBehaviour
         if (collision.tag == "Bad")
         {
             LifeManager.Instance.MinusLife();
+            UI_Manager.Instance.ShowFeedback(false);
         }
         else if (collision.tag == "Good")
         {
-            if (LifeManager.Instance.GetLife() != 3)
+            if (LifeManager.Instance.GetLife() != LifeManager.Instance.MaxLife)
             {
                 LifeManager.Instance.AddLife();
             }
+            UI_Manager.Instance.ShowFeedback(true);
         }
     }
 }
