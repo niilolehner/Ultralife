@@ -7,6 +7,8 @@ using UnityEngine;
 
 public class BackgroundScroller1 : MonoBehaviour
 {
+
+
     /// <summary>
     // You can reference/pick up variables and objects of this class by typing: ClassName.instance.TypeHereWhatYouWantToGet
     // for example, PlayerController.instance.GetHealth();
