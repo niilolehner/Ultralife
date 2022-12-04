@@ -204,9 +204,9 @@ public class UI_Manager : MonoBehaviour
         Game_Manager.Instance.UserAnswer(false);
     }
 
-    public void ShowFeedbackAnswer(bool IsRightAnswer) 
+    public void ShowFeedback(bool IsGoodFeedBack) 
     {
-        GameObject feedBackGameObject = IsRightAnswer ? GoodFeedback : WrongFeedback;
+        GameObject feedBackGameObject = IsGoodFeedBack ? GoodFeedback : WrongFeedback;
         feedBackGameObject.SetActive(true);
         StartCoroutine(InactiveFeedBackAnswer(feedBackGameObject));
     }
