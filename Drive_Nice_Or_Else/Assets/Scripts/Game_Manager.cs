@@ -13,7 +13,6 @@ public class Game_Manager : MonoBehaviour
     public float cameraSpeed; // camera speed
     public bool isGameOver; // is the game over?
 
-
     public static Game_Manager Instance;
 
     private void Awake()

@@ -15,6 +15,7 @@ public class SpawnObjects : MonoBehaviour
     }
 
     public GameObject[] items;
+    public GameObject[] crossedGameObect;
     public float timeBetweenSpawn;
     float floatRandomX;
     private float spawnTime;
@@ -31,8 +32,14 @@ public class SpawnObjects : MonoBehaviour
         // Creates delay to spawning random items.
         if (Time.time > spawnTime)
         {
-            int randomItem = Random.Range(0, items.Length);
-            Spawn(items[randomItem]);
+            if (Random.Range(0, 5) == 0)
+            {
+                SpawnCrossed(crossedGameObect[0]);
+            }
+            else {
+                int randomItem = Random.Range(0, items.Length);
+                Spawn(items[randomItem]);
+            }
             spawnTime = Time.time + timeBetweenSpawn;
         }
     }
@@ -54,5 +61,10 @@ public class SpawnObjects : MonoBehaviour
         float randomY = Random.Range(-4.7f, 4.7f);
 
         Instantiate(item, transform.position + new Vector3(floatRandomX, randomY, 0), transform.rotation);
+    }
+
+    void SpawnCrossed(GameObject item) 
+    {
+        Instantiate(item, transform.position, Quaternion.identity);
     }
 }
