@@ -101,7 +101,7 @@ public class UI_Manager : MonoBehaviour
     // tell car switch to left and right lane, update buttons contextually
     public void ChangeLane_OnClick()
     {
-        if (!Game_Manager.Instance.isGameOver)
+        if (!Game_Manager.Instance.isGameOver && isStopped)
         {
             if (isRight)
             {
@@ -156,7 +156,7 @@ public class UI_Manager : MonoBehaviour
         score.text = ($"{currentScore}");
     }
 
-    // show the gameOverPanel, stop the car, show the highscore (currentBestScore)
+    // show the gameOverPanel, show the highscore (currentBestScore)
     public void ShowGameOverPanel(string currentBestScore)
     {
         questionPanel.gameObject.SetActive(false);
