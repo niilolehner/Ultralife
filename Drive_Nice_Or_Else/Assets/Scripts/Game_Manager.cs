@@ -96,7 +96,8 @@ public class Game_Manager : MonoBehaviour
         {
             UI_Manager.Instance.ShowQuestionPanel(QuestionManager.Instance.GetRandomQuestion().question);
         }
-        else {
+        else
+        {
             SetGameOver();
         }
     }
