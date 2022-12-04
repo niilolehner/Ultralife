@@ -47,6 +47,12 @@ public class UI_Manager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI highscore;
 
+    [Header("Feedback Answer Player")]
+    [SerializeField]
+    private GameObject GoodFeedback;
+    [SerializeField]
+    private GameObject WrongFeedback;
+
     private bool isDriving; // is car driving?
     private bool isRight; // is car on right lane?
 
@@ -196,5 +202,18 @@ public class UI_Manager : MonoBehaviour
     {
         questionPanel.gameObject.SetActive(false);
         Game_Manager.Instance.UserAnswer(false);
+    }
+
+    public void ShowFeedbackAnswer(bool IsRightAnswer) 
+    {
+        GameObject feedBackGameObject = IsRightAnswer ? GoodFeedback : WrongFeedback;
+        feedBackGameObject.SetActive(true);
+        StartCoroutine(InactiveFeedBackAnswer(feedBackGameObject));
+    }
+
+    public IEnumerator InactiveFeedBackAnswer(GameObject feedBackGameObject) 
+    {
+        yield return new WaitForSecondsRealtime(0.240f);
+        feedBackGameObject.SetActive(false);
     }
 }

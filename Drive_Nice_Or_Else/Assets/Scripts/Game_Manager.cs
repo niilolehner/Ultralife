@@ -38,7 +38,6 @@ public class Game_Manager : MonoBehaviour
 
     public IEnumerator WaitQuestionPhase()
     {
-        print("start wait");
         yield return new WaitForSecondsRealtime(Random.Range(5, 10));
         SetQuestionPhase();
     }
@@ -109,11 +108,12 @@ public class Game_Manager : MonoBehaviour
     }
 
     // verify the answer to the question
-    public void UserAnswer(bool yesOrNo)
+    public void UserAnswer(bool IsYesSelected)
     {
-        if (QuestionManager.Instance.IsPlayerAnswerCorrect(yesOrNo)) // player answered correctly
+        if (QuestionManager.Instance.IsPlayerAnswerCorrect(IsYesSelected))
         {
             UI_Manager.Instance.UpdateScoreDisplay(ScoreManager.Instance.AddScore());
+            UI_Manager.Instance.ShowFeedbackAnswer(true);
             if (QuestionManager.Instance.questionsListCount() == 0)
             {
                 SetGameOver();
@@ -126,6 +126,7 @@ public class Game_Manager : MonoBehaviour
         {
             UI_Manager.Instance.UpdateScoreDisplay(ScoreManager.Instance.MinusScore());
             LifeManager.Instance.MinusLife(true);
+            UI_Manager.Instance.ShowFeedbackAnswer(false);
         }
     } 
 }
