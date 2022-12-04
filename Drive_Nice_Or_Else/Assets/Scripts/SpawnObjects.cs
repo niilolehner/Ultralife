@@ -34,7 +34,7 @@ public class SpawnObjects : MonoBehaviour
         {
             if (Random.Range(0, 5) == 0)
             {
-                SpawnCrossed(crossedGameObect[0]);
+                SpawnCrossed(crossedGameObect[Random.Range(0, 2)]);
             }
             else {
                 int randomItem = Random.Range(0, items.Length);
