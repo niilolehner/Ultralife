@@ -47,7 +47,7 @@ public class UI_Manager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI highscore;
 
-    private bool isStopped; // is car stopped?
+    private bool isDriving; // is car driving?
     private bool isRight; // is car on right lane?
 
     public static UI_Manager Instance;
@@ -61,7 +61,7 @@ public class UI_Manager : MonoBehaviour
     void Start()
     {
         // initialize variables
-        isStopped = true; // game starts with car stopped
+        isDriving = true; // game starts with car driving
         isRight = true; // game starts with car on the right lane
     }
 
@@ -76,20 +76,22 @@ public class UI_Manager : MonoBehaviour
     {
         if(!Game_Manager.Instance.isGameOver)
         {
-            if(isStopped)
+            if(isDriving)
             {
-                goButton.gameObject.SetActive(false);
-                stopButton.gameObject.SetActive(true);
-                isStopped = false;
+                goButton.gameObject.SetActive(true);
+                stopButton.gameObject.SetActive(false);
+                isDriving = false;
+
                 BackgroundScroller.instance.SetBackgroundScrollingOff();
                 Game_Manager.Instance.SetCameraSpeedOff();
                 Game_Manager.Instance.SetSpawningDeactive();
             }
             else
             {
-                goButton.gameObject.SetActive(true);
-                stopButton.gameObject.SetActive(false);
-                isStopped = true;
+                goButton.gameObject.SetActive(false);
+                stopButton.gameObject.SetActive(true);
+                isDriving = true;
+
                 BackgroundScroller.instance.SetBackgroundScrollingOn();
                 Game_Manager.Instance.SetCameraSpeedOn();
                 Game_Manager.Instance.SetSpawningActive();
@@ -100,21 +102,21 @@ public class UI_Manager : MonoBehaviour
     // tell car switch to left and right lane, update buttons contextually
     public void ChangeLane_OnClick()
     {
-        if (!Game_Manager.Instance.isGameOver && isStopped)
+        if (!Game_Manager.Instance.isGameOver && isDriving)
         {
             if (isRight)
             {
                 leftButton.gameObject.SetActive(false);
                 rightButton.gameObject.SetActive(true);
                 isRight = false;
-                PlayerController.instance.SwitchCarPosition(true);
+                Car.instance.SwitchCarPosition(true);
             }
             else
             {
                 leftButton.gameObject.SetActive(true);
                 rightButton.gameObject.SetActive(false);
                 isRight = true;
-                PlayerController.instance.SwitchCarPosition(false);
+                Car.instance.SwitchCarPosition(false);
             }
         }
     }

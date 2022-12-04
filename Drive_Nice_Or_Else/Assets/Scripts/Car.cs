@@ -2,13 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class Car : MonoBehaviour
 {
     // Takes the class and make it public.
-    public static PlayerController instance;
+    public static Car instance;
 
     public GameObject player;
-    UI_Manager ui_Manager;
     public Rigidbody2D rb;
     private Vector2 playerDirectionY;
     private Vector2 playerDirectionX;
@@ -25,7 +24,6 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        ui_Manager = FindObjectOfType<UI_Manager>();
     }
 
     // Update is called once per frame
