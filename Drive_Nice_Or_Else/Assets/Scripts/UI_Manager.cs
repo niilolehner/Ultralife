@@ -159,10 +159,6 @@ public class UI_Manager : MonoBehaviour
     // show the gameOverPanel, stop the car, show the highscore (currentBestScore)
     public void ShowGameOverPanel(string currentBestScore)
     {
-        BackgroundScroller.instance.SetBackgroundScrollingOff();
-        Game_Manager.Instance.SetCameraSpeedOff();
-        Game_Manager.Instance.SetSpawningDeactive();
-
         questionPanel.gameObject.SetActive(false);
 
         highscore.text = ($"HIGHSCORE: {currentBestScore}");

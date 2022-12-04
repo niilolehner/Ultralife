@@ -82,6 +82,10 @@ public class Game_Manager : MonoBehaviour
     {
         isGameOver = true;
 
+        BackgroundScroller.instance.SetBackgroundScrollingOff();
+        SetCameraSpeedOff();
+        SetSpawningDeactive();
+
         // show the gameOverPanel
         UI_Manager.Instance.ShowGameOverPanel(ScoreManager.Instance.GameOverSetGetHightScore().ToString());
     }
