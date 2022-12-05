@@ -53,6 +53,14 @@ public class UI_Manager : MonoBehaviour
     [SerializeField]
     private GameObject WrongFeedback;
 
+    [Header("HistoryPanel")]
+    [SerializeField]
+    private GameObject historyPanel;
+    [SerializeField]
+    private GameObject ScrowPanelContent;
+    [SerializeField]
+    private GameObject PrefabRowHistory;
+
     private bool isDriving; // is car driving?
     private bool isRight; // is car on right lane?
 
@@ -216,5 +224,52 @@ public class UI_Manager : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(0.240f);
         feedBackGameObject.SetActive(false);
+    }
+
+    public void HistoryButtonOnClick() 
+    {
+        gameOverPanel.gameObject.SetActive(false);
+        historyPanel.gameObject.SetActive(true);
+
+        List<Question> questions = QuestionManager.Instance.GetQuestionsAnswered();
+
+        if (questions.Count > 0) 
+        {
+            RectTransform rect = PrefabRowHistory.GetComponent<RectTransform>();
+            float offset = 20f;
+            float width = rect.sizeDelta.x;
+            float height = rect.sizeDelta.y;
+
+            RectTransform ScrowPanelContentRec = ScrowPanelContent.GetComponent<RectTransform>();
+            ScrowPanelContentRec.sizeDelta = new Vector2(ScrowPanelContentRec.sizeDelta.x, (questions.Count * height));
+
+            Vector3 positionRow = new Vector3(ScrowPanelContent.transform.position.x + width / 2 + offset, ScrowPanelContent.transform.position.y - height / 2 - offset, 0);
+
+            GameObject row = InstantiateRowHistory(positionRow, questions[0]);
+
+            for (int i = 1; i < questions.Count; i++)
+            {
+                Vector3 positionNextRow = new Vector3(row.transform.position.x, row.transform.position.y - height - offset, 0);
+                GameObject nextRow = InstantiateRowHistory(positionNextRow, questions[i]);
+                row = nextRow;
+            }
+        }
+    }
+
+    public GameObject InstantiateRowHistory(Vector3 position, Question question) 
+    {
+        GameObject row = Instantiate(PrefabRowHistory, position, Quaternion.identity);
+        FillRowHistory(row, question);
+        row.transform.parent = ScrowPanelContent.transform;
+        return row;
+    }
+
+    public void FillRowHistory(GameObject row, Question question) 
+    {
+        row.GetComponent<RowQuestion>().question.text = question.question + " ?";
+        row.GetComponent<RowQuestion>().image.sprite = question.sprite;
+        row.GetComponent<RowQuestion>().answer.text = question.playerAnswer ? "Yes" : "No";
+        row.GetComponent<RowQuestion>().answerCorrection.text = ( question.answer == question.playerAnswer) ? " - Correct" : " - False";
+        row.GetComponent<RowQuestion>().answerCorrection.color = (question.answer == question.playerAnswer) ? Color.green : Color.red;
     }
 }

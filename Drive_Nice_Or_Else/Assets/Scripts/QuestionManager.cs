@@ -68,6 +68,11 @@ public class QuestionManager : MonoBehaviour
     public int questionsListCount() { 
         return Questions.Count;
     }
+
+    public List<Question> GetQuestionsAnswered() 
+    { 
+        return QuestionsAnswered;
+    }
         
     public Question GetRandomQuestion() 
     {
