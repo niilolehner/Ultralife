@@ -4,8 +4,6 @@ using System.Runtime.CompilerServices;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 
-// WORK IN PROGRESS BY NIILO
-
 public class Game_Manager : MonoBehaviour
 {
     // Declare variables/objects

@@ -6,8 +6,6 @@ using System;
 using System.Linq;
 using UnityEngine.UI;
 
-// WORK IN PROGRESS BY NIILO
-
 public class UI_Manager : MonoBehaviour
 {
     // Declare variables/objects
