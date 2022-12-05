@@ -99,7 +99,7 @@ public class Game_Manager : MonoBehaviour
             Question question = QuestionManager.Instance.GetRandomQuestion();
             if (question != null)
             {
-                UI_Manager.Instance.ShowQuestionPanel(question.question);
+                UI_Manager.Instance.ShowQuestionPanel(question);
             }
         }
     }

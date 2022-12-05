@@ -37,6 +37,8 @@ public class UI_Manager : MonoBehaviour
     [SerializeField]
     private GameObject questionPanel;
     [SerializeField]
+    private Image questionImagePanel;
+    [SerializeField]
     private TextMeshProUGUI question;
 
     [Header("GameOverPanel")]
@@ -182,9 +184,10 @@ public class UI_Manager : MonoBehaviour
     }
 
     // show the questionPanel with currentQuestion
-    public void ShowQuestionPanel(string currentQuestion)
+    public void ShowQuestionPanel(Question currentQuestion)
     {
-        question.text = ($"{currentQuestion}");
+        question.text = ($"{currentQuestion.question}");
+        questionImagePanel.sprite = currentQuestion.sprite;
         questionPanel.gameObject.SetActive(true);
     }
 
