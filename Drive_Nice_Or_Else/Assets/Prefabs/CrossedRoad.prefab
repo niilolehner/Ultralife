@@ -167,8 +167,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5292285375959846320}
   - component: {fileID: 3438881267308947938}
-  - component: {fileID: 200748861442404994}
   - component: {fileID: 3929284985674514429}
+  - component: {fileID: 200748861442404994}
   m_Layer: 0
   m_Name: Pedestrian
   m_TagString: Untagged
@@ -243,21 +243,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &200748861442404994
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5292285375959846323}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0304d799a123be740bf5fc5b015c80ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  road: {fileID: 950410049996391133}
-  speed: 1.5
-  widthOftheRoad: 9.73
 --- !u!95 &3929284985674514429
 Animator:
   serializedVersion: 4
@@ -278,3 +263,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &200748861442404994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5292285375959846323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0304d799a123be740bf5fc5b015c80ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  road: {fileID: 950410049996391133}
+  speed: 1.5
+  widthOftheRoad: 9.73

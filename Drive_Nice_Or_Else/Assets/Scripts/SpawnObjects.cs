@@ -23,7 +23,6 @@ public class SpawnObjects : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
     }
 
     // Update is called once per frame
@@ -36,7 +35,8 @@ public class SpawnObjects : MonoBehaviour
             {
                 SpawnCrossed(crossedGameObect[Random.Range(0, 2)]);
             }
-            else {
+            else
+            {
                 int randomItem = Random.Range(0, items.Length);
                 Spawn(items[randomItem]);
             }
@@ -63,7 +63,7 @@ public class SpawnObjects : MonoBehaviour
         Instantiate(item, transform.position + new Vector3(floatRandomX, randomY, 0), transform.rotation);
     }
 
-    void SpawnCrossed(GameObject item) 
+    void SpawnCrossed(GameObject item)
     {
         Instantiate(item, transform.position, Quaternion.identity);
     }
