@@ -211,6 +211,8 @@ public class UI_Manager : MonoBehaviour
         question.text = ($"{currentQuestion.question}");
         questionImagePanel.sprite = currentQuestion.sprite;
         questionPanel.gameObject.SetActive(true);
+
+        Sound_Manager.Instance.Play("QuestionPopup");
     }
 
     //Added
@@ -219,6 +221,8 @@ public class UI_Manager : MonoBehaviour
     {
         question.text = ($"{currentQuestion}");
         questionPanel.gameObject.SetActive(true);
+
+        Sound_Manager.Instance.Play("QuestionPopup");
     }
 
     // close the questionPanel, set yes as an answer
@@ -237,6 +241,14 @@ public class UI_Manager : MonoBehaviour
 
     public void ShowFeedback(bool IsGoodFeedBack) 
     {
+        if(IsGoodFeedBack == true)
+        {
+            Sound_Manager.Instance.Play("GoodSound");
+        }
+        else
+        {
+            Sound_Manager.Instance.Play("BadSound");
+        }
         GameObject feedBackGameObject = IsGoodFeedBack ? GoodFeedback : WrongFeedback;
         feedBackGameObject.SetActive(true);
         StartCoroutine(InactiveFeedBackAnswer(feedBackGameObject));
