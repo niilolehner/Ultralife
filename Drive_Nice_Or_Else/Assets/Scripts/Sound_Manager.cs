@@ -8,11 +8,11 @@ public partial class Sound_Manager : MonoBehaviour
 {
     // Declare variables/objects
     public Sound[] sounds;
-    public static Sound_Manager instance;
+    public static Sound_Manager Instance;
 
     void Awake()
     {
-        instance = this;
+        Instance = this;
 
         // populate sounds array
         foreach (Sound s in sounds)

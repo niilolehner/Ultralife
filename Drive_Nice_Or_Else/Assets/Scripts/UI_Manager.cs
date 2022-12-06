@@ -103,8 +103,8 @@ public class UI_Manager : MonoBehaviour
                 Game_Manager.Instance.SetCameraSpeedOff();
                 Game_Manager.Instance.SetSpawningDeactive();
 
-                Sound_Manager.instance.Play("CarStop");
-                Sound_Manager.instance.Stop("CarDriving");
+                Sound_Manager.Instance.Play("CarStop");
+                Sound_Manager.Instance.Stop("CarDriving");
             }
             else
             {
@@ -115,8 +115,8 @@ public class UI_Manager : MonoBehaviour
                 Game_Manager.Instance.SetCameraSpeedOn();
                 Game_Manager.Instance.SetSpawningActive();
 
-                Sound_Manager.instance.Play("CarGo");
-                Sound_Manager.instance.Play("CarDriving");
+                Sound_Manager.Instance.Play("CarGo");
+                Sound_Manager.Instance.Play("CarDriving");
             }
         }
     }
@@ -134,7 +134,7 @@ public class UI_Manager : MonoBehaviour
 
                 Car.instance.SwitchCarPosition(true);
 
-                Sound_Manager.instance.Play("CarSwitchLane");
+                Sound_Manager.Instance.Play("CarSwitchLane");
             }
             else
             {
@@ -144,7 +144,7 @@ public class UI_Manager : MonoBehaviour
 
                 Car.instance.SwitchCarPosition(false);
 
-                Sound_Manager.instance.Play("CarSwitchLane");
+                Sound_Manager.Instance.Play("CarSwitchLane");
             }
         }
     }
