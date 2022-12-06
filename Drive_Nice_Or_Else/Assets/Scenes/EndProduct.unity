@@ -903,7 +903,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a21ca3011c396a4b830dc170be54251, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds: []
+  sounds:
+  - name: CarGo
+    clip: {fileID: 8300000, guid: 1be8dc43ae4479e449203f740e06cf82, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: CarDriving
+    clip: {fileID: 8300000, guid: b7d3179d3829ef24f88adafb0d9e7733, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: CarStop
+    clip: {fileID: 8300000, guid: 643065fa0c5f28045b5c56257b9dfafd, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: CarSwitchLane
+    clip: {fileID: 8300000, guid: 37438a8d232d3364ba949fc0620e7e4b, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: QuestionPopup
+    clip: {fileID: 8300000, guid: e6925d7cb21aa9446b395ac8e3502333, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: GoodSound
+    clip: {fileID: 8300000, guid: d62605ca9ab159b408a28dcb365e9664, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BadSound
+    clip: {fileID: 8300000, guid: fd957c9eccd736e49b15c738025ac1bf, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
 --- !u!4 &357276207
 Transform:
   m_ObjectHideFlags: 0
