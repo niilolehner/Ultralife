@@ -941,7 +941,7 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: BadSound
-    clip: {fileID: 8300000, guid: fd957c9eccd736e49b15c738025ac1bf, type: 3}
+    clip: {fileID: 8300000, guid: 49eb27c327845fe4ab2b707f2d55413f, type: 3}
     volume: 1
     pitch: 1
     loop: 0
