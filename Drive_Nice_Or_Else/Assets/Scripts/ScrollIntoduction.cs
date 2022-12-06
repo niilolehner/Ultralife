@@ -45,6 +45,15 @@ public class ScrollIntoduction : MonoBehaviour
         
     }
 
+    /* 
+     * *****~ 
+     * TO DO AESMOU
+     * You need to call LevelDesign.instance.GetActualLevelDesign() 
+     * You have to show every SignSprites 
+     * and after every GamePlaySprites - no text is needed normally
+     * Go check LevelDesign class in the LevelDesign
+     * *****~
+     */
     public void nextSlice()
     {  
         if (num < 10) // Change this number, if want more traffic signs to be shown.
@@ -65,6 +74,6 @@ public class ScrollIntoduction : MonoBehaviour
 
     public void GameBegin()
     {
-        SceneManager.LoadScene(1, LoadSceneMode.Single);
+        SceneManager.LoadScene(2);
     }
 }
