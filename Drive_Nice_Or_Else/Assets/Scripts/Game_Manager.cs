@@ -83,6 +83,8 @@ public class Game_Manager : MonoBehaviour
         SetCameraSpeedOff();
         SetSpawningDeactive();
 
+        Sound_Manager.Instance.Stop("CarDriving");
+
         // show the gameOverPanel
         UI_Manager.Instance.ShowGameOverPanel(ScoreManager.Instance.GameOverSetGetHightScore().ToString());
     }
