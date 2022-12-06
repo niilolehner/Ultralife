@@ -98,9 +98,13 @@ public class UI_Manager : MonoBehaviour
                 goButton.gameObject.SetActive(true);
                 stopButton.gameObject.SetActive(false);
                 isDriving = false;
+
                 BackgroundScroller.instance.SetBackgroundScrollingOff();
                 Game_Manager.Instance.SetCameraSpeedOff();
                 Game_Manager.Instance.SetSpawningDeactive();
+
+                Sound_Manager.instance.Play("CarStop");
+                Sound_Manager.instance.Stop("CarDriving");
             }
             else
             {
@@ -110,6 +114,9 @@ public class UI_Manager : MonoBehaviour
                 BackgroundScroller.instance.SetBackgroundScrollingOn();
                 Game_Manager.Instance.SetCameraSpeedOn();
                 Game_Manager.Instance.SetSpawningActive();
+
+                Sound_Manager.instance.Play("CarGo");
+                Sound_Manager.instance.Play("CarDriving");
             }
         }
     }
@@ -124,14 +131,20 @@ public class UI_Manager : MonoBehaviour
                 leftButton.gameObject.SetActive(false);
                 rightButton.gameObject.SetActive(true);
                 isRight = false;
+
                 Car.instance.SwitchCarPosition(true);
+
+                Sound_Manager.instance.Play("CarSwitchLane");
             }
             else
             {
                 leftButton.gameObject.SetActive(true);
                 rightButton.gameObject.SetActive(false);
                 isRight = true;
+
                 Car.instance.SwitchCarPosition(false);
+
+                Sound_Manager.instance.Play("CarSwitchLane");
             }
         }
     }
@@ -166,7 +179,7 @@ public class UI_Manager : MonoBehaviour
         }
     }
 
-    // update the TimerDisplay
+    // update the ScoreDisplay
     public void UpdateScoreDisplay(int currentScore)
     {
         score.text = ($"{currentScore}");

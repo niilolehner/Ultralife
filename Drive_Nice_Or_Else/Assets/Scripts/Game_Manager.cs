@@ -26,6 +26,8 @@ public class Game_Manager : MonoBehaviour
         isGameOver = false;
         StartCoroutine(WaitQuestionPhase());
         SetQuestionPhase();
+
+        Sound_Manager.instance.Play("CarDriving");
     }
 
     // Update is called once per frame
