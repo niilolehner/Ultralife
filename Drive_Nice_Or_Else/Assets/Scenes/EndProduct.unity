@@ -3268,6 +3268,9 @@ MonoBehaviour:
   - {fileID: 4344950271303525495, guid: 202591cc20d580347aca09674520ef24, type: 3}
   - {fileID: 8883138330320208550, guid: e8b2b9994d1ab354f9962f226eb31ab4, type: 3}
   - {fileID: 6159088865705740011, guid: 7313715f0c4386c4a91c91be83f7bdf4, type: 3}
+  roads: []
+  timeBetweenSpawnItems: 2
+  timeBetweenSpawnRoads: 2
   crossedGameObect:
   - {fileID: 5292285375025308283, guid: cb1415c70b5680d4caa2f50245e7b946, type: 3}
   - {fileID: 4523051130153153825, guid: 2bace4da393072e4693ffc1235825c0e, type: 3}
@@ -5583,6 +5586,7 @@ MonoBehaviour:
   historyPanel: {fileID: 606105817}
   ScrowPanelContent: {fileID: 832255210}
   PrefabRowHistory: {fileID: 1315905842460248792, guid: 94ecac9dbda08bd4b8aacd630d5733e6, type: 3}
+  lifes: 3
 --- !u!114 &1907746411
 MonoBehaviour:
   m_ObjectHideFlags: 0

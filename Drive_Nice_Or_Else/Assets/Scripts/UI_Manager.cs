@@ -64,6 +64,9 @@ public class UI_Manager : MonoBehaviour
     private bool isDriving; // is car driving?
     private bool isRight; // is car on right lane?
 
+    // ADDED
+    public int lifes; // player lifes
+
     public static UI_Manager Instance;
 
     private void Awake()
@@ -95,7 +98,6 @@ public class UI_Manager : MonoBehaviour
                 goButton.gameObject.SetActive(true);
                 stopButton.gameObject.SetActive(false);
                 isDriving = false;
-
                 BackgroundScroller.instance.SetBackgroundScrollingOff();
                 Game_Manager.Instance.SetCameraSpeedOff();
                 Game_Manager.Instance.SetSpawningDeactive();
@@ -105,7 +107,6 @@ public class UI_Manager : MonoBehaviour
                 goButton.gameObject.SetActive(false);
                 stopButton.gameObject.SetActive(true);
                 isDriving = true;
-
                 BackgroundScroller.instance.SetBackgroundScrollingOn();
                 Game_Manager.Instance.SetCameraSpeedOn();
                 Game_Manager.Instance.SetSpawningActive();
@@ -196,6 +197,14 @@ public class UI_Manager : MonoBehaviour
     {
         question.text = ($"{currentQuestion.question}");
         questionImagePanel.sprite = currentQuestion.sprite;
+        questionPanel.gameObject.SetActive(true);
+    }
+
+    //Added
+    // show the questionPanel with currentQuestion
+    public void ShowQuestionPanel(string currentQuestion)
+    {
+        question.text = ($"{currentQuestion}");
         questionPanel.gameObject.SetActive(true);
     }
 

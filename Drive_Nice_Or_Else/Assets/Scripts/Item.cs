@@ -21,7 +21,7 @@ public class Item : MonoBehaviour
     {
         if (collision.tag == "Border" || collision.tag == "Player")
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
     }
 }

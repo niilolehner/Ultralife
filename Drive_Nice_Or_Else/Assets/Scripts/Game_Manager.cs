@@ -12,6 +12,7 @@ public class Game_Manager : MonoBehaviour
     public bool isGameOver; // is the game over?
 
     public static Game_Manager Instance;
+    static public string keepLevelName;
 
     private void Awake()
     {
@@ -24,6 +25,7 @@ public class Game_Manager : MonoBehaviour
         // initialize variables/objects
         isGameOver = false;
         StartCoroutine(WaitQuestionPhase());
+        SetQuestionPhase();
     }
 
     // Update is called once per frame
@@ -63,11 +65,11 @@ public class Game_Manager : MonoBehaviour
         spawnObjects.SetActive(true);
     }
 
-
     // starts a new game from scratch (reload the scene)
     public void StartNewGame()
     {
-        SceneManager.LoadScene(0);
+        keepLevelName = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(keepLevelName, LoadSceneMode.Single);
     }
 
     // set the game over state
@@ -107,10 +109,11 @@ public class Game_Manager : MonoBehaviour
     // verify the answer to the question
     public void UserAnswer(bool IsYesSelected)
     {
-        if (QuestionManager.Instance.IsPlayerAnswerCorrect(IsYesSelected))
+        if (QuestionManager.Instance.IsPlayerAnswerCorrect(IsYesSelected) || QuestionManager.Instance.IsPlayerAnswerTrafficQuestionCorrect(IsYesSelected))
         {
             UI_Manager.Instance.UpdateScoreDisplay(ScoreManager.Instance.AddScore());
             UI_Manager.Instance.ShowFeedback(true);
+
             if (QuestionManager.Instance.questionsListCount() == 0)
             {
                 SetGameOver();

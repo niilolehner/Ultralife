@@ -58,5 +58,12 @@ public class Car : MonoBehaviour
             }
             UI_Manager.Instance.ShowFeedback(true);
         }
+
+        Question question = QuestionManager.Instance.GetTrafficSignQuestion(collision.name);
+
+        if (question != null && !Game_Manager.Instance.isGameOver)
+        {
+            UI_Manager.Instance.ShowQuestionPanel(question.question);
+        }
     }
 }
