@@ -83,10 +83,10 @@ public class Game_Manager : MonoBehaviour
     // quit the game, depending if in editor or live app, change method
     public void QuitGame()
     {
-    #if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-    #endif
-        Application.Quit();
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+        #endif
+            Application.Quit();
     }
 
     public void SetQuestionPhase()
