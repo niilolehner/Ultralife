@@ -30,7 +30,8 @@ public class LevelManager : MonoBehaviour
        
     }
 
-    public LevelDesign GetLevelDesginlById(int index) {
+    public LevelDesign GetLevelDesginlById(int index) 
+    {
         return Levels[index];
     }
 
