@@ -184,6 +184,7 @@ MonoBehaviour:
   - {fileID: 1417571882628179056, guid: 88c66cd44647b104ba799c30423d7ef5, type: 3}
   - {fileID: 2745501529177979007, guid: d8ef862399e9b7d4197a1a50dd620a1c, type: 3}
   - {fileID: 3210969323187214480, guid: 91570885b0510384e8a15f9d31c8fba7, type: 3}
+  questionItem: {fileID: 0}
   roads: []
   timeBetweenSpawnItems: 0
   timeBetweenSpawnRoads: 0
@@ -1328,7 +1329,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 303, y: 117}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1853817731
@@ -1552,6 +1553,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4260b0a1b6cf044f8f3a57188c37ef1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelId: 0
 --- !u!4 &2017605171
 Transform:
   m_ObjectHideFlags: 0
