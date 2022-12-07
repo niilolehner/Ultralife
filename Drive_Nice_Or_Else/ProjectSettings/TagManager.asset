@@ -8,6 +8,8 @@ TagManager:
   - Road
   - Good
   - Bad
+  - Border
+  - Question
   layers:
   - Default
   - TransparentFX

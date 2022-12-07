@@ -24,9 +24,6 @@ public class Game_Manager : MonoBehaviour
     {
         // initialize variables/objects
         isGameOver = false;
-        StartCoroutine(WaitQuestionPhase());
-        SetQuestionPhase();
-
         Sound_Manager.Instance.Play("CarDriving");
     }
 
@@ -35,12 +32,6 @@ public class Game_Manager : MonoBehaviour
     {
         // Moves the camera view (GameManager).
         transform.position += new Vector3(0, cameraSpeed * Time.deltaTime, 0);
-    }
-
-    public IEnumerator WaitQuestionPhase()
-    {
-        yield return new WaitForSecondsRealtime(Random.Range(5, 10));
-        SetQuestionPhase();
     }
 
     // Set game place stopped.
@@ -98,7 +89,6 @@ public class Game_Manager : MonoBehaviour
         Application.Quit();
     }
 
-    // proc a question
     public void SetQuestionPhase()
     {
         if (!isGameOver) {
@@ -121,9 +111,6 @@ public class Game_Manager : MonoBehaviour
             if (QuestionManager.Instance.questionsListCount() == 0)
             {
                 SetGameOver();
-            }
-            else {
-                StartCoroutine(WaitQuestionPhase());
             }
         }
         else

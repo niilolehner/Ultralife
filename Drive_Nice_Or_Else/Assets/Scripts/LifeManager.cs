@@ -59,10 +59,6 @@ public class LifeManager : MonoBehaviour
             Life -= 1;
         }
         UpdateLife();
-        if (IsStillHaveLife() && IsQuestionAnswer) 
-        {
-            StartCoroutine(Game_Manager.Instance.WaitQuestionPhase());
-        }
     }
 
 }

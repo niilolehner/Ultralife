@@ -208,9 +208,11 @@ public class UI_Manager : MonoBehaviour
     // show the questionPanel with currentQuestion
     public void ShowQuestionPanel(Question currentQuestion)
     {
-        question.text = ($"{currentQuestion.question}");
-        questionImagePanel.sprite = currentQuestion.sprite;
-        questionPanel.gameObject.SetActive(true);
+        if (!questionPanel.gameObject.activeSelf) {
+            question.text = ($"{currentQuestion.question}");
+            questionImagePanel.sprite = currentQuestion.sprite;
+            questionPanel.gameObject.SetActive(true);
+        }
     }
 
     //Added

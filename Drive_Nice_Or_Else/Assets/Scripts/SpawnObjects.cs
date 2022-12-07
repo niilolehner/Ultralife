@@ -17,7 +17,7 @@ public class SpawnObjects : MonoBehaviour
     }
 
     public GameObject[] items;
-    // Added
+    public GameObject questionItem;
     public GameObject[] roads;
     private int randomSide;
     public float timeBetweenSpawnItems;
@@ -57,8 +57,14 @@ public class SpawnObjects : MonoBehaviour
                 }
                 else
                 {
-                    int randomItem = Random.Range(0, items.Length);
-                    Spawn(items[randomItem]);
+                    if (Random.Range(0, 3) == 0)
+                    {
+                        Spawn(questionItem);
+
+                    }
+                    else {
+                        Spawn(items[Random.Range(0, items.Length)]);
+                    }   
                 }
                 spawnTime = Time.time + timeBetweenSpawn;
             }
