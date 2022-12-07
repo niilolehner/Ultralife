@@ -60,6 +60,13 @@ public class ScrollIntoduction : MonoBehaviour
         {
             trafficSignImg.sprite = trafficSignSpriteRenderer[num].sprite;
             TrafficSignTxt.text = trafficSignSpriteRenderer[num].name.Substring(0, trafficSignSpriteRenderer[num].name.IndexOf("I"));
+            /**
+             * Note I change the name of the sprite "BusLane_BusStop" -> Name_WrongName
+             * to have it you need to :
+             *          string name = theSprirte.name.split("_")[0];
+             *         name = Regex.Replace(name, @"((?<=\p{Ll})\p{Lu})|((?!\A)\p{Lu}(?>\p{Ll}))", " $0");
+             **
+             * */
             TrafficSignTxt.text = Regex.Replace(TrafficSignTxt.text, @"((?<=\p{Ll})\p{Lu})|((?!\A)\p{Lu}(?>\p{Ll}))", " $0");
         }
         else

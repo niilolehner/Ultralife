@@ -206,37 +206,39 @@ public class UI_Manager : MonoBehaviour
     }
 
     // show the questionPanel with currentQuestion
-    public void ShowQuestionPanel(Question currentQuestion)
+    public void ShowQuestionPanel()
     {
         if (!questionPanel.gameObject.activeSelf) {
-            question.text = ($"{currentQuestion.question}");
-            questionImagePanel.sprite = currentQuestion.sprite;
+            QuestionModel currentQuestion = QuestionManager.Instance.GetRandomQuestionModel();
+
+            if (UnityEngine.Random.Range(0, 2) == 0)
+            {
+                question.text = currentQuestion.Answer;
+                currentQuestion.IsCorrectAnswerDisplay = true;
+            }
+            else {
+                question.text = currentQuestion.WrongAnswer;
+                currentQuestion.IsCorrectAnswerDisplay = false;
+            }
+           
+            questionImagePanel.sprite = currentQuestion.SpriteItem;
             questionPanel.gameObject.SetActive(true);
         }
     }
 
-    //Added
-    // show the questionPanel with currentQuestion
-    public void ShowQuestionPanel(string currentQuestion)
-    {
-        question.text = ($"{currentQuestion}");
-        questionPanel.gameObject.SetActive(true);
-
-        Sound_Manager.Instance.Play("QuestionPopup");
-    }
 
     // close the questionPanel, set yes as an answer
     public void YesAnswer_OnClick()
     {
         questionPanel.gameObject.SetActive(false);
-        Game_Manager.Instance.UserAnswer(true);
+        QuestionManager.Instance.UserAnswer(true);
     }
 
     // close the questionPanel, set no as an answer
     public void NoAnswer_OnClick()
     {
         questionPanel.gameObject.SetActive(false);
-        Game_Manager.Instance.UserAnswer(false);
+        QuestionManager.Instance.UserAnswer(false);
     }
 
     public void ShowFeedback(bool IsGoodFeedBack) 
@@ -265,7 +267,7 @@ public class UI_Manager : MonoBehaviour
         gameOverPanel.gameObject.SetActive(false);
         historyPanel.gameObject.SetActive(true);
 
-        List<Question> questions = QuestionManager.Instance.GetQuestionsAnswered();
+        List<QuestionModel> questions = QuestionManager.Instance.GetQuestionsAnswered();
 
         if (questions.Count > 0) 
         {
@@ -290,7 +292,7 @@ public class UI_Manager : MonoBehaviour
         }
     }
 
-    public GameObject InstantiateRowHistory(Vector3 position, Question question) 
+    public GameObject InstantiateRowHistory(Vector3 position, QuestionModel question) 
     {
         GameObject row = Instantiate(PrefabRowHistory, position, Quaternion.identity);
         FillRowHistory(row, question);
@@ -298,12 +300,13 @@ public class UI_Manager : MonoBehaviour
         return row;
     }
 
-    public void FillRowHistory(GameObject row, Question question) 
+    public void FillRowHistory(GameObject row, QuestionModel question) 
     {
-        row.GetComponent<RowQuestion>().question.text = question.question + " ?";
-        row.GetComponent<RowQuestion>().image.sprite = question.sprite;
-        row.GetComponent<RowQuestion>().answer.text = question.playerAnswer ? "Yes" : "No";
-        row.GetComponent<RowQuestion>().answerCorrection.text = ( question.answer == question.playerAnswer) ? " - Correct" : " - False";
-        row.GetComponent<RowQuestion>().answerCorrection.color = (question.answer == question.playerAnswer) ? Color.green : Color.red;
+        row.GetComponent<RowQuestion>().image.sprite = question.SpriteItem;
+        row.GetComponent<RowQuestion>().question.text = question.IsCorrectAnswerDisplay ? question.Answer + " ?" : question.WrongAnswer + " ?";
+        row.GetComponent<RowQuestion>().answer.text = question.PlayerAnswer ? "Yes" : "No";
+
+        row.GetComponent<RowQuestion>().answerCorrection.text = ( question.IsCorrectAnswerDisplay == question.PlayerAnswer) ? " - Correct" : " - False";
+        row.GetComponent<RowQuestion>().answerCorrection.color = (question.IsCorrectAnswerDisplay == question.PlayerAnswer) ? Color.green : Color.red;
     }
 }

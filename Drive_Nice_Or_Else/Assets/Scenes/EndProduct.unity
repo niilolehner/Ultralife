@@ -906,13 +906,13 @@ MonoBehaviour:
   sounds:
   - name: CarGo
     clip: {fileID: 8300000, guid: 1be8dc43ae4479e449203f740e06cf82, type: 3}
-    volume: 0.548
+    volume: 0.256
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: CarDriving
     clip: {fileID: 8300000, guid: b7d3179d3829ef24f88adafb0d9e7733, type: 3}
-    volume: 0.557
+    volume: 0.293
     pitch: 1
     loop: 1
     source: {fileID: 0}
@@ -930,19 +930,19 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: QuestionPopup
     clip: {fileID: 8300000, guid: e6925d7cb21aa9446b395ac8e3502333, type: 3}
-    volume: 0.494
+    volume: 0.284
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: GoodSound
     clip: {fileID: 8300000, guid: d62605ca9ab159b408a28dcb365e9664, type: 3}
-    volume: 0.539
+    volume: 0.321
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: BadSound
     clip: {fileID: 8300000, guid: 49eb27c327845fe4ab2b707f2d55413f, type: 3}
-    volume: 0.557
+    volume: 0.321
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -2528,6 +2528,51 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &1024047594
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1024047596}
+  - component: {fileID: 1024047595}
+  m_Layer: 0
+  m_Name: ToErase
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1024047595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024047594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4260b0a1b6cf044f8f3a57188c37ef1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LevelId: 0
+--- !u!4 &1024047596
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024047594}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1027413546
 GameObject:
   m_ObjectHideFlags: 0

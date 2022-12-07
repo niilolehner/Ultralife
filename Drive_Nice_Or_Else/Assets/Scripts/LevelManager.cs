@@ -9,29 +9,41 @@ public class LevelManager : MonoBehaviour
 {
     public static LevelManager instance;
     Dictionary<int, LevelDesign> Levels = new Dictionary<int, LevelDesign>();
-    public int levelId;
+    public int LevelId;
     
 
     void Awake()
     {
         instance = this;
         DontDestroyOnLoad(this.gameObject);
+        // to do levelId = 0 , level 3 to test
+        LevelId = 2;
+        Initializelevels();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        levelId = 0;
-        Initializelevels();
+       
     }
 
     public LevelDesign GetLevelDesginlById(int index) {
         return Levels[index];
     }
 
+    public List<LevelDesign> GetLevelDesignUntilActualLevel() 
+    {
+        List<LevelDesign> levels = new List<LevelDesign>();
+        for (int i = 0; i <= LevelId; i++) 
+        {
+            levels.Add(Levels[i]);
+        }
+        return levels;
+    }
+
     public LevelDesign GetActualLevelDesign()
     {
-        return Levels[levelId];
+        return Levels[LevelId];
     }
 
     private List<Sprite> fillLevels(List<Sprite> allSpritesSigns, int numberOfSprite) 

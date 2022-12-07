@@ -1,33 +1,63 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using UnityEngine;
 
 public class QuestionManager : MonoBehaviour
 {
     public static QuestionManager Instance;
+    /* TO DELETE
     public Sprite[] sprites;
     List<Question> Questions = new List<Question>();
-    List<Question> QuestionsAnswered = new List<Question>();
     Question QuestionSelected;
-
     List<Question> TrafficSignQuestions = new List<Question>();
     Question TrafficQuestionSelected;
+    */
+
+    public QuestionModel QuestionModelSelected;
+    List<QuestionModel> QuestionModels = new List<QuestionModel>();
+    List<QuestionModel> QuestionsAnswered = new List<QuestionModel>();
 
     private void Awake()
     {
         Instance = this;
-        initializeQuestions();
-        initializeTrafficSignQuestions();
-        //test
+        //initializeQuestions();
+        //initializeTrafficSignQuestions();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-
+        initializeQuestionsBis();
     }
 
+    public void initializeQuestionsBis()
+    {
+        List<LevelDesign> levelDesigns = LevelManager.instance.GetLevelDesignUntilActualLevel();
+
+        List<QuestionModel> questionModels = new List<QuestionModel>();
+        foreach (LevelDesign levelDesign in levelDesigns)
+        {
+            foreach (Sprite spriteItem in levelDesign.SignSprites)
+            {
+                string[] answers = spriteItem.name.Split("_");
+                string goodAnswer = Regex.Replace(answers[0], @"((?<=\p{Ll})\p{Lu})|((?!\A)\p{Lu}(?>\p{Ll}))", " $0");
+                string wrongAnswer = Regex.Replace(answers[1], @"((?<=\p{Ll})\p{Lu})|((?!\A)\p{Lu}(?>\p{Ll}))", " $0");
+                questionModels.Add(new QuestionModel(spriteItem, goodAnswer, wrongAnswer));
+
+            }
+        }
+        QuestionModels = questionModels;
+    }
+
+    public QuestionModel GetRandomQuestionModel()
+    {
+        QuestionModelSelected = QuestionModel.Clone(QuestionModels.OrderBy(e => Random.value).First());
+        return QuestionModelSelected;
+    }
+
+    /*
     public void initializeTrafficSignQuestions()
     {
         TrafficSignQuestions.Add(new Question("BusLane(Clone)", "Bus Stop", false));
@@ -58,7 +88,7 @@ public class QuestionManager : MonoBehaviour
         TrafficSignQuestions.Add(new Question("SpeedLimitZone(Clone)", "Speed limit zone", true));
         TrafficSignQuestions.Add(new Question("Stop(Clone)", "You can continue without stopping", false));
     }
-
+ 
     public Question GetTrafficSignQuestion(string questionId)
     {
         for (int i = 0; i < TrafficSignQuestions.Count; i++)
@@ -111,28 +141,21 @@ public class QuestionManager : MonoBehaviour
             {
                 Questions.Add(new Question(sprites[i].name.Replace("_", " "), true, sprites[i]));
             }
-        }   
+        }
     }
 
-    public void reInitializeQuestionManager() 
+    public void reInitializeQuestionManager()
     {
         Questions = new List<Question>();
         QuestionsAnswered = new List<Question>();
         initializeQuestions();
-    }
-
-    public int questionsListCount() { 
-        return Questions.Count;
-    }
-
-    public List<Question> GetQuestionsAnswered() 
-    { 
-        return QuestionsAnswered;
-    }
-        
-    public Question GetRandomQuestion() 
+    }   
+    
+     
+    public Question GetRandomQuestion()
     {
-        if (Questions.Count > 0) {
+        if (Questions.Count > 0)
+        {
             Question question = Questions.OrderBy(e => Random.value).First();
             Questions.Remove(question);
             QuestionSelected = question;
@@ -140,8 +163,8 @@ public class QuestionManager : MonoBehaviour
         }
         return null;
     }
-
-    public bool IsPlayerAnswerCorrect(bool playerAnswer) 
+    
+    public bool IsPlayerAnswerCorrect(bool playerAnswer)
     {
         if (QuestionSelected == null)
         {
@@ -154,9 +177,34 @@ public class QuestionManager : MonoBehaviour
             return playerAnswer == QuestionSelected.answer;
         }
     }
+    */
+
+    public List<QuestionModel> GetQuestionsAnswered()
+    {
+        return QuestionsAnswered;
+    }
+
+    public void UserAnswer(bool IsYesSelected)
+    {
+        QuestionModelSelected.PlayerAnswer = IsYesSelected;
+
+        if ((IsYesSelected && QuestionModelSelected.IsCorrectAnswerDisplay) || (!IsYesSelected && !QuestionModelSelected.IsCorrectAnswerDisplay))
+        {
+            UI_Manager.Instance.UpdateScoreDisplay(ScoreManager.Instance.AddScore());
+            UI_Manager.Instance.ShowFeedback(true);
+        }
+        else 
+        {
+            UI_Manager.Instance.UpdateScoreDisplay(ScoreManager.Instance.MinusScore());
+            LifeManager.Instance.MinusLife(true);
+            UI_Manager.Instance.ShowFeedback(false);
+        }
+        QuestionsAnswered.Add(QuestionModelSelected);
+    }
 }
 
-public class Question 
+/*
+public class Question
 {
     public string question;
     public Sprite sprite;
@@ -176,5 +224,27 @@ public class Question
         this.question = question;
         this.answer = answer;
         this.id = id;
+    }
+}
+*/
+
+public class QuestionModel
+{
+    public Sprite SpriteItem;
+    public string Answer;
+    public string WrongAnswer;
+    public bool IsCorrectAnswerDisplay;
+    public bool PlayerAnswer;
+
+    public QuestionModel(Sprite sprite, string answer, string wrongAnswer)
+    {
+        SpriteItem = sprite;
+        Answer = answer;
+        WrongAnswer = wrongAnswer;
+    }
+
+    public static QuestionModel Clone(QuestionModel questionRef) 
+    {
+        return new QuestionModel(questionRef.SpriteItem, questionRef.Answer, questionRef.WrongAnswer);
     }
 }

@@ -8,11 +8,12 @@ public class Game_Manager : MonoBehaviour
 {
     // Declare variables/objects
     public GameObject spawnObjects; // create items in the scene.
-    public float cameraSpeed; // camera speed
-    public bool isGameOver; // is the game over?
+    public float cameraSpeed;
+    public bool isGameOver;
 
     public static Game_Manager Instance;
     static public string keepLevelName;
+
 
     private void Awake()
     {
@@ -22,7 +23,6 @@ public class Game_Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // initialize variables/objects
         isGameOver = false;
         Sound_Manager.Instance.Play("CarDriving");
     }
@@ -92,32 +92,9 @@ public class Game_Manager : MonoBehaviour
     public void SetQuestionPhase()
     {
         if (!isGameOver) {
-            Question question = QuestionManager.Instance.GetRandomQuestion();
-            if (question != null)
-            {
-                UI_Manager.Instance.ShowQuestionPanel(question);
-            }
+            UI_Manager.Instance.ShowQuestionPanel();          
         }
     }
 
-    // verify the answer to the question
-    public void UserAnswer(bool IsYesSelected)
-    {
-        if (QuestionManager.Instance.IsPlayerAnswerCorrect(IsYesSelected) || QuestionManager.Instance.IsPlayerAnswerTrafficQuestionCorrect(IsYesSelected))
-        {
-            UI_Manager.Instance.UpdateScoreDisplay(ScoreManager.Instance.AddScore());
-            UI_Manager.Instance.ShowFeedback(true);
-
-            if (QuestionManager.Instance.questionsListCount() == 0)
-            {
-                SetGameOver();
-            }
-        }
-        else
-        {
-            UI_Manager.Instance.UpdateScoreDisplay(ScoreManager.Instance.MinusScore());
-            LifeManager.Instance.MinusLife(true);
-            UI_Manager.Instance.ShowFeedback(false);
-        }
-    } 
+ 
 }

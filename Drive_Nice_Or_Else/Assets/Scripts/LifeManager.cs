@@ -32,16 +32,9 @@ public class LifeManager : MonoBehaviour
     public void UpdateLife()
     {
         UI_Manager.Instance.UpdateLifeDisplay(Life);
-    }
-
-    public bool IsStillHaveLife()
-    {
-        if (Life <= 0)
-        {
+        if (Life == 0) {
             Game_Manager.Instance.SetGameOver();
-            return false;
         }
-        return true;
     }
 
     public void AddLife() 

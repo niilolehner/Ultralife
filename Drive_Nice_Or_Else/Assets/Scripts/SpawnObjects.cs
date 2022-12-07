@@ -30,17 +30,13 @@ public class SpawnObjects : MonoBehaviour
     float floatRandomX;
     private float spawnTime;
 
-    // Create a temporary reference to the current scene.
-    UnityEngine.SceneManagement.Scene currentScene;
     string sceneName;
 
     // Start is called before the first frame update
     void Start()
     {
-        // Get the current scene.
-        currentScene = SceneManager.GetActiveScene();
         // Retrieve the name of this scene.
-        sceneName = currentScene.name;
+        sceneName = SceneManager.GetActiveScene().name;
     }
 
     // Update is called once per frame
