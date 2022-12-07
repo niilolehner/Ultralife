@@ -35,14 +35,13 @@ public class ScrollIntoduction : MonoBehaviour
     {
         for (int i = 0; i < trafficSignSpriteRenderer.Length; i++)
         {
-            trafficSignSpriteRenderer[i] = SpawnObjects.instance.items[i].GetComponentInChildren<SpriteRenderer>();
+            //trafficSignSpriteRenderer[i] = SpawnObjects.instance.items[i].GetComponentInChildren<SpriteRenderer>();
         }
     }
 
     // Update is called once per frame
     void Update()
-    {
-        
+    {    
     }
 
     /* 
