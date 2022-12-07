@@ -4,11 +4,18 @@ using UnityEngine;
 
 public class LifeManager : MonoBehaviour
 {
-    // Takes the class and make it public.
+
+    /// <summary>
+    /// - Get class and make it public. Declare of variables.
+    /// - Reset lifes to max lifes, which can be modifyed from inspector.
+    /// - Sending the value of lives.
+    /// - Updates lifes in user interface.
+    /// - Add or subtract lives.
+    /// </summary>
+
     public static LifeManager Instance;
     public int MaxLife = 3; 
     int Life;
-
 
     private void Awake()
     {

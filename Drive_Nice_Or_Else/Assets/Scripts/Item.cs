@@ -4,19 +4,10 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-
-    // Start is called before the first frame update
-    void Start()
-    {
-    
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    /// <summary>
+    /// - If hit other trigger, destroy this object.
+    /// </summary>
+    /// 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Border" || collision.tag == "Player")

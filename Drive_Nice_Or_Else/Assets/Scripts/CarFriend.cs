@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+// WORKING IN AdditionalProduct_1 Scene.
 public class CarFriend : MonoBehaviour
 {
     // Takes the class and make it public.

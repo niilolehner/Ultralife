@@ -89,13 +89,15 @@ public class Game_Manager : MonoBehaviour
             Application.Quit();
     }
 
+    // Show question in the UI.
     public void SetQuestionPhase()
     {
         if (!isGameOver) {
             UI_Manager.Instance.ShowQuestionPanel();          
         }
     }
-
+    
+    // Get lifes and end game or load new learning scene.
     public void CheckGameStatus()
     {
         if (LifeManager.Instance.GetLife() == 0)

@@ -63,13 +63,5 @@ public class Car : MonoBehaviour
         {
             Game_Manager.Instance.SetQuestionPhase();
         }
-
-        /* TO DELETE probably i Keep it just in case
-        Question question = QuestionManager.Instance.GetTrafficSignQuestion(collision.name);
-
-        if (question != null && !Game_Manager.Instance.isGameOver)
-        {
-            UI_Manager.Instance.ShowQuestionPanel(question.question);
-        }*/
     }
 }
