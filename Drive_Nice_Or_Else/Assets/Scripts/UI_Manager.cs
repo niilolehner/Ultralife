@@ -63,7 +63,6 @@ public class UI_Manager : MonoBehaviour
 
     private bool isDriving; // is car driving?
     private bool isRight; // is car on right lane?
-
     public static UI_Manager Instance;
 
     private void Awake()

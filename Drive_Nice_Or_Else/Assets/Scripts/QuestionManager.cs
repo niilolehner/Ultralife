@@ -69,7 +69,7 @@ public class QuestionManager : MonoBehaviour
             LifeManager.Instance.MinusLife();
             UI_Manager.Instance.ShowFeedback(false);
         }
-        UI_Manager.Instance.UpdateScoreDisplay();
+        UI_Manager.Instance.UpdateScoreDisplay(ScoreManager.Instance.GetScore());
         QuestionsAnswered.Add(QuestionModelSelected);
         Game_Manager.Instance.CheckGameStatus();
     }
