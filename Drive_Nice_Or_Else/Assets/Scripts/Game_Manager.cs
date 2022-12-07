@@ -96,5 +96,16 @@ public class Game_Manager : MonoBehaviour
         }
     }
 
- 
+    public void CheckGameStatus()
+    {
+        if (LifeManager.Instance.GetLife() == 0)
+        {
+            Game_Manager.Instance.SetGameOver();
+        }
+        if (ScoreManager.Instance.Score == ScoreManager.Instance.ScoreGoalLevel)
+        {
+            LevelManager.instance.LevelId += 1;
+            SceneManager.LoadScene(0);
+        }
+    }
 }

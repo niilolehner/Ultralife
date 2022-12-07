@@ -49,6 +49,7 @@ public class Car : MonoBehaviour
         {
             LifeManager.Instance.MinusLife();
             UI_Manager.Instance.ShowFeedback(false);
+            Game_Manager.Instance.CheckGameStatus();
         }
         else if (collision.tag == "Good")
         {

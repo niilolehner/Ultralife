@@ -32,9 +32,6 @@ public class LifeManager : MonoBehaviour
     public void UpdateLife()
     {
         UI_Manager.Instance.UpdateLifeDisplay(Life);
-        if (Life == 0) {
-            Game_Manager.Instance.SetGameOver();
-        }
     }
 
     public void AddLife() 
@@ -45,7 +42,7 @@ public class LifeManager : MonoBehaviour
         UpdateLife();
     }
 
-    public void MinusLife(bool IsQuestionAnswer = false)
+    public void MinusLife()
     {
         if (Life > 0)
         {

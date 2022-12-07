@@ -53,7 +53,7 @@ public class SpawnObjects : MonoBehaviour
                 }
                 else
                 {
-                    if (Random.Range(0, 3) == 0)
+                    if (Random.Range(0, 2) == 0)
                     {
                         Spawn(questionItem);
 

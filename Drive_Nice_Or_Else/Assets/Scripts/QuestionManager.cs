@@ -190,16 +190,18 @@ public class QuestionManager : MonoBehaviour
 
         if ((IsYesSelected && QuestionModelSelected.IsCorrectAnswerDisplay) || (!IsYesSelected && !QuestionModelSelected.IsCorrectAnswerDisplay))
         {
-            UI_Manager.Instance.UpdateScoreDisplay(ScoreManager.Instance.AddScore());
+            ScoreManager.Instance.AddScore();
             UI_Manager.Instance.ShowFeedback(true);
         }
         else 
         {
-            UI_Manager.Instance.UpdateScoreDisplay(ScoreManager.Instance.MinusScore());
-            LifeManager.Instance.MinusLife(true);
+            ScoreManager.Instance.MinusScore();
+            LifeManager.Instance.MinusLife();
             UI_Manager.Instance.ShowFeedback(false);
         }
+        UI_Manager.Instance.UpdateScoreDisplay();
         QuestionsAnswered.Add(QuestionModelSelected);
+        Game_Manager.Instance.CheckGameStatus();
     }
 }
 

@@ -9,16 +9,19 @@ public class LevelManager : MonoBehaviour
 {
     public static LevelManager instance;
     Dictionary<int, LevelDesign> Levels = new Dictionary<int, LevelDesign>();
-    public int LevelId;
+    public int LevelId = 0;
     
 
     void Awake()
     {
-        instance = this;
-        DontDestroyOnLoad(this.gameObject);
-        // to do levelId = 0 , level 3 to test
-        LevelId = 2;
-        Initializelevels();
+        if (instance == null)
+        {
+            instance = this;
+            Initializelevels();
+            DontDestroyOnLoad(this.gameObject);
+            return;
+        }
+        Destroy(this.gameObject);
     }
 
     // Start is called before the first frame update

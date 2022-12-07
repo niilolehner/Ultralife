@@ -5,7 +5,8 @@ using UnityEngine;
 public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager Instance;
-    int Score;
+    public int ScoreGoalLevel;
+    public int Score;
     public int HightScore;
 
     private void Awake()
@@ -39,7 +40,7 @@ public class ScoreManager : MonoBehaviour
 
     public int MinusScore()
     {
-        return Score -= 1;
+        return Score > 0 ? Score -= 1 : Score;
     }
 
     public int GetScore() 
@@ -50,10 +51,11 @@ public class ScoreManager : MonoBehaviour
     public int GameOverSetGetHightScore()
     {
         int HightScore = PlayerPrefs.GetInt("HightScore");
+        int totalScore = Score + ( LevelManager.instance.LevelId * ScoreManager.Instance.ScoreGoalLevel);
 
-        if (Score > HightScore)
+        if (totalScore > HightScore)
         {
-            PlayerPrefs.SetInt("HightScore", Score);
+            PlayerPrefs.SetInt("HightScore", totalScore);
         }
         return PlayerPrefs.GetInt("HightScore");
     }
