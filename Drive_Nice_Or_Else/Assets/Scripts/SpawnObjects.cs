@@ -65,7 +65,7 @@ public class SpawnObjects : MonoBehaviour
                 spawnTime = Time.time + timeBetweenSpawn;
             }
         }
-        else if (sceneName == "Lvl1")
+        else if (sceneName == "AdditionalProduct_1")
         {
             if (Time.time > spawnTimeItems)
             {
@@ -82,6 +82,7 @@ public class SpawnObjects : MonoBehaviour
         }
     }
 
+    // WORKING IN AdditionalProduct_1 Scene
     // Get object and creates it to random position on the road. 
     void SpawnCollectableItems(GameObject item)
     {
@@ -101,6 +102,7 @@ public class SpawnObjects : MonoBehaviour
         Instantiate(item, transform.position + new Vector3(floatRandomX, randomY, 0), transform.rotation);
     }
 
+    // WORKING IN AdditionalProduct_1 Scene
     void SpawnCrossingRoads(GameObject road)
     {
         randomSide = Random.Range(0, 3);

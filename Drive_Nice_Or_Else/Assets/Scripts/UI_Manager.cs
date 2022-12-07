@@ -31,11 +31,7 @@ public class UI_Manager : MonoBehaviour
 
     [Header("ScoreDisplay")]
     [SerializeField]
-    private TextMeshProUGUI level;
-    [SerializeField]
     private TextMeshProUGUI score;
-    [SerializeField]
-    private TextMeshProUGUI totalScore;
 
     [Header("QuestionPanel")]
     [SerializeField]
@@ -68,9 +64,6 @@ public class UI_Manager : MonoBehaviour
     private bool isDriving; // is car driving?
     private bool isRight; // is car on right lane?
 
-    // ADDED
-    public int lifes; // player lifes
-
     public static UI_Manager Instance;
 
     private void Awake()
@@ -84,8 +77,6 @@ public class UI_Manager : MonoBehaviour
         // initialize variables
         isDriving = true; // game starts with car driving
         isRight = true; // game starts with car on the right lane
-        level.text = "Level " + (LevelManager.instance.LevelId + 1);
-        UpdateScoreDisplay();
     }
 
     // Update is called once per frame
@@ -186,10 +177,9 @@ public class UI_Manager : MonoBehaviour
     }
 
     // update the ScoreDisplay
-    public void UpdateScoreDisplay()
+    public void UpdateScoreDisplay(int currentScore)
     {
-        score.text = ($"{ScoreManager.Instance.Score + " / " + ScoreManager.Instance.ScoreGoalLevel}");
-        totalScore.text = ($"{ScoreManager.Instance.Score + (ScoreManager.Instance.ScoreGoalLevel * LevelManager.instance.LevelId) + " pts"}");
+        score.text = ($"{currentScore}");
     }
 
     // show the gameOverPanel, show the highscore (currentBestScore)

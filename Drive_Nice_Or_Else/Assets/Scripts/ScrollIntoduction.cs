@@ -54,9 +54,11 @@ public class ScrollIntoduction : MonoBehaviour
      * Go check LevelDesign class in the LevelDesign
      * *****~
      */
+
+    // Show correct answers to traffic signs in introduction scene.
     public void nextSlice()
     {  
-        if (num < 10) // Change this number, if want more traffic signs to be shown.
+        if (num < 8) // Change this number, if want more traffic signs to be shown.
         {
             trafficSignImg.sprite = trafficSignSpriteRenderer[num].sprite;
             TrafficSignTxt.text = trafficSignSpriteRenderer[num].name.Substring(0, trafficSignSpriteRenderer[num].name.IndexOf("I"));

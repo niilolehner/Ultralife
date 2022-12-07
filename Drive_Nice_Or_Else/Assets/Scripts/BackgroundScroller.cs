@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class BackgroundScroller : MonoBehaviour
 {
-    // Takes the class and make it public.
+    /// <summary>
+    /// 1. Get class and make it public. Declare of variables.
+    /// 2. Update makes the background move.
+    /// 3. Set movement on and off.
+    /// </summary>
+    // 
     public static BackgroundScroller instance;
     public float backgroundSpeed;
     public Renderer backgroundRenderer;
 
-    // This function is called when the script instance is being loaded.
     void Awake()
     {
         if (instance == null)
@@ -25,7 +29,6 @@ public class BackgroundScroller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Makes the background move.
         backgroundRenderer.material.mainTextureOffset += new Vector2(0f, -backgroundSpeed * Time.deltaTime);
     }
 
