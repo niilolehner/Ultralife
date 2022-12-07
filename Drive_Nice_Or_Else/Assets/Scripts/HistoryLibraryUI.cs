@@ -42,6 +42,7 @@ public class HistoryLibraryUI : MonoBehaviour
 
     public void HistoryButtonOnClick()
     {
+        historyLibraryPanel.gameObject.SetActive(true);
         ClearContent();
         HistoryLibraryText.text = "HISTORY";
 
@@ -83,18 +84,16 @@ public class HistoryLibraryUI : MonoBehaviour
         row.GetComponent<RowQuestion>().image.sprite = question.SpriteItem;
         row.GetComponent<RowQuestion>().question.text = question.IsCorrectAnswerDisplay ? question.Answer + " ?" : question.WrongAnswer + " ?";
         row.GetComponent<RowQuestion>().answer.text = question.PlayerAnswer ? "Yes" : "No";
-
         row.GetComponent<RowQuestion>().answerCorrection.text = (question.IsCorrectAnswerDisplay == question.PlayerAnswer) ? " - Correct" : " - False";
         row.GetComponent<RowQuestion>().answerCorrection.color = (question.IsCorrectAnswerDisplay == question.PlayerAnswer) ? Color.green : Color.red;
     }
 
     public void LibraryButtonOnClick()
     {
+        historyLibraryPanel.gameObject.SetActive(true);
         ClearContent();
         HistoryLibraryText.text = "LIBRARY";
-        List<LevelDesign> leveldesigns = new List<LevelDesign>();
-        leveldesigns.AddRange(LevelManager.instance.GetLevelDesignUntilActualLevel());
-
+        List<LevelDesign> leveldesigns = LevelManager.instance.GetLevelDesignUntilActualLevel();
 
         RectTransform rect = PrefabRowHistory.GetComponent<RectTransform>();
         float offset = 20f;
@@ -104,10 +103,8 @@ public class HistoryLibraryUI : MonoBehaviour
         RectTransform ScrowPanelContentRec = ScrowPanelContent.GetComponent<RectTransform>();
         ScrowPanelContentRec.sizeDelta = new Vector2(ScrowPanelContentRec.sizeDelta.x, (leveldesigns.Count * height * 4));
 
-
         Vector3 positionRow = new Vector3(ScrowPanelContent.transform.position.x + width / 2 + offset, ScrowPanelContent.transform.position.y - height / 2 - offset, 0);
         GameObject row = InstantiateRowLibrary(positionRow, leveldesigns[0].SignSprites[0]);
-        leveldesigns[0].SignSprites.RemoveAt(0);
 
         foreach (LevelDesign lvl in leveldesigns)
         {
@@ -116,6 +113,20 @@ public class HistoryLibraryUI : MonoBehaviour
                 Vector3 positionNextRow = new Vector3(row.transform.position.x, row.transform.position.y - height - offset, 0);
                 GameObject nextRow = InstantiateRowLibrary(positionNextRow, sprite);
                 row = nextRow; 
+            }
+        }
+
+
+        for (int i = 0; i < leveldesigns.Count; i++)
+        {
+            List<Sprite> sprites = leveldesigns[i].SignSprites;
+            for (int j = 0; j < sprites.Count; j++)
+            {
+                if (i !=  0 && j!=0 )  {
+                    Vector3 positionNextRow = new Vector3(row.transform.position.x, row.transform.position.y - height - offset, 0);
+                    GameObject nextRow = InstantiateRowLibrary(positionNextRow, sprites[j]);
+                    row = nextRow;
+                }  
             }
         }
     }
@@ -134,6 +145,9 @@ public class HistoryLibraryUI : MonoBehaviour
         row.GetComponent<RowQuestion>().question.text = LevelManager.instance.GetNameSignSprite(sprite);
     }
 
-
+    public void HistoryExitButtonOnClick()
+    {
+        historyLibraryPanel.gameObject.SetActive(false);
+    }
 
 }

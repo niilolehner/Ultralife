@@ -229,7 +229,6 @@ public class UI_Manager : MonoBehaviour
         }
     }
 
-
     // close the questionPanel, set yes as an answer
     public void YesAnswer_OnClick()
     {
@@ -263,22 +262,5 @@ public class UI_Manager : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(0.240f);
         feedBackGameObject.SetActive(false);
-    }
-
-    public void HistoryButtonOnClick() 
-    {
-        historyLibraryPanel.gameObject.SetActive(true);
-        HistoryLibraryUI.Instance.HistoryButtonOnClick();
-    }
-
-    public void HistoryExitButtonOnClick()
-    {
-        historyLibraryPanel.gameObject.SetActive(false);
-    }
-
-    public void LibraryOnCLick() 
-    {
-        historyLibraryPanel.gameObject.SetActive(true);
-        HistoryLibraryUI.Instance.LibraryButtonOnClick();
     }
 }
