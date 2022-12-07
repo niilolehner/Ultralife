@@ -2803,7 +2803,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   items:
   - {fileID: 3799734402496904837, guid: 8eac648d28268e84f85d99decd939453, type: 3}
-  - {fileID: 4344950271303525495, guid: 202591cc20d580347aca09674520ef24, type: 3}
+  - {fileID: 3799734402496904837, guid: a245902027a0e5842af20933e12ab5c9, type: 3}
   - {fileID: 8883138330320208550, guid: e8b2b9994d1ab354f9962f226eb31ab4, type: 3}
   - {fileID: 6159088865705740011, guid: 7313715f0c4386c4a91c91be83f7bdf4, type: 3}
   questionItem: {fileID: 8883138330320208550, guid: 60e1c488f38e43c44bb313478f2f8d21, type: 3}
@@ -3351,7 +3351,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1437672760}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1907746410}
+        m_TargetAssemblyTypeName: UI_Manager, Assembly-CSharp
+        m_MethodName: LibraryOnCLick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1437672760
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5050,7 +5062,7 @@ MonoBehaviour:
   GoodFeedback: {fileID: 1007735083}
   WrongFeedback: {fileID: 1209953821}
   historyLibraryPanel: {fileID: 606105817}
-  lifes: 3
+  lifes: 0
 --- !u!114 &1907746411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5465,7 +5477,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2098988703
 RectTransform:
   m_ObjectHideFlags: 0

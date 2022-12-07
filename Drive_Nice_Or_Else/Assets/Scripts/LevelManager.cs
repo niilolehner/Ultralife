@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -83,6 +84,11 @@ public class LevelManager : MonoBehaviour
         Levels[0].GamePlaySprites.Add(Resources.Load<Texture2D>("GamePlayInstruction/BonusMalus"));
         Levels[0].GamePlaySprites.Add(Resources.Load<Texture2D>("GamePlayInstruction/Question"));
         Levels[1].GamePlaySprites.Add(Resources.Load<Texture2D>("GamePlayInstruction/Pedestrian"));
+    }
+
+    public string GetNameSignSprite(Sprite spriteItem) 
+    {
+        return name = Regex.Replace(spriteItem.name.Split("_")[0], @"((?<=\p{Ll})\p{Lu})|((?!\A)\p{Lu}(?>\p{Ll}))", " $0");
     }
 }
 
