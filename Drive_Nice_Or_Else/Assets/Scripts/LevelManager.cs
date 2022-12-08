@@ -11,7 +11,7 @@ public class LevelManager : MonoBehaviour
     public static LevelManager instance;
     Dictionary<int, LevelDesign> Levels = new Dictionary<int, LevelDesign>();
     public int LevelId = 0;
-    public GameObject PedestrianPrefab;
+    public Dictionary<string, GameObject> GamepPlayGameObject = new Dictionary<string, GameObject>();
 
 
     void Awake()
@@ -45,6 +45,22 @@ public class LevelManager : MonoBehaviour
             levels.Add(Levels[i]);
         }
         return levels;
+    }
+
+    public List<string> GetGamePlayAllowedUntilActualLevel() 
+    {
+        List<string> gamePlayName = new List<string>();
+        for (int i = 0; i <= LevelId; i++)
+        {
+            foreach (Texture2D sprite in Levels[i].GamePlaySprites) 
+            {
+                if (sprite.name != "BonusMalus" && sprite.name != "Question") {
+                    gamePlayName.Add(sprite.name);
+
+                }
+            }
+        }
+        return gamePlayName;
     }
 
     public LevelDesign GetActualLevelDesign()
@@ -85,6 +101,10 @@ public class LevelManager : MonoBehaviour
         Levels[0].GamePlaySprites.Add(Resources.Load<Texture2D>("GamePlayInstruction/BonusMalus"));
         Levels[0].GamePlaySprites.Add(Resources.Load<Texture2D>("GamePlayInstruction/Question"));
         Levels[1].GamePlaySprites.Add(Resources.Load<Texture2D>("GamePlayInstruction/Pedestrian"));
+        Levels[2].GamePlaySprites.Add(Resources.Load<Texture2D>("GamePlayInstruction/Traficlight"));
+
+        GamepPlayGameObject.Add("Pedestrian", Resources.Load<GameObject>("Prefabs/Pedestrian"));
+        GamepPlayGameObject.Add("Traficlight", Resources.Load<GameObject>("Prefabs/Traficlight"));
     }
 
     public string GetNameSignSprite(Sprite spriteItem) 
@@ -97,12 +117,11 @@ public class LevelDesign
 {
     public List<Sprite> SignSprites;
     public List<Texture2D> GamePlaySprites;
-    public Dictionary<string, GameObject> GamepPlayGameObject;
+
 
     public LevelDesign(List<Sprite> SignSprites, List<Texture2D> GamePlaySprites)
     {
         this.SignSprites = SignSprites;
         this.GamePlaySprites = GamePlaySprites;
-        GamepPlayGameObject = new Dictionary<string, GameObject>();
     }
 }

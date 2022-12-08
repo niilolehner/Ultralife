@@ -122,7 +122,7 @@ GameObject:
   - component: {fileID: 5292285375025308280}
   - component: {fileID: 3319321248114785349}
   m_Layer: 0
-  m_Name: CrossedRoad
+  m_Name: Pedestrian
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

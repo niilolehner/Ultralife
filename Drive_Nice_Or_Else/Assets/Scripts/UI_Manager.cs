@@ -49,7 +49,15 @@ public class UI_Manager : MonoBehaviour
     [SerializeField]
     private GameObject gameOverPanel;
     [SerializeField]
+    private TextMeshProUGUI gameOverTitle;
+    [SerializeField]
     private TextMeshProUGUI highscore;
+    [SerializeField]
+    private GameObject RetryButton;
+    [SerializeField]
+    private GameObject QuitButton;
+    [SerializeField]
+    private GameObject NextLevelButton;
 
     [Header("Feedback Answer Player")]
     [SerializeField]
@@ -189,11 +197,26 @@ public class UI_Manager : MonoBehaviour
     }
 
     // show the gameOverPanel, show the highscore (currentBestScore)
-    public void ShowGameOverPanel(string currentBestScore)
+    public void ShowGameOverPanel(string currentBestScore, bool IsLevelSucess)
     {
         questionPanel.gameObject.SetActive(false);
         highscore.text = ($"HIGHSCORE: {currentBestScore}");
         gameOverPanel.gameObject.SetActive(true);
+
+        if (IsLevelSucess)
+        {
+            gameOverTitle.text = "Level Succeed !";
+            RetryButton.gameObject.SetActive(false);
+        }
+        else {
+            gameOverTitle.text = "GAME OVER!";
+           NextLevelButton.gameObject.SetActive(false);
+        }
+    }
+
+    public void NextLevelOnClick() 
+    { 
+        Game_Manager.Instance.GoNextLevel();
     }
 
     // retry and start a new game

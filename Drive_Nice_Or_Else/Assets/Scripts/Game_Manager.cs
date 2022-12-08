@@ -66,7 +66,7 @@ public class Game_Manager : MonoBehaviour
     }
 
     // set the game over state
-    public void SetGameOver()
+    public void SetGameOver(bool isLevelSuccess = false)
     {
         isGameOver = true;
 
@@ -77,7 +77,7 @@ public class Game_Manager : MonoBehaviour
         Sound_Manager.Instance.Stop("CarDriving");
 
         // show the gameOverPanel
-        UI_Manager.Instance.ShowGameOverPanel(ScoreManager.Instance.GameOverSetGetHightScore().ToString());
+        UI_Manager.Instance.ShowGameOverPanel(ScoreManager.Instance.GameOverSetGetHightScore().ToString(), isLevelSuccess);
     }
 
     // quit the game, depending if in editor or live app, change method
@@ -106,8 +106,13 @@ public class Game_Manager : MonoBehaviour
         }
         if (ScoreManager.Instance.Score == ScoreManager.Instance.ScoreGoalLevel)
         {
-            LevelManager.instance.LevelId += 1;
-            SceneManager.LoadScene(0);
+            SetGameOver(true);
         }
+    }
+
+    public void GoNextLevel() 
+    {
+        LevelManager.instance.LevelId += 1;
+        SceneManager.LoadScene(0);
     }
 }

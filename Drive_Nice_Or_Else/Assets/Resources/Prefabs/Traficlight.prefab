@@ -424,7 +424,7 @@ GameObject:
   - component: {fileID: 1806243949628939579}
   - component: {fileID: 5041758217891005008}
   m_Layer: 0
-  m_Name: CrossedRoadTrafic
+  m_Name: Traficlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

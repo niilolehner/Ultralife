@@ -17,10 +17,6 @@ public class HistoryLibraryUI : MonoBehaviour
     [SerializeField]
     private GameObject PrefabRowHistory;
 
-    [SerializeField]
-    private GameObject RetryButton;
-    [SerializeField]
-    private GameObject QuitButton;
 
     private void Awake()
     {
@@ -47,8 +43,6 @@ public class HistoryLibraryUI : MonoBehaviour
 
     public void HistoryButtonOnClick()
     {
-        RetryButton.SetActive(true);
-        QuitButton.SetActive(true);
         historyLibraryPanel.gameObject.SetActive(true);
         ClearContent();
         HistoryLibraryText.text = "HISTORY";
@@ -97,8 +91,6 @@ public class HistoryLibraryUI : MonoBehaviour
 
     public void LibraryButtonOnClick()
     {
-        RetryButton.SetActive(false);
-        QuitButton.SetActive(false);
         ClearContent();
         historyLibraryPanel.gameObject.SetActive(true);
 
@@ -150,5 +142,4 @@ public class HistoryLibraryUI : MonoBehaviour
     {
         historyLibraryPanel.gameObject.SetActive(false);
     }
-
 }

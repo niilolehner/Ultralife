@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -18,7 +19,6 @@ public class SpawnObjects : MonoBehaviour
 
     public GameObject[] items;
     public GameObject questionItem;
-    public GameObject[] roads;
     private int randomSide;
     public float timeBetweenSpawnItems;
     public float timeBetweenSpawnRoads;
@@ -31,12 +31,16 @@ public class SpawnObjects : MonoBehaviour
     private float spawnTime;
 
     string sceneName;
+    List<string> gamePlayAllowed;
+
+    LevelManager levelManager = LevelManager.instance;
 
     // Start is called before the first frame update
     void Start()
     {
         // Retrieve the name of this scene.
         sceneName = SceneManager.GetActiveScene().name;
+        gamePlayAllowed = LevelManager.instance.GetGamePlayAllowedUntilActualLevel();
     }
 
     // Update is called once per frame
@@ -49,7 +53,14 @@ public class SpawnObjects : MonoBehaviour
             {
                 if (Random.Range(0, 5) == 0)
                 {
-                    SpawnCrossed(crossedGameObect[Random.Range(0, 2)]);
+                    if (gamePlayAllowed.Count > 0) {
+                        string gameplay = gamePlayAllowed.OrderBy(e => Random.value).First();
+                        print(gameplay);
+                        if (levelManager.GamepPlayGameObject.ContainsKey(gameplay))
+                        {
+                            SpawnCrossed(levelManager.GamepPlayGameObject[gameplay]);
+                        }
+                    }
                 }
                 else
                 {
@@ -76,7 +87,7 @@ public class SpawnObjects : MonoBehaviour
 
             if (Time.time > spawnTimeRoads)
             {
-                SpawnCrossingRoads(roads[0]);
+                //SpawnCrossingRoads(roads[0]);
                 spawnTimeRoads = Time.time + timeBetweenSpawnRoads + Random.Range(0, 20f);
             }
         }
