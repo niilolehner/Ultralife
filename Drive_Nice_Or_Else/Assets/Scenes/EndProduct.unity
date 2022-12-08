@@ -1081,6 +1081,42 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: LevelUp
+    clip: {fileID: 8300000, guid: 49eb27c327845fe4ab2b707f2d55413f, type: 3}
+    volume: 0.321
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: GameOver
+    clip: {fileID: 8300000, guid: e134c0e1a98fb8840bbd1fc7cf3c0149, type: 3}
+    volume: 0.321
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: AmbientCityTraffic
+    clip: {fileID: 8300000, guid: 8606879dd68409e4fb1c7e98436edc78, type: 3}
+    volume: 0.321
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: AmbientParkDogs
+    clip: {fileID: 8300000, guid: a76e0fa0b41adea4bbc74cc10faba81a, type: 3}
+    volume: 0.321
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: AmbientParkBirds
+    clip: {fileID: 8300000, guid: 5e7a028fee1c51541a459e94fd7fda72, type: 3}
+    volume: 0.321
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: AmbientMix
+    clip: {fileID: 8300000, guid: 21296c626e51a7240bf4f3254911828f, type: 3}
+    volume: 0.321
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
 --- !u!4 &357276207
 Transform:
   m_ObjectHideFlags: 0
