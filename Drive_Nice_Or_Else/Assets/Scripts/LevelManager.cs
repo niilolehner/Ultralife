@@ -11,7 +11,8 @@ public class LevelManager : MonoBehaviour
     public static LevelManager instance;
     Dictionary<int, LevelDesign> Levels = new Dictionary<int, LevelDesign>();
     public int LevelId = 0;
-    
+    public GameObject PedestrianPrefab;
+
 
     void Awake()
     {
@@ -96,10 +97,12 @@ public class LevelDesign
 {
     public List<Sprite> SignSprites;
     public List<Texture2D> GamePlaySprites;
+    public Dictionary<string, GameObject> GamepPlayGameObject;
 
     public LevelDesign(List<Sprite> SignSprites, List<Texture2D> GamePlaySprites)
     {
         this.SignSprites = SignSprites;
         this.GamePlaySprites = GamePlaySprites;
+        GamepPlayGameObject = new Dictionary<string, GameObject>();
     }
 }

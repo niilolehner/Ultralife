@@ -23,6 +23,10 @@ public class ScrollIntoduction : MonoBehaviour
     private Image trafficSignImg;
     [SerializeField]
     private TextMeshProUGUI TrafficSignTxt;
+    [SerializeField]
+    private GameObject GamePlayPanel;
+    [SerializeField]
+    private Image GamePlayImage;
 
     Scene sceneName;
     LevelDesign level;
@@ -33,8 +37,8 @@ public class ScrollIntoduction : MonoBehaviour
     void Start()
     {
         level = LevelManager.instance.GetActualLevelDesign();
-        SignsNumber = level.SignSprites.Count;
-        GameFeaturesNumber = level.GamePlaySprites.Count;
+        SignsNumber = level.SignSprites.Count-1;
+        GameFeaturesNumber = level.GamePlaySprites.Count-1;
     }
 
     // Update is called once per frame
@@ -44,18 +48,24 @@ public class ScrollIntoduction : MonoBehaviour
 
     public void nextSlice()
     {
-        if (SignsNumber > 0)
+        if (SignsNumber >= 0)
         {
-            trafficSignImg.sprite = level.SignSprites[SignsNumber - 1];
-            string name = level.SignSprites[SignsNumber - 1].name.Split("_")[0];
+            trafficSignImg.sprite = level.SignSprites[SignsNumber];
+            string name = level.SignSprites[SignsNumber].name.Split("_")[0];
             TrafficSignTxt.text = Regex.Replace(name, @"((?<=\p{Ll})\p{Lu})|((?!\A)\p{Lu}(?>\p{Ll}))", " $0");
             SignsNumber--;
         }
-        else if (SignsNumber == 0 && GameFeaturesNumber > 0)
+        else if (SignsNumber < 0 && GameFeaturesNumber >= 0)
         {
-            TrafficSignTxt.text = "";
-            Sprite mySprite = Sprite.Create(level.GamePlaySprites[GameFeaturesNumber - 1], new Rect(0.0f, 0.0f, level.GamePlaySprites[GameFeaturesNumber - 1].width, level.GamePlaySprites[GameFeaturesNumber - 1].height), new Vector2(0.5f, 0.5f), 100.0f);
-            trafficSignImg.sprite = mySprite;
+            if (GameFeaturesNumber == level.GamePlaySprites.Count - 1)
+            {
+                GamePlayImage.gameObject.SetActive(true);
+                trafficSignImg.gameObject.SetActive(false);
+                TrafficSignTxt.text = "";
+                GamePlayPanel.SetActive(true);
+            }
+            Sprite mySprite = Sprite.Create(level.GamePlaySprites[GameFeaturesNumber], new Rect(0.0f, 0.0f, level.GamePlaySprites[GameFeaturesNumber].width, level.GamePlaySprites[GameFeaturesNumber].height), new Vector2(0.5f, 0.5f), 100.0f);
+            GamePlayImage.sprite = mySprite;
             GameFeaturesNumber--;
         }
         else

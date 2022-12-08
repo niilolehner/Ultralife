@@ -17,6 +17,11 @@ public class HistoryLibraryUI : MonoBehaviour
     [SerializeField]
     private GameObject PrefabRowHistory;
 
+    [SerializeField]
+    private GameObject RetryButton;
+    [SerializeField]
+    private GameObject QuitButton;
+
     private void Awake()
     {
         Instance = this;
@@ -42,6 +47,8 @@ public class HistoryLibraryUI : MonoBehaviour
 
     public void HistoryButtonOnClick()
     {
+        RetryButton.SetActive(true);
+        QuitButton.SetActive(true);
         historyLibraryPanel.gameObject.SetActive(true);
         ClearContent();
         HistoryLibraryText.text = "HISTORY";
@@ -90,10 +97,14 @@ public class HistoryLibraryUI : MonoBehaviour
 
     public void LibraryButtonOnClick()
     {
-        historyLibraryPanel.gameObject.SetActive(true);
+        RetryButton.SetActive(false);
+        QuitButton.SetActive(false);
         ClearContent();
+        historyLibraryPanel.gameObject.SetActive(true);
+
         HistoryLibraryText.text = "LIBRARY";
         List<LevelDesign> leveldesigns = LevelManager.instance.GetLevelDesignUntilActualLevel();
+        List<Sprite> spritesSigns = new List<Sprite>(leveldesigns[0].SignSprites);
 
         RectTransform rect = PrefabRowHistory.GetComponent<RectTransform>();
         float offset = 20f;
@@ -105,30 +116,20 @@ public class HistoryLibraryUI : MonoBehaviour
 
         Vector3 positionRow = new Vector3(ScrowPanelContent.transform.position.x + width / 2 + offset, ScrowPanelContent.transform.position.y - height / 2 - offset, 0);
         GameObject row = InstantiateRowLibrary(positionRow, leveldesigns[0].SignSprites[0]);
+        spritesSigns.RemoveAt(0);
 
-        foreach (LevelDesign lvl in leveldesigns)
+        for (int i = 1; i < leveldesigns.Count; i++)
         {
-            foreach (Sprite sprite in lvl.SignSprites )
-            {
-                Vector3 positionNextRow = new Vector3(row.transform.position.x, row.transform.position.y - height - offset, 0);
-                GameObject nextRow = InstantiateRowLibrary(positionNextRow, sprite);
-                row = nextRow; 
-            }
+            spritesSigns.AddRange(leveldesigns[i].SignSprites);
         }
 
-
-        for (int i = 0; i < leveldesigns.Count; i++)
+        foreach (Sprite sprite in spritesSigns) 
         {
-            List<Sprite> sprites = leveldesigns[i].SignSprites;
-            for (int j = 0; j < sprites.Count; j++)
-            {
-                if (i !=  0 && j!=0 )  {
-                    Vector3 positionNextRow = new Vector3(row.transform.position.x, row.transform.position.y - height - offset, 0);
-                    GameObject nextRow = InstantiateRowLibrary(positionNextRow, sprites[j]);
-                    row = nextRow;
-                }  
-            }
+            Vector3 positionNextRow = new Vector3(row.transform.position.x, row.transform.position.y - height - offset, 0);
+            GameObject nextRow = InstantiateRowLibrary(positionNextRow, sprite);
+            row = nextRow;
         }
+
     }
 
     public GameObject InstantiateRowLibrary(Vector3 position, Sprite sprite)
