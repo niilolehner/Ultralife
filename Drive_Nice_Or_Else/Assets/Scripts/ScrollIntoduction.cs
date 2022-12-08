@@ -70,6 +70,9 @@ public class ScrollIntoduction : MonoBehaviour
         }
         else
         {
+            GamePlayPanel.gameObject.SetActive(false);
+            GamePlayImage.gameObject.SetActive(false);
+
             TrafficSignTxt.text = "Click Go To Practice!";
             nextButton.SetActive(false);
             startButton.SetActive(true);
