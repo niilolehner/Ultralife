@@ -1095,25 +1095,25 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: AmbientCityTraffic
     clip: {fileID: 8300000, guid: 8606879dd68409e4fb1c7e98436edc78, type: 3}
-    volume: 0.321
+    volume: 0.12
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: AmbientParkDogs
     clip: {fileID: 8300000, guid: a76e0fa0b41adea4bbc74cc10faba81a, type: 3}
-    volume: 0.321
+    volume: 0.12
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: AmbientParkBirds
     clip: {fileID: 8300000, guid: 5e7a028fee1c51541a459e94fd7fda72, type: 3}
-    volume: 0.321
+    volume: 0.12
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: AmbientMix
     clip: {fileID: 8300000, guid: 21296c626e51a7240bf4f3254911828f, type: 3}
-    volume: 0.321
+    volume: 0.12
     pitch: 1
     loop: 1
     source: {fileID: 0}

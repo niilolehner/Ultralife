@@ -25,6 +25,7 @@ public class Game_Manager : MonoBehaviour
     {
         isGameOver = false;
         Sound_Manager.Instance.Play("CarDriving");
+        Sound_Manager.Instance.Play("AmbientMix");
     }
 
     // Update is called once per frame
