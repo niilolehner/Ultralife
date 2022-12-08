@@ -56,7 +56,6 @@ public class LevelManager : MonoBehaviour
             {
                 if (sprite.name != "BonusMalus" && sprite.name != "Question") {
                     gamePlayName.Add(sprite.name);
-
                 }
             }
         }

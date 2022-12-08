@@ -18,6 +18,7 @@ public class ScrollIntoduction : MonoBehaviour
     [SerializeField]
     private GameObject startButton;
 
+
     [Header("InfoPanel")]
     [SerializeField]
     private Image trafficSignImg;
@@ -28,6 +29,9 @@ public class ScrollIntoduction : MonoBehaviour
     [SerializeField]
     private Image GamePlayImage;
 
+    [SerializeField]
+    private TextMeshProUGUI LvlText;
+
     Scene sceneName;
     LevelDesign level;
     int SignsNumber = 0;
@@ -37,6 +41,7 @@ public class ScrollIntoduction : MonoBehaviour
     void Start()
     {
         level = LevelManager.instance.GetActualLevelDesign();
+        LvlText.text = "Level " + (LevelManager.instance.LevelId + 1);
         SignsNumber = level.SignSprites.Count-1;
         GameFeaturesNumber = level.GamePlaySprites.Count-1;
     }

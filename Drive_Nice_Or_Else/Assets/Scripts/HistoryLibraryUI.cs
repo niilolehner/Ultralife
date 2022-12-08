@@ -104,7 +104,7 @@ public class HistoryLibraryUI : MonoBehaviour
         float height = rect.sizeDelta.y;
 
         RectTransform ScrowPanelContentRec = ScrowPanelContent.GetComponent<RectTransform>();
-        ScrowPanelContentRec.sizeDelta = new Vector2(ScrowPanelContentRec.sizeDelta.x, (leveldesigns.Count * height * 4));
+        ScrowPanelContentRec.sizeDelta = new Vector2(ScrowPanelContentRec.sizeDelta.x, (leveldesigns.Count * height * 4) + 100);
 
         Vector3 positionRow = new Vector3(ScrowPanelContent.transform.position.x + width / 2 + offset, ScrowPanelContent.transform.position.y - height / 2 - offset, 0);
         GameObject row = InstantiateRowLibrary(positionRow, leveldesigns[0].SignSprites[0]);

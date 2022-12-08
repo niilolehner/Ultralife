@@ -55,7 +55,6 @@ public class SpawnObjects : MonoBehaviour
                 {
                     if (gamePlayAllowed.Count > 0) {
                         string gameplay = gamePlayAllowed.OrderBy(e => Random.value).First();
-                        print(gameplay);
                         if (levelManager.GamepPlayGameObject.ContainsKey(gameplay))
                         {
                             SpawnCrossed(levelManager.GamepPlayGameObject[gameplay]);
