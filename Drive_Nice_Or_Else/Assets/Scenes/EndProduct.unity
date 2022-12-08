@@ -1065,7 +1065,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: QuestionPopup
     clip: {fileID: 8300000, guid: e6925d7cb21aa9446b395ac8e3502333, type: 3}
-    volume: 0.284
+    volume: 0.1
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -5182,7 +5182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0581a0437c3eb9c4eab9ad8398ad4742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ScoreGoalLevel: 2
+  ScoreGoalLevel: 5
   Score: 0
   HightScore: 0
 --- !u!4 &1876157110

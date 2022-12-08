@@ -73,10 +73,11 @@ public class Game_Manager : MonoBehaviour
 
         BackgroundScroller.instance.SetBackgroundScrollingOff();
         SetCameraSpeedOff();
-        SetSpawningDeactive();
-
-        Sound_Manager.Instance.Stop("CarDriving");
-
+        if (LevelManager.instance.LevelId != 7)
+        {
+            SetSpawningDeactive();
+            Sound_Manager.Instance.Stop("CarDriving");
+        }
         // show the gameOverPanel
         UI_Manager.Instance.ShowGameOverPanel(ScoreManager.Instance.GameOverSetGetHightScore().ToString(), isLevelSuccess);
     }
@@ -113,7 +114,15 @@ public class Game_Manager : MonoBehaviour
 
     public void GoNextLevel() 
     {
+        
         LevelManager.instance.LevelId += 1;
-        SceneManager.LoadScene(0);
+        if (LevelManager.instance.LevelId == 7)
+        {
+            SetGameOver();
+        }
+        else
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 }

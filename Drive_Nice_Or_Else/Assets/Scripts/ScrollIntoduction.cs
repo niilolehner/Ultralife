@@ -43,7 +43,8 @@ public class ScrollIntoduction : MonoBehaviour
         level = LevelManager.instance.GetActualLevelDesign();
         LvlText.text = "Level " + (LevelManager.instance.LevelId + 1);
         SignsNumber = level.SignSprites.Count-1;
-        GameFeaturesNumber = level.GamePlaySprites.Count-1;
+        GameFeaturesNumber = level.GamePlaySprites.Count - 1;
+        Debug.Log(LevelManager.instance.LevelId);
     }
 
     // Update is called once per frame

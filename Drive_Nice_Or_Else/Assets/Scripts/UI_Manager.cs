@@ -210,9 +210,16 @@ public class UI_Manager : MonoBehaviour
 
             Sound_Manager.Instance.Play("LevelUp");
         }
-        else {
+        else 
+        {
             gameOverTitle.text = "GAME OVER!";
-           NextLevelButton.gameObject.SetActive(false);
+            if (LevelManager.instance.LevelId == 7)
+            {
+                gameOverTitle.text = "YOU WON THE GAME!";
+                RetryButton.gameObject.SetActive(false);
+                LevelManager.instance.LevelId--;
+            }
+            NextLevelButton.gameObject.SetActive(false);
 
             Sound_Manager.Instance.Play("GameOver");
         }
