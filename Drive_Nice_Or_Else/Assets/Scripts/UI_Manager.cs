@@ -249,6 +249,8 @@ public class UI_Manager : MonoBehaviour
            
             questionImagePanel.sprite = currentQuestion.SpriteItem;
             questionPanel.gameObject.SetActive(true);
+
+            Sound_Manager.Instance.Play("QuestionPopup");
         }
     }
 
