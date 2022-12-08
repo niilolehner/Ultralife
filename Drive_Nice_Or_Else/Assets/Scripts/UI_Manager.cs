@@ -207,10 +207,14 @@ public class UI_Manager : MonoBehaviour
         {
             gameOverTitle.text = "Level Succeed !";
             RetryButton.gameObject.SetActive(false);
+
+            Sound_Manager.Instance.Play("LevelUp");
         }
         else {
             gameOverTitle.text = "GAME OVER!";
            NextLevelButton.gameObject.SetActive(false);
+
+            Sound_Manager.Instance.Play("GameOver");
         }
     }
 

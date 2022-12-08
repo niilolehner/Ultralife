@@ -1082,14 +1082,14 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: LevelUp
-    clip: {fileID: 8300000, guid: 49eb27c327845fe4ab2b707f2d55413f, type: 3}
-    volume: 0.321
+    clip: {fileID: 8300000, guid: 2cd110373081bc24dba211cf6e500fbf, type: 3}
+    volume: 0.262
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: GameOver
     clip: {fileID: 8300000, guid: e134c0e1a98fb8840bbd1fc7cf3c0149, type: 3}
-    volume: 0.321
+    volume: 0.262
     pitch: 1
     loop: 0
     source: {fileID: 0}
