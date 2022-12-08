@@ -86,6 +86,6 @@ public class ScrollIntoduction : MonoBehaviour
 
     public void GameBegin()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(1);
     }
 }
