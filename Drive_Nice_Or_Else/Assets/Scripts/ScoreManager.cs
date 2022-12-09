@@ -40,6 +40,10 @@ public class ScoreManager : MonoBehaviour
 
     public int MinusScore()
     {
+        if (LevelManager.instance.IsLevelDeath()) {
+            return Score;
+        }   
+
         return Score > 0 ? Score -= 1 : Score;
     }
 
@@ -51,7 +55,15 @@ public class ScoreManager : MonoBehaviour
     public int GameOverSetGetHightScore()
     {
         int HightScore = PlayerPrefs.GetInt("HightScore");
-        int totalScore = Score + ( LevelManager.instance.LevelId * ScoreManager.Instance.ScoreGoalLevel);
+        int totalScore = 0;
+
+        if (!LevelManager.instance.IsLevelDeath())
+        {
+            totalScore = Score + (LevelManager.instance.LevelId * ScoreManager.Instance.ScoreGoalLevel);
+        }
+        else {
+            totalScore = (LevelManager.instance.LevelId * ScoreManager.Instance.ScoreGoalLevel) + Score;
+        }
 
         if (totalScore > HightScore)
         {

@@ -5,6 +5,7 @@ using TMPro;
 using System;
 using System.Linq;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UI_Manager : MonoBehaviour
 {
@@ -82,13 +83,14 @@ public class UI_Manager : MonoBehaviour
         Instance = this;
     }
 
-    // Start is called before the first frame update
+    // Start is called before the first frame update 
     void Start()
     {
         // initialize variables
         isDriving = true; // game starts with car driving
         isRight = true; // game starts with car on the right lane
-        level.text = "Level " + (LevelManager.instance.LevelId + 1);
+
+        level.text = LevelManager.instance.IsLevelDeath() ? "Death Level!" : "Level " + (LevelManager.instance.LevelId + 1);
         UpdateScoreDisplay();
     }
 
@@ -192,7 +194,7 @@ public class UI_Manager : MonoBehaviour
     // update the ScoreDisplay
     public void UpdateScoreDisplay()
     {
-        score.text = ($"{ScoreManager.Instance.Score + " / " + ScoreManager.Instance.ScoreGoalLevel}");
+        score.text = LevelManager.instance.IsLevelDeath() ? ScoreManager.Instance.Score.ToString() : ($"{ScoreManager.Instance.Score + " / " + ScoreManager.Instance.ScoreGoalLevel}");
         totalScore.text = ($"{ScoreManager.Instance.Score + (ScoreManager.Instance.ScoreGoalLevel * LevelManager.instance.LevelId) + " pts"}");
     }
 
@@ -205,20 +207,22 @@ public class UI_Manager : MonoBehaviour
 
         if (IsLevelSucess)
         {
-            gameOverTitle.text = "Level Succeed !";
-            RetryButton.gameObject.SetActive(false);
+            if (LevelManager.instance.LevelId == LevelManager.instance.GetLevels().Count-2)
+            {
+                gameOverTitle.text = "YOU WON THE GAME! \nYou can continue with the Death Level";
+                RetryButton.gameObject.SetActive(false);
+            }
+            else {
+                gameOverTitle.text = "Level Succeed !";
+                RetryButton.gameObject.SetActive(false);
 
-            Sound_Manager.Instance.Play("LevelUp");
+                Sound_Manager.Instance.Play("LevelUp");
+            }
         }
         else 
         {
             gameOverTitle.text = "GAME OVER!";
-            if (LevelManager.instance.LevelId == 7)
-            {
-                gameOverTitle.text = "YOU WON THE GAME!";
-                RetryButton.gameObject.SetActive(false);
-                LevelManager.instance.LevelId--;
-            }
+        
             NextLevelButton.gameObject.SetActive(false);
 
             Sound_Manager.Instance.Play("GameOver");

@@ -29,7 +29,14 @@ public class LifeManager : MonoBehaviour
 
     public void ResetLifeManager() 
     {
-        Life = MaxLife;
+        if (LevelManager.instance.IsLevelDeath()) 
+        {
+            MaxLife = 1;
+            Life = 1;
+        } else {
+            Life = MaxLife;
+        }
+        UpdateLife();
     }
 
     public int GetLife() {

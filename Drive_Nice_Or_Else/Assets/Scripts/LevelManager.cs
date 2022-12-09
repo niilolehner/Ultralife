@@ -29,7 +29,15 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+    }
 
+    public Dictionary<int, LevelDesign> GetLevels()
+    {
+        return Levels;
+    }
+
+    public bool IsLevelDeath() { 
+        return LevelId > Levels.Count-2;
     }
 
     public LevelDesign GetLevelDesginlById(int index) 
@@ -96,11 +104,13 @@ public class LevelManager : MonoBehaviour
 
         List<Sprite> spriteForLastLevel = fillLevels(allSpritesSigns, stopCount);
         Levels.Add(levelId, new LevelDesign(spriteForLastLevel, new List<Texture2D>()));
+        Levels.Add(levelId + 1 , new LevelDesign(new List<Sprite>(), new List<Texture2D>()));
 
         Levels[0].GamePlaySprites.Add(Resources.Load<Texture2D>("GamePlayInstruction/BonusMalus"));
         Levels[0].GamePlaySprites.Add(Resources.Load<Texture2D>("GamePlayInstruction/Question"));
         Levels[1].GamePlaySprites.Add(Resources.Load<Texture2D>("GamePlayInstruction/Pedestrian"));
         Levels[2].GamePlaySprites.Add(Resources.Load<Texture2D>("GamePlayInstruction/Traficlight"));
+        Levels[Levels.Count-1].GamePlaySprites.Add(Resources.Load<Texture2D>("GamePlayInstruction/Death"));
 
         GamepPlayGameObject.Add("Pedestrian", Resources.Load<GameObject>("Prefabs/Pedestrian"));
         GamepPlayGameObject.Add("Traficlight", Resources.Load<GameObject>("Prefabs/Traficlight"));

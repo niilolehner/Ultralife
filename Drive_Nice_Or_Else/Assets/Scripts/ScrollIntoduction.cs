@@ -40,11 +40,11 @@ public class ScrollIntoduction : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        LvlText.text = LevelManager.instance.IsLevelDeath() ? "DEATH Level !" : "Level " + (LevelManager.instance.LevelId + 1);
+
         level = LevelManager.instance.GetActualLevelDesign();
-        LvlText.text = "Level " + (LevelManager.instance.LevelId + 1);
-        SignsNumber = level.SignSprites.Count-1;
+        SignsNumber = level.SignSprites.Count - 1;
         GameFeaturesNumber = level.GamePlaySprites.Count - 1;
-        Debug.Log(LevelManager.instance.LevelId);
     }
 
     // Update is called once per frame
@@ -83,6 +83,12 @@ public class ScrollIntoduction : MonoBehaviour
             nextButton.SetActive(false);
             startButton.SetActive(true);
         }
+    }
+
+    public void DeathOnClick()
+    {
+        LevelManager.instance.LevelId = LevelManager.instance.GetLevels().Count - 1;
+        SceneManager.LoadScene(0);
     }
 
     public void GameBegin()

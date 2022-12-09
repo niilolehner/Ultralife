@@ -1053,13 +1053,13 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: CarStop
     clip: {fileID: 8300000, guid: 643065fa0c5f28045b5c56257b9dfafd, type: 3}
-    volume: 0.2
+    volume: 0
     pitch: 0.8
     loop: 0
     source: {fileID: 0}
   - name: CarSwitchLane
     clip: {fileID: 8300000, guid: 37438a8d232d3364ba949fc0620e7e4b, type: 3}
-    volume: 0.17
+    volume: 0
     pitch: 0.8
     loop: 0
     source: {fileID: 0}
@@ -2373,7 +2373,7 @@ RectTransform:
   m_Children:
   - {fileID: 1886820401}
   m_Father: {fileID: 2098988703}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3352,8 +3352,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -112.7, y: -9.1}
-  m_SizeDelta: {x: 150, y: 50}
+  m_AnchoredPosition: {x: -76.45453, y: -9.100006}
+  m_SizeDelta: {x: 226.5455, y: 50}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1344855096
 MonoBehaviour:
@@ -5182,7 +5182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0581a0437c3eb9c4eab9ad8398ad4742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ScoreGoalLevel: 5
+  ScoreGoalLevel: 2
   Score: 0
   HightScore: 0
 --- !u!4 &1876157110
@@ -5955,8 +5955,8 @@ RectTransform:
   - {fileID: 1071926167}
   - {fileID: 1174989272}
   - {fileID: 1632732532}
-  - {fileID: 1437672758}
   - {fileID: 1063014474}
+  - {fileID: 1437672758}
   m_Father: {fileID: 1907746414}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6174,7 +6174,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4659569486627444150, guid: 5fe06e804e48391429c19ca08e0ac5e0, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4659569486627444150, guid: 5fe06e804e48391429c19ca08e0ac5e0, type: 3}
       propertyPath: m_AnchorMax.x

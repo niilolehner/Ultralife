@@ -57,7 +57,7 @@ public class HistoryLibraryUI : MonoBehaviour
             float height = rect.sizeDelta.y;
 
             RectTransform ScrowPanelContentRec = ScrowPanelContent.GetComponent<RectTransform>();
-            ScrowPanelContentRec.sizeDelta = new Vector2(ScrowPanelContentRec.sizeDelta.x, (questions.Count * height));
+            ScrowPanelContentRec.sizeDelta = new Vector2(ScrowPanelContentRec.sizeDelta.x, (questions.Count * height) + 100);
 
             Vector3 positionRow = new Vector3(ScrowPanelContent.transform.position.x + width / 2 + offset, ScrowPanelContent.transform.position.y - height / 2 - offset, 0);
 
