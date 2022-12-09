@@ -1047,20 +1047,20 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: CarDriving
     clip: {fileID: 8300000, guid: b7d3179d3829ef24f88adafb0d9e7733, type: 3}
-    volume: 0.293
+    volume: 0.2
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: CarStop
     clip: {fileID: 8300000, guid: 643065fa0c5f28045b5c56257b9dfafd, type: 3}
-    volume: 0
-    pitch: 1
+    volume: 0.2
+    pitch: 0.8
     loop: 0
     source: {fileID: 0}
   - name: CarSwitchLane
     clip: {fileID: 8300000, guid: 37438a8d232d3364ba949fc0620e7e4b, type: 3}
-    volume: 0
-    pitch: 1
+    volume: 0.17
+    pitch: 0.8
     loop: 0
     source: {fileID: 0}
   - name: QuestionPopup
@@ -1083,13 +1083,13 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: LevelUp
     clip: {fileID: 8300000, guid: 2cd110373081bc24dba211cf6e500fbf, type: 3}
-    volume: 0.262
+    volume: 0.242
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: GameOver
     clip: {fileID: 8300000, guid: e134c0e1a98fb8840bbd1fc7cf3c0149, type: 3}
-    volume: 0.262
+    volume: 0.242
     pitch: 1
     loop: 0
     source: {fileID: 0}
