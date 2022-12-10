@@ -32,7 +32,6 @@ public class ScoreManager : MonoBehaviour
         Score = 0;
     }
 
-
     public int AddScore()
     {
         return Score += 1;    
@@ -42,8 +41,7 @@ public class ScoreManager : MonoBehaviour
     {
         if (LevelManager.instance.IsLevelDeath()) {
             return Score;
-        }   
-
+        }                
         return Score > 0 ? Score -= 1 : Score;
     }
 
