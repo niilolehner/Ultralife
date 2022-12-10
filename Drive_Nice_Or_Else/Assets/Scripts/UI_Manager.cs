@@ -211,6 +211,8 @@ public class UI_Manager : MonoBehaviour
             {
                 gameOverTitle.text = "YOU WON THE GAME! \nYou can continue with the Death Level";
                 RetryButton.gameObject.SetActive(false);
+
+                Sound_Manager.Instance.Play("LevelUp");
             }
             else {
                 gameOverTitle.text = "Level Succeed !";
