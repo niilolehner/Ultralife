@@ -35,6 +35,8 @@ public class SpawnObjects : MonoBehaviour
 
     LevelManager levelManager = LevelManager.instance;
 
+    int scenario = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,6 +48,48 @@ public class SpawnObjects : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //for  demo
+        /*
+        if (Time.time > spawnTime)
+        {
+
+            switch (scenario)
+            {
+                case 0:
+                    Spawn(questionItem);
+                    break;
+                case 1:
+                    Spawn(questionItem);
+                    break;
+                case 2:
+                    Spawn(items[0]);
+                    break;
+                case 3:
+                    Spawn(items[2]);
+                    break;
+                case 4:
+                    Spawn(items[1]);
+                    break;
+                case 5:
+                    Spawn(items[3]);
+                    break;
+                case 6:
+                    SpawnCrossed(levelManager.GamepPlayGameObject["Pedestrian"]);
+                    break;
+                case 7:
+                    SpawnCrossed(levelManager.GamepPlayGameObject["Pedestrian"]);
+                    break;
+                case 8:
+                    SpawnCrossed(levelManager.GamepPlayGameObject["Traficlight"]);
+                    break;
+                case 9:
+                    SpawnCrossed(levelManager.GamepPlayGameObject["Traficlight"]);
+                    break;
+            }
+            scenario++;
+
+            spawnTime = Time.time + timeBetweenSpawn;
+        }*/
         if (sceneName == "EndProduct")
         {
             // Creates delay to spawning random items.

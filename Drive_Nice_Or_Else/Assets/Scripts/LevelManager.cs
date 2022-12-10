@@ -109,7 +109,7 @@ public class LevelManager : MonoBehaviour
         Levels[0].GamePlaySprites.Add(Resources.Load<Texture2D>("GamePlayInstruction/BonusMalus"));
         Levels[0].GamePlaySprites.Add(Resources.Load<Texture2D>("GamePlayInstruction/Question"));
         Levels[1].GamePlaySprites.Add(Resources.Load<Texture2D>("GamePlayInstruction/Pedestrian"));
-        Levels[2].GamePlaySprites.Add(Resources.Load<Texture2D>("GamePlayInstruction/Traficlight"));
+        Levels[6].GamePlaySprites.Add(Resources.Load<Texture2D>("GamePlayInstruction/Traficlight"));
         Levels[Levels.Count-1].GamePlaySprites.Add(Resources.Load<Texture2D>("GamePlayInstruction/Death"));
 
         GamepPlayGameObject.Add("Pedestrian", Resources.Load<GameObject>("Prefabs/Pedestrian"));
