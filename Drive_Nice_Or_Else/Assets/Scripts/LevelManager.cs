@@ -18,6 +18,7 @@ public class LevelManager : MonoBehaviour
     {
         if (instance == null)
         {
+            Screen.SetResolution(1500, 1000, false);
             instance = this;
             Initializelevels();
             DontDestroyOnLoad(this.gameObject);

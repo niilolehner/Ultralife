@@ -7,11 +7,15 @@ public class Car : MonoBehaviour
     // Takes the class and make it public.
     public static Car instance;
 
+    public GameObject particleBoom;
+    public GameObject particleQuestion;
+
     public GameObject player;
     public Rigidbody2D rb;
     private Vector2 playerDirectionY;
     private Vector2 playerDirectionX;
     public float playerSpeed;
+
 
     // This function is called when the script instance is being loaded.
     void Awake()
@@ -45,11 +49,18 @@ public class Car : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Bad")
+        if (collision.tag == "Bad" || collision.tag == "Pedestrian")
         {
             LifeManager.Instance.MinusLife();
             UI_Manager.Instance.ShowFeedback(false);
             Game_Manager.Instance.CheckGameStatus();
+
+            if (collision.tag == "Pedestrian")
+            {
+                GameObject particuleInstantiate = Instantiate(particleBoom, collision.transform.position, Quaternion.identity);
+                Destroy(collision.gameObject);
+                Destroy(particuleInstantiate.gameObject, 2f);
+            }
         }
         else if (collision.tag == "Good")
         {
@@ -59,9 +70,11 @@ public class Car : MonoBehaviour
             }
             UI_Manager.Instance.ShowFeedback(true);
         }
-        else if (collision.tag == "Question") 
+        else if (collision.tag == "Question")
         {
-            Game_Manager.Instance.SetQuestionPhase();
+                GameObject particuleInstantiate = Instantiate(particleQuestion, collision.transform.position, Quaternion.identity);
+                Destroy(particuleInstantiate.gameObject, 2f);
+                Game_Manager.Instance.SetQuestionPhase();
         }
     }
 }

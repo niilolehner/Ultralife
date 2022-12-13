@@ -51,7 +51,9 @@ public class SpawnObjects : MonoBehaviour
         /*
         if (Time.time > spawnTime)
         {
+            Spawn(questionItem);
 
+            
             switch (scenario)
             {
                 case 0:
@@ -89,50 +91,36 @@ public class SpawnObjects : MonoBehaviour
 
             spawnTime = Time.time + timeBetweenSpawn;
         }*/
-        if (sceneName == "EndProduct")
+
+        // Creates delay to spawning random items.
+        if (Time.time > spawnTime)
         {
-            // Creates delay to spawning random items.
-            if (Time.time > spawnTime)
+            if (Random.Range(0, 5) == 0)
             {
-                if (Random.Range(0, 5) == 0)
+                if (gamePlayAllowed.Count > 0)
                 {
-                    if (gamePlayAllowed.Count > 0) {
-                        string gameplay = gamePlayAllowed.OrderBy(e => Random.value).First();
-                        if (levelManager.GamepPlayGameObject.ContainsKey(gameplay))
-                        {
-                            SpawnCrossed(levelManager.GamepPlayGameObject[gameplay]);
-                        }
+                    string gameplay = gamePlayAllowed.OrderBy(e => Random.value).First();
+                    if (levelManager.GamepPlayGameObject.ContainsKey(gameplay))
+                    {
+                        SpawnCrossed(levelManager.GamepPlayGameObject[gameplay]);
                     }
+                }
+            }
+            else
+            {
+                if (Random.Range(0, 2) == 0)
+                {
+                    Spawn(questionItem);
+
                 }
                 else
                 {
-                    if (Random.Range(0, 2) == 0)
-                    {
-                        Spawn(questionItem);
-
-                    }
-                    else {
-                        Spawn(items[Random.Range(0, items.Length)]);
-                    }   
+                    Spawn(items[Random.Range(0, items.Length)]);
                 }
-                spawnTime = Time.time + timeBetweenSpawn;
             }
+            spawnTime = Time.time + timeBetweenSpawn;
         }
-        else if (sceneName == "AdditionalProduct_1")
-        {
-            if (Time.time > spawnTimeItems)
-            {
-                int randomItemNumber = Random.Range(0, items.Length);
-                SpawnCollectableItems(items[randomItemNumber]);
-                spawnTimeItems = Time.time + timeBetweenSpawnItems;
-            }
 
-            if (Time.time > spawnTimeRoads)
-            {
-                //SpawnCrossingRoads(roads[0]);
-                spawnTimeRoads = Time.time + timeBetweenSpawnRoads + Random.Range(0, 20f);
-            }
-        }
     }
 
     // WORKING IN AdditionalProduct_1 Scene
@@ -169,7 +157,7 @@ public class SpawnObjects : MonoBehaviour
             Instantiate(road, transform.position + new Vector3(7.5f, 15f, 0f), transform.rotation);
         }
     }
-    
+
     // Get object and creates it to random position on the road. 
     void Spawn(GameObject item)
     {

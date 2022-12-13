@@ -10,6 +10,13 @@ TagManager:
   - Bad
   - Border
   - Question
+  - FxTemporaire
+  - LightYellow
+  - CarFriend
+  - LightGreen
+  - LightRed
+  - CarFriendBorder
+  - Pedestrian
   layers:
   - Default
   - TransparentFX

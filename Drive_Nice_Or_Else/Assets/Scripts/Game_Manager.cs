@@ -14,6 +14,7 @@ public class Game_Manager : MonoBehaviour
     public static Game_Manager Instance;
     static public string keepLevelName;
 
+    public GameObject youpiParticule;
 
     private void Awake()
     {
@@ -80,6 +81,19 @@ public class Game_Manager : MonoBehaviour
         }
         // show the gameOverPanel
         UI_Manager.Instance.ShowGameOverPanel(ScoreManager.Instance.GameOverSetGetHightScore().ToString(), isLevelSuccess);
+
+        if (isLevelSuccess) 
+        {
+            GameObject particuleInstantiate = Instantiate(youpiParticule, gameObject.transform.position, Quaternion.identity);
+            Vector3 position = new Vector3(gameObject.transform.position.x + 5, gameObject.transform.position.y + 5, gameObject.transform.position.z);
+            GameObject particuleInstantiate2 = Instantiate(youpiParticule, position, Quaternion.identity);
+            position = new Vector3(gameObject.transform.position.x -5, gameObject.transform.position.y -5, gameObject.transform.position.z);
+            GameObject particuleInstantiate3 = Instantiate(youpiParticule, position, Quaternion.identity);
+            
+            Destroy(particuleInstantiate.gameObject, 5f);
+            Destroy(particuleInstantiate2.gameObject, 5f);
+            Destroy(particuleInstantiate3.gameObject, 5f);
+        }
     }
 
     // quit the game, depending if in editor or live app, change method

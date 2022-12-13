@@ -70,6 +70,7 @@ public class UI_Manager : MonoBehaviour
     [SerializeField]
     private GameObject historyLibraryPanel;
 
+
     private bool isDriving; // is car driving?
     private bool isRight; // is car on right lane?
 
