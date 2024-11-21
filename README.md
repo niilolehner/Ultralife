@@ -1,1 +1,1 @@
-A driving school game for PC made in Unity
+Driving school game for PC made in Unity
